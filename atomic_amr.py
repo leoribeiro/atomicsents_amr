@@ -162,14 +162,8 @@ def get_subgraphs2(amr_graph):
                     #
                     #     if tuple_instance[1] in dict_variables.keys():
                     #         tuple_instance[1] = (tuple_instance[1], )
-
-
-
                     linearized_graph = penman.format((val_node, [dict_variables[val_node], *list_args]))
                     subgraphs.append(linearized_graph)
-
-                    import pdb
-                    pdb.set_trace()
 
     return subgraphs
 
