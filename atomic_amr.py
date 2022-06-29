@@ -83,6 +83,7 @@ def get_subgraphs2(amr_graph):
     g = penman.decode(amr_graph, model=amr.model)
     t = penman.configure(g)
 
+
     dict_variables = {}
     # import pdb
     # pdb.set_trace()
@@ -104,8 +105,6 @@ def get_subgraphs2(amr_graph):
         # if isinstance(target, tuple):
         # print(path, val_node, branch)
         # print(penman.format(target))
-        # import pdb
-        # pdb.set_trace()
         if dict_variables[val_node] not in paths_variables:
             paths_variables[dict_variables[val_node]] = {}
             paths_variables[dict_variables[val_node]]['val_description'] = val_node
@@ -128,6 +127,7 @@ def get_subgraphs2(amr_graph):
         #lists_args = list(powerset(paths_variables[variables]['triples']))
 
         lists_args = []
+        lists_args.append(args_triples)
         for arg in other_triples:
             lists_args.append(args_triples + [arg])
         # import pdb
@@ -146,17 +146,30 @@ def get_subgraphs2(amr_graph):
             count_args = 0
             check_arg2 = False
             for arg in list_args:
-                #print(arg)
                 if 'ARG' in arg[0]:
                     count_args += 1
                 if 'ARG2' in arg[0]:
                     check_arg2 = True
-            #print("--")
 
             if list_args:
                 if count_args > 1 or (check_arg2 and len(list_args) > 1):
+
+                    # for l in lists_args:
+                    #     if isinstance(l, tuple):
+                    #         tuple_instance = l
+                    #     else:
+                    #         tuple_instance = l[0]
+                    #
+                    #     if tuple_instance[1] in dict_variables.keys():
+                    #         tuple_instance[1] = (tuple_instance[1], )
+
+
+
                     linearized_graph = penman.format((val_node, [dict_variables[val_node], *list_args]))
                     subgraphs.append(linearized_graph)
+
+                    import pdb
+                    pdb.set_trace()
 
     return subgraphs
 
@@ -170,8 +183,6 @@ def get_subgraphs(amr_graph):
     t = penman.configure(g)
 
     dict_variables = {}
-    # import pdb
-    # pdb.set_trace()
     root_node = t.node[0]
     subgraphs = []
     for path, branch in t.walk():
@@ -188,13 +199,8 @@ def get_subgraphs(amr_graph):
         if isinstance(target, tuple):
             # print(path, val_node, branch)
             # print(penman.format(target))
-            # import pdb
-            # pdb.set_trace()
             linearized_graph = penman.format((val_node, [dict_variables[val_node], (role, target)]))
             subgraphs.append(linearized_graph)
-            # print("-")
-            # print(linearized_graph)
-            # print("---")
     return subgraphs
 
 def get_concepts(g_tag):
@@ -225,7 +231,6 @@ for example in data_json:
     print("Id:", example['instance_id'])
     print("Summary:", example['summary'])
     page_doc = spacy(example['summary'], disable=["tagger"])
-    # sents = [sent for sent in page_doc.sents if len(sent) >= self.min_sent_len]
     sentences = [sent.text for sent in page_doc.sents]
 
     graphs, graphs_tags = stog.parse_sents(sentences, add_metadata=True)
@@ -244,8 +249,6 @@ for example in data_json:
         subgraphs = get_subgraphs2(g)
         subgraphs_tag = []
         for sb in subgraphs:
-            # import pdb
-            # pdb.set_trace()
             sb = gstring_to_oneline(sb)
             sb = replace_graph_with_tags(dict_tag, sb)
             subgraphs_tag.append(sb)
