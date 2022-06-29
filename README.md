@@ -5,7 +5,6 @@
 The easiest way to proceed is to create a conda environment:
 ```
 conda create -n atomicamr python=3.8
-
 ```
 
 Further, install PyTorch and dependencies:
@@ -18,4 +17,9 @@ python -m spacy download en_core_web_sm
 git clone https://github.com//ablodge/amr-utils
 pip install ./amr-utils
 pip install ./amrlib
+```
+
+Generate sentences from subgraphs extracted from AMRs:
+```
+python atomic_amr.py
 ```
