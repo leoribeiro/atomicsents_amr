@@ -221,24 +221,26 @@ def chunks(lst, n):
 with open('data/stus.json') as f:
     data_json = json.load(f)
 
-for example in data_json:
-    print("Id:", example['instance_id'])
-    print("Summary:", example['summary'])
+outputDict = []
+for example in data_json[:2]:
+    # print("Id:", example['instance_id'])
+    # print("Summary:", example['summary'])
     page_doc = spacy(example['summary'], disable=["tagger"])
     sentences = [sent.text for sent in page_doc.sents]
 
     graphs, graphs_tags = stog.parse_sents(sentences, add_metadata=True)
 
-    print("  ")
-    print("  ")
+    # print("  ")
+    # print("  ")
+    list_of_sents = []
     for idx, (s, g, g_tag) in enumerate(zip(sentences, graphs, graphs_tags)):
-        print("Sentence #", idx)
-        print(s)
-        print(g)
-        print(g_tag)
-        print("  ")
-        print("AMR subgraphs:")
-        print("  ")
+        # print("Sentence #", idx)
+        # print(s)
+        # print(g)
+        # print(g_tag)
+        # print("  ")
+        # print("AMR subgraphs:")
+        # print("  ")
         dict_tag = get_concepts(g_tag)
         subgraphs = get_subgraphs2(g)
         subgraphs_tag = []
@@ -246,22 +248,31 @@ for example in data_json:
             sb = gstring_to_oneline(sb)
             sb = replace_graph_with_tags(dict_tag, sb)
             subgraphs_tag.append(sb)
-            #print("-")
+            # print("-")
 
         sents, _ = gtos.generate_taged(subgraphs_tag, disable_progress=True)
+        for sent in sents:
+            list_of_sents.append(sent)
+    outputDict.append(
+         {'ID': example['instance_id'],
+         'Summary': example['summary'],
+         'scus': list_of_sents, }
+    )
+        #for s1, g1 in zip(sents, subgraphs):
+            #print(g1)
+            # print(s1)
+            # print(" ")
+        # print(" ")
+        # print("--")
 
-        for s1, g1 in zip(sents, subgraphs):
-            print(g1)
-            print(s1)
-            print(" ")
-        print(" ")
-        print("--")
+    # print("----")
+    # print(" ")
+    # print(" ")
 
-    print("----")
-    print(" ")
-    print(" ")
-
-
+jsonString = json.dumps(outputDict)
+jsonFile = open("data.json", "w")
+jsonFile.write(jsonString)
+jsonFile.close()
 
 
 
