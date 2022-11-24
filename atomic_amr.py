@@ -6,6 +6,7 @@ import penman
 from penman.models import amr
 from itertools import chain, combinations
 import spacy
+
 spacy = spacy.load("en_core_web_sm")
 
 # Download and unzip models https://github.com/bjascob/amrlib-models
@@ -14,8 +15,9 @@ DIR_GTOS_MODEL = 'model_generate_t5wtense-v0_1_0'
 stog = amrlib.load_stog_model(DIR_STOG_MODEL)
 gtos = amrlib.load_gtos_model(DIR_GTOS_MODEL)
 
+
 def split_amr_meta(entry):
-    meta_lines  = []
+    meta_lines = []
     graph_lines = []
     for line in entry.splitlines():
         line = line.strip()
@@ -39,9 +41,9 @@ def gstring_to_oneline(gstring):
 
 def powerset(iterable):
     "powerset([1,2,3]) --> () (1,) (2,) (3,) (1,2) (1,3) (2,3) (1,2,3)"
-    #s = list(iterable)
+    # s = list(iterable)
     s = iterable
-    return chain.from_iterable(combinations(s, r) for r in range(len(s)+1))
+    return chain.from_iterable(combinations(s, r) for r in range(len(s) + 1))
 
 
 def read_csv(file):
@@ -69,9 +71,13 @@ def load_source_docs(file_path, to_dict=False):
         data = {example["id"]: example for example in data}
     return data
 
+
 import re
+
+
 def has_numbers(inputString):
     return bool(re.search(r'\d', inputString))
+
 
 def path_var(path, node):
     var, branches = node
@@ -79,10 +85,10 @@ def path_var(path, node):
         var, branches = branches[step][1]
     return var
 
+
 def get_subgraphs2(amr_graph):
     g = penman.decode(amr_graph, model=amr.model)
     t = penman.configure(g)
-
 
     dict_variables = {}
     # import pdb
@@ -101,7 +107,7 @@ def get_subgraphs2(amr_graph):
         # import pdb
         # pdb.set_trace()
         role, target = branch
-        #print(path, val_node, branch)
+        # print(path, val_node, branch)
         # if isinstance(target, tuple):
         # print(path, val_node, branch)
         # print(penman.format(target))
@@ -124,7 +130,7 @@ def get_subgraphs2(amr_graph):
             else:
                 other_triples.append(arg)
 
-        #lists_args = list(powerset(paths_variables[variables]['triples']))
+        # lists_args = list(powerset(paths_variables[variables]['triples']))
 
         lists_args = []
         lists_args.append(args_triples)
@@ -133,7 +139,7 @@ def get_subgraphs2(amr_graph):
         # import pdb
         # pdb.set_trace()
         for list_args in lists_args:
-            #list_args = list(list_args)
+            # list_args = list(list_args)
 
             filtered_list_args = []
             for arg in list_args:
@@ -153,7 +159,6 @@ def get_subgraphs2(amr_graph):
 
             if list_args:
                 if count_args > 1 or (check_arg2 and len(list_args) > 1):
-
                     # for l in lists_args:
                     #     if isinstance(l, tuple):
                     #         tuple_instance = l
@@ -166,6 +171,7 @@ def get_subgraphs2(amr_graph):
                     subgraphs.append(linearized_graph)
 
     return subgraphs
+
 
 def get_subgraphs(amr_graph):
     g = penman.decode(amr_graph, model=amr.model)
@@ -197,6 +203,7 @@ def get_subgraphs(amr_graph):
             subgraphs.append(linearized_graph)
     return subgraphs
 
+
 def get_concepts(g_tag):
     tokens = g_tag.split()
     dict_concepts = {}
@@ -208,72 +215,93 @@ def get_concepts(g_tag):
             dict_concepts[parts_t[0]] = t
     return dict_concepts
 
+
 def replace_graph_with_tags(dict_tag, graph):
     for key, value in dict_tag.items():
         graph = graph.replace(key, value)
     return graph
+
 
 def chunks(lst, n):
     """Yield successive n-sized chunks from lst."""
     for i in range(0, len(lst), n):
         yield lst[i:i + n]
 
-with open('data/stus.json') as f:
-    data_json = json.load(f)
 
-outputDict = []
-for example in data_json[:2]:
-    # print("Id:", example['instance_id'])
-    # print("Summary:", example['summary'])
-    page_doc = spacy(example['summary'], disable=["tagger"])
-    sentences = [sent.text for sent in page_doc.sents]
+def open_json_file(filename):
+    with open(filename) as f:
+        data_json = json.load(f)
+        return data_json
 
-    graphs, graphs_tags = stog.parse_sents(sentences, add_metadata=True)
 
-    # print("  ")
-    # print("  ")
-    list_of_sents = []
-    for idx, (s, g, g_tag) in enumerate(zip(sentences, graphs, graphs_tags)):
-        # print("Sentence #", idx)
-        # print(s)
-        # print(g)
-        # print(g_tag)
+def open_jsonl_file(filename):
+    with open(filename) as f:
+        data_json = [json.loads(jline) for jline in f.read().splitlines()]
+        return data_json
+
+
+def run_amr(filename, data_json):
+    outputDict = []
+    for example in data_json:  # [:2]:
+        # print("Id:", example['instance_id'])
+        # print("Summary:", example['summary'])
+        page_doc = spacy(example['summary'], disable=["tagger"])
+        sentences = [sent.text for sent in page_doc.sents]
+
+        graphs, graphs_tags = stog.parse_sents(sentences, add_metadata=True)
+
         # print("  ")
-        # print("AMR subgraphs:")
         # print("  ")
-        dict_tag = get_concepts(g_tag)
-        subgraphs = get_subgraphs2(g)
-        subgraphs_tag = []
-        for sb in subgraphs:
-            sb = gstring_to_oneline(sb)
-            sb = replace_graph_with_tags(dict_tag, sb)
-            subgraphs_tag.append(sb)
-            # print("-")
+        list_of_sents = []
+        for idx, (s, g, g_tag) in enumerate(zip(sentences, graphs, graphs_tags)):
+            # print("Sentence #", idx)
+            # print(s)
+            # print(g)
+            # print(g_tag)
+            # print("  ")
+            # print("AMR subgraphs:")
+            # print("  ")
+            dict_tag = get_concepts(g_tag)
+            subgraphs = get_subgraphs2(g)
+            subgraphs_tag = []
+            for sb in subgraphs:
+                sb = gstring_to_oneline(sb)
+                sb = replace_graph_with_tags(dict_tag, sb)
+                subgraphs_tag.append(sb)
+                # print("-")
 
-        sents, _ = gtos.generate_taged(subgraphs_tag, disable_progress=True)
-        for sent in sents:
-            list_of_sents.append(sent)
-    outputDict.append(
-         {'ID': example['instance_id'],
-         'Summary': example['summary'],
-         'scus': list_of_sents, }
-    )
-        #for s1, g1 in zip(sents, subgraphs):
-            #print(g1)
-            # print(s1)
-            # print(" ")
+            sents, _ = gtos.generate_taged(subgraphs_tag, disable_progress=True)
+            for sent in sents:
+                list_of_sents.append(sent)
+        outputDict.append(
+            {'ID': example['instance_id'],
+             'Summary': example['summary'],
+             'smus': list_of_sents, }
+        )
+        # for s1, g1 in zip(sents, subgraphs):
+        # print(g1)
+        # print(s1)
+        # print(" ")
         # print(" ")
         # print("--")
 
-    # print("----")
-    # print(" ")
-    # print(" ")
+        # print("----")
+        # print(" ")
+        # print(" ")
 
-jsonString = json.dumps(outputDict)
-jsonFile = open("data.json", "w")
-jsonFile.write(jsonString)
-jsonFile.close()
+    jsonString = json.dumps(outputDict)
+    jsonFile = open(filename, "w")
+    jsonFile.write(jsonString)
+    jsonFile.close()
 
+#data_json = open_jsonl_file('data/tac2008.stus.coref_true.jsonl')
+#run_amr('tac2008-smus.json', data_json)
 
+#data_json = open_jsonl_file('data/tac2009.stus.coref_true.jsonl')
+#run_amr('tac2009-smus.json', data_json)
 
+data_json = open_json_file('pyrxsum-scus.json')
+run_amr('pyrxsum-smus.json', data_json)
 
+data_json = open_json_file('realsumm-scus.json')
+run_amr('realsumm-smus.json', data_json)
