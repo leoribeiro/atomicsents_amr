@@ -295,13 +295,13 @@ def run_amr(filename, data_json):
     jsonFile.close()
 
 #data_json = open_jsonl_file('data/tac2008.stus.coref_true.jsonl')
-#run_amr('tac2008-smus.json', data_json)
+#run_amr('results/tac2008-smus.json', data_json)
 
 #data_json = open_jsonl_file('data/tac2009.stus.coref_true.jsonl')
-#run_amr('tac2009-smus.json', data_json)
+#run_amr('results/tac2009-smus.json', data_json)
 
-data_json = open_json_file('pyrxsum-scus.json')
-run_amr('pyrxsum-smus.json', data_json)
+data_json = open_json_file('data/pyrxsum-scus.json')
+run_amr('results/pyrxsum-smus.json', data_json)
 
-data_json = open_json_file('realsumm-scus.json')
-run_amr('realsumm-smus.json', data_json)
+data_json = open_json_file('data/realsumm-scus.json')
+run_amr('results/realsumm-smus.json', data_json)
