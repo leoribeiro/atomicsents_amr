@@ -23,15 +23,16 @@ def create_json(summary, name_of_sxus, sxus, name_of_output):
     jsonFile.write(jsonString)
     jsonFile.close()
 
+# Create Json out of source PyrXSum source data
+summary = open_file('data/PyrXSum(Source)/references.txt')
+stus = open_file('data/PyrXSum(Source)/STUs.txt')
+scus = open_file('data/PyrXSum(Source)/SCUs.txt')
+create_json(summary, 'stus', stus, 'data/pyrxsum/pyrxsum-stus.json')
+create_json(summary, 'scus', scus, 'data/pyrxsum/pyrxsum-scus.json')
 
-summary = open_file('data/PyrXSum/references.txt')
-stus = open_file('data/PyrXSum/STUs.txt')
-scus = open_file('data/PyrXSum/SCUs.txt')
-create_json(summary, 'stus', stus, 'data/pyrxsum-stus.json')
-create_json(summary, 'scus', scus, 'data/pyrxsum-scus.json')
-
-summary = open_file('data/REALSumm/references.txt')
-stus = open_file('data/REALSumm/STUs.txt')
-scus = open_file('data/REALSumm/SCUs.txt')
-create_json(summary, 'stus', stus, 'data/realsumm-stus.json')
-create_json(summary, 'scus', scus, 'data/realsumm-scus.json')
+# Create Json out of source REALSumm data
+summary = open_file('data/REALSumm(Source)/references.txt')
+stus = open_file('data/REALSumm(Source)/STUs.txt')
+scus = open_file('data/REALSumm(Source)/SCUs.txt')
+create_json(summary, 'stus', stus, 'data/realsumm/realsumm-stus.json')
+create_json(summary, 'scus', scus, 'data/realsumm/realsumm-scus.json')
