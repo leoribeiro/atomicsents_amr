@@ -273,9 +273,12 @@ def run_amr(filename, data_json):
             sents, _ = gtos.generate_taged(subgraphs_tag, disable_progress=True)
             for sent in sents:
                 list_of_sents.append(sent)
+        # Think about something that makes more sense ( NONE etc.)
+        if len(list_of_sents) == 0:
+            list_of_sents.append("empty!")
         outputDict.append(
-            {'ID': example['instance_id'],
-             'Summary': example['summary'],
+            {'instance_id': example['instance_id'],
+             'summary': example['summary'],
              'smus': list_of_sents, }
         )
         # for s1, g1 in zip(sents, subgraphs):
@@ -295,17 +298,17 @@ def run_amr(filename, data_json):
     jsonFile.close()
 
 # Create smus out of Tac2008 data
-data_json = open_jsonl_file('data/tac08/tac2008.stus.coref_true.jsonl')
+data_json = open_json_file('data/tac08/tac2008-scus.json')
 run_amr('data/tac08/tac2008-smus.json', data_json)
 
 # Create smus out of Tac2009 data
-data_json = open_jsonl_file('data/tac09/tac2009.stus.coref_true.jsonl')
+data_json = open_json_file('data/tac09/tac2009-scus.json')
 run_amr('data/tac09/tac2009-smus.json', data_json)
 
 # Create smus out of PyrXSum data
-#data_json = open_json_file('data/pyrxsum/pyrxsum-scus.json')
-#run_amr('data/pyrxsum/pyrxsum-smus.json', data_json)
+data_json = open_json_file('data/pyrxsum/pyrxsum-scus.json')
+run_amr('data/pyrxsum/pyrxsum-smus.json', data_json)
 
 # Create smus out of REALSumm data
-#data_json = open_json_file('data/realsumm/realsumm-scus.json')
-#run_amr('data/realsumm/realsumm-smus.json', data_json)
+data_json = open_json_file('data/realsumm/realsumm-scus.json')
+run_amr('data/realsumm/realsumm-smus.json', data_json)
