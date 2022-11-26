@@ -30,12 +30,12 @@ def easiness_sent_evaluation(scus, sxus):
             r1_f1_score.append(rouge.evaluate_example(scu, sxu)['rouge']['rouge_1_f_score'])
         list_of_acc.append(max(r1_f1_score))
     # calculate average of acc list
-    acc_sxu = (1 / len(list_of_acc)) + sum(list_of_acc)
+    acc_sxu = (1 / len(list_of_acc)) * sum(list_of_acc)
     return acc_sxu
 
 
 def evaluate_summaries(scus, stus, smus, output_file):
-    #rouge = RougeMetric()
+    # rouge = RougeMetric()
 
     summaries = ["This is one summary", "This is another summary"]
     references = ["This is one reference", "This is another"]
@@ -49,8 +49,8 @@ def evaluate_summaries(scus, stus, smus, output_file):
         # print(scu['instance_id'])
         # Evaluate
         # Simple evaluation by a collection of sentences
-        #stus_evaluation = simple_evaluation(scu['scus'], stus[i]['stus'])
-        #smus_evaluation = simple_evaluation(scu['scus'], smus[i]['smus'])
+        # stus_evaluation = simple_evaluation(scu['scus'], stus[i]['stus'])
+        # smus_evaluation = simple_evaluation(scu['scus'], smus[i]['smus'])
 
         # Easiness_sent
         stus_evaluation = easiness_sent_evaluation(scu['scus'], stus[i]['stus'])
@@ -74,8 +74,8 @@ def evaluate_summaries(scus, stus, smus, output_file):
     jsonFile.close()
 
 
+# PyrXSum dataset
 def evaluate_pyrxsum():
-    # PyrXSum dataset
     smus = open_json_file('data/pyrxsum/pyrxsum-smus.json')
     stus = open_json_file('data/pyrxsum/pyrxsum-stus.json')
     scus = open_json_file('data/pyrxsum/pyrxsum-scus.json')
@@ -84,8 +84,8 @@ def evaluate_pyrxsum():
     print("PyrXSum done!")
 
 
+# REALSumm dataset !!! stu realsumm-70 has "."
 def evaluate_realsumm():
-    # REALSumm dataset !!! stu realsumm-70 has "."
     smus = open_json_file('data/realsumm/realsumm-smus.json')
     stus = open_json_file('data/realsumm/realsumm-stus.json')
     scus = open_json_file('data/realsumm/realsumm-scus.json')
@@ -94,8 +94,8 @@ def evaluate_realsumm():
     print("REALSumm done!")
 
 
+# Tac2008 dataset
 def evaluate_tac08():
-    # Tac2008 dataset
     smus = open_json_file('data/tac08/tac2008-smus.json')
     stus = open_json_file('data/tac08/tac2008-stus.json')
     scus = open_json_file('data/tac08/tac2008-scus.json')
@@ -104,8 +104,8 @@ def evaluate_tac08():
     print("Tac2008 done!")
 
 
+# Tac2009 dataset !!! stu d0913-A has "?" devided by 0 error
 def evaluate_tac09():
-    # PyrXSum dataset !!! stu d0913-A has "?" devided by 0 error
     smus = open_json_file('data/tac09/tac2009-smus.json')
     stus = open_json_file('data/tac09/tac2009-stus.json')
     scus = open_json_file('data/tac09/tac2009-scus.json')
