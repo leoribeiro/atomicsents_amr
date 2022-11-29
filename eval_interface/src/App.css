@@ -1,0 +1,29 @@
+.App {
+  padding: 1rem;
+}
+
+.instance {
+  margin: 4rem 0rem;
+  display: flex;
+  flex-direction: column;
+  font-size: 1rem;
+}
+
+.instance table {
+  text-align: left;
+  margin-top: 0.5rem;
+  border: none;
+}
+
+table, th, td, tr {
+  border: none;
+  border-collapse: collapse;
+}
+
+.instance table td, .instance table th {
+  padding: 0.5rem 0.5rem;
+}
+
+.instance table tr:nth-child(even) {
+  background-color: rgb(228, 228, 228);
+}
