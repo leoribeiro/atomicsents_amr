@@ -10,11 +10,16 @@ def open_file(filename):
 def create_json(summary, name_of_sxus, sxus, name_of_output, name_of_instance):
     outputDict = []
     for i, l in enumerate(summary):
+        list_of_sxus = sxus[i].replace('\n', '').split("\t")
+        remove_list = [sxu for sxu in list_of_sxus if not sxu.__contains__(" ")]
+        if remove_list:
+            for r in remove_list:
+                list_of_sxus.remove(r)
         outputDict.append(
             {
                 'instance_id': name_of_instance + "-" + str(i),
                 'summary': l.replace('\n', ''),#.replace('\"', '').replace('\u2019', '`').replace('\u00a3', 'Pound'),
-                name_of_sxus: sxus[i].replace('\n', '').split("\t"),#.replace('\"', '').replace('\u2019', '`').replace('\u00a3', 'Pound').split("\t"),
+                name_of_sxus: list_of_sxus, #.replace('\"', '').replace('\u2019', '`').replace('\u00a3', 'Pound').split("\t"),
             }
         )
 

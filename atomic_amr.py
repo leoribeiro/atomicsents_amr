@@ -272,10 +272,11 @@ def run_amr(filename, data_json):
 
             sents, _ = gtos.generate_taged(subgraphs_tag, disable_progress=True)
             for sent in sents:
-                list_of_sents.append(sent)
+                if sent.__contains__(" ") and not sent.__contains__("* * "):
+                    list_of_sents.append(sent)
         # Think about something that makes more sense ( NONE etc.)
         if len(list_of_sents) == 0:
-            list_of_sents.append("empty!")
+            list_of_sents.append(None)
         outputDict.append(
             {'instance_id': example['instance_id'],
              'summary': example['summary'],
@@ -320,3 +321,8 @@ def run_pyyrxsum():
 def run_realsumm():
     data_json = open_json_file('data/realsumm/realsumm-scus.json')
     run_amr('data/realsumm/realsumm-smus.json', data_json)
+
+
+#run_realsumm()
+run_tac08()
+run_tac09()
