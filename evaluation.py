@@ -76,41 +76,41 @@ def evaluate_summaries(scus, stus, smus, output_file):
 
 # PyrXSum dataset
 def evaluate_pyrxsum():
-    smus = open_json_file('data/pyrxsum/pyrxsum-smus.json')
-    stus = open_json_file('data/pyrxsum/pyrxsum-stus.json')
-    scus = open_json_file('data/pyrxsum/pyrxsum-scus.json')
+    smus = open_json_file('eval_interface/src/data/pyrxsum/pyrxsum-smus.json')
+    stus = open_json_file('eval_interface/src/data/pyrxsum/pyrxsum-stus.json')
+    scus = open_json_file('eval_interface/src/data/pyrxsum/pyrxsum-scus.json')
 
-    evaluate_summaries(scus, stus, smus, 'data/pyrxsum/pyrxsum-acc.json')
+    evaluate_summaries(scus, stus, smus, 'eval_interface/src/data/pyrxsum/pyrxsum-acc.json')
     print("PyrXSum done!")
 
 
 # REALSumm dataset !!! stu realsumm-70 has "." and smu realsumm-69 has "iii","****" and realsumm-97 has "most."
 def evaluate_realsumm():
-    smus = open_json_file('data/realsumm/realsumm-smus.json')
-    stus = open_json_file('data/realsumm/realsumm-stus.json')
-    scus = open_json_file('data/realsumm/realsumm-scus.json')
+    smus = open_json_file('eval_interface/src/data/realsumm/realsumm-smus.json')
+    stus = open_json_file('eval_interface/src/data/realsumm/realsumm-stus.json')
+    scus = open_json_file('eval_interface/src/data/realsumm/realsumm-scus.json')
 
-    evaluate_summaries(scus, stus, smus, 'data/realsumm/realsumm-acc.json')
+    evaluate_summaries(scus, stus, smus, 'eval_interface/src/data/realsumm/realsumm-acc.json')
     print("REALSumm done!")
 
 
 # Tac2008 dataset
 def evaluate_tac08():
-    smus = open_json_file('data/tac08/tac2008-smus.json')
-    stus = open_json_file('data/tac08/tac2008-stus.json')
-    scus = open_json_file('data/tac08/tac2008-scus.json')
+    smus = open_json_file('eval_interface/src/data/tac08/tac2008-smus.json')
+    stus = open_json_file('eval_interface/src/data/tac08/tac2008-stus.json')
+    scus = open_json_file('eval_interface/src/data/tac08/tac2008-scus.json')
 
-    evaluate_summaries(scus, stus, smus, 'data/tac08/tac08-acc.json')
+    evaluate_summaries(scus, stus, smus, 'eval_interface/src/data/tac08/tac08-acc.json')
     print("Tac2008 done!")
 
 
 # Tac2009 dataset !!! stu d0913-A has "?" devided by 0 error
 def evaluate_tac09():
-    smus = open_json_file('data/tac09/tac2009-smus.json')
-    stus = open_json_file('data/tac09/tac2009-stus.json')
-    scus = open_json_file('data/tac09/tac2009-scus.json')
+    smus = open_json_file('eval_interface/src/data/tac09/tac2009-smus.json')
+    stus = open_json_file('eval_interface/src/data/tac09/tac2009-stus.json')
+    scus = open_json_file('eval_interface/src/data/tac09/tac2009-scus.json')
 
-    evaluate_summaries(scus, stus, smus, 'data/tac09/tac09-acc.json')
+    evaluate_summaries(scus, stus, smus, 'eval_interface/src/data/tac09/tac09-acc.json')
     print("Tac2009 done!")
 
 

@@ -5,10 +5,10 @@ import { TableElements } from './TableElements';
 // import smus from 'data/pyrxsum/pyrxsum-smus.json';
 // import scus from 'data/pyrxsum/pyrxsum-scus.json';
 // import acc from 'data/pyrxsum/pyrxsum-acc.json';
-import stus from 'data/realsumm/realsumm-stus.json';
-import smus from 'data/realsumm/realsumm-smus.json';
-import scus from 'data/realsumm/realsumm-scus.json';
-import acc from 'data/realsumm/realsumm-acc.json';
+import stus from './data/realsumm/realsumm-stus.json';
+import smus from './data/realsumm/realsumm-smus.json';
+import scus from './data/realsumm/realsumm-scus.json';
+import acc from './data/realsumm/realsumm-acc.json';
 
 function App() {
   return (
