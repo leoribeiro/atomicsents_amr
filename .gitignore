@@ -3,3 +3,8 @@ venv
 node_modules
 amrlib/build
 .idea
+model_parse_*
+model_generate_*
+__pycache__
+amrlib
+amr-utils
