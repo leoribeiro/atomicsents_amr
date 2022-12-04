@@ -17,7 +17,8 @@ def create_stus_json_file(output_file_name, json_data):
 
         list_of_summary = list_of_summary + str(l['summary'])
         for stu in l['stus']:
-            list_of_stus.append(stu)
+            if stu.__contains__(" "):
+                list_of_stus.append(stu)
             # print(stu)
         if (i + 1) % 4 == 0 and i != 0:
             # print(i)

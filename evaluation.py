@@ -46,7 +46,7 @@ def evaluate_summaries(scus, stus, smus, output_file):
     # outputDict.append(rouge_dict)
 
     for i, scu in enumerate(scus):
-        # print(scu['instance_id'])
+        #print(scu['instance_id'])
         # Evaluate
         # Simple evaluation by a collection of sentences
         # stus_evaluation = simple_evaluation(scu['scus'], stus[i]['stus'])
@@ -84,7 +84,7 @@ def evaluate_pyrxsum():
     print("PyrXSum done!")
 
 
-# REALSumm dataset !!! stu realsumm-70 has "."
+# REALSumm dataset !!! stu realsumm-70 has "." and smu realsumm-69 has "iii","****" and realsumm-97 has "most."
 def evaluate_realsumm():
     smus = open_json_file('data/realsumm/realsumm-smus.json')
     stus = open_json_file('data/realsumm/realsumm-stus.json')
@@ -114,4 +114,7 @@ def evaluate_tac09():
     print("Tac2009 done!")
 
 
-evaluate_pyrxsum()
+#evaluate_pyrxsum()
+#evaluate_realsumm()
+evaluate_tac08()
+evaluate_tac09()
