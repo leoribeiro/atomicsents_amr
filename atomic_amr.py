@@ -253,6 +253,7 @@ def run_amr(filename, data_json):
         # print("  ")
         # print("  ")
         list_of_sents = []
+        list_of_trees = []
         for idx, (s, g, g_tag) in enumerate(zip(sentences, graphs, graphs_tags)):
             # print("Sentence #", idx)
             # print(s)
@@ -265,6 +266,7 @@ def run_amr(filename, data_json):
             subgraphs = get_subgraphs2(g)
             subgraphs_tag = []
             for sb in subgraphs:
+                list_of_trees.append(sb)
                 sb = gstring_to_oneline(sb)
                 sb = replace_graph_with_tags(dict_tag, sb)
                 subgraphs_tag.append(sb)
@@ -280,6 +282,7 @@ def run_amr(filename, data_json):
         outputDict.append(
             {'instance_id': example['instance_id'],
              'summary': example['summary'],
+             'tree': list_of_trees,
              'smus': list_of_sents, }
         )
         # for s1, g1 in zip(sents, subgraphs):
@@ -324,5 +327,6 @@ def run_realsumm():
 
 
 #run_realsumm()
+#run_pyyrxsum()
 run_tac08()
 run_tac09()
