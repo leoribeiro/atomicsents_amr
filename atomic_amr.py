@@ -304,26 +304,26 @@ def run_amr(filename, data_json):
 
 # Create smus out of Tac2008 data
 def run_tac08():
-    data_json = open_json_file('data/tac08/tac2008-scus.json')
-    run_amr('data/tac08/tac2008-smus.json', data_json)
+    data_json = open_json_file('eval_interface/src/data/tac08/tac2008-scus.json')
+    run_amr('eval_interface/src/data/tac08/tac2008-smus.json', data_json)
 
 
 # Create smus out of Tac2009 data
 def run_tac09():
-    data_json = open_json_file('data/tac09/tac2009-scus.json')
-    run_amr('data/tac09/tac2009-smus.json', data_json)
+    data_json = open_json_file('eval_interface/src/data/tac09/tac2009-scus.json')
+    run_amr('eval_interface/src/data/tac09/tac2009-smus.json', data_json)
 
 
 # Create smus out of PyrXSum data
 def run_pyyrxsum():
-    data_json = open_json_file('data/pyrxsum/pyrxsum-scus.json')
-    run_amr('data/pyrxsum/pyrxsum-smus.json', data_json)
+    data_json = open_json_file('eval_interface/src/data/pyrxsum/pyrxsum-scus.json')
+    run_amr('eval_interface/src/data/pyrxsum/pyrxsum-smus.json', data_json)
 
 
 # Create smus out of REALSumm data
 def run_realsumm():
-    data_json = open_json_file('data/realsumm/realsumm-scus.json')
-    run_amr('data/realsumm/realsumm-smus.json', data_json)
+    data_json = open_json_file('eval_interface/src/data/realsumm/realsumm-scus.json')
+    run_amr('eval_interface/src/data/realsumm/realsumm-smus.json', data_json)
 
 
 #run_realsumm()

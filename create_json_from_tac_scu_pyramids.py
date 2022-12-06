@@ -33,9 +33,9 @@ def create_scu_json_file(output_file_name, json_data):
 
 
 # Tac2008 dataset
-data_json = open_jsonl_file('data/tac08/tac2008.pyramids.jsonl')
-create_scu_json_file('data/tac08/tac2008-scus.json', data_json)
+data_json = open_jsonl_file('eval_interface/src/data/tac08/tac2008.pyramids.jsonl')
+create_scu_json_file('eval_interface/src/data/tac08/tac2008-scus.json', data_json)
 
 # Tac2009 dataset
-data_json = open_jsonl_file('data/tac09/tac2009.pyramids.jsonl')
-create_scu_json_file('data/tac09/tac2009-scus.json', data_json)
+data_json = open_jsonl_file('eval_interface/src/data/tac09/tac2009.pyramids.jsonl')
+create_scu_json_file('eval_interface/src/data/tac09/tac2009-scus.json', data_json)
