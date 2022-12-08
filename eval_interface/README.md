@@ -1,11 +1,28 @@
 #Starting the User Interface
 
 ## Prerequisitions
-If you do not already have npm, you first need to instlal Node.js and npm. https://nodejs.org/en/download/
+Node.js: https://nodejs.org/en/download/
 
-##Install dependencies
+## Install dependencies
     cd eval_interface
+You can choose between yarn and npm:
+
+Run
+
+    yarn 
+
+or
+
     npm install
 
 ## Start interface
+Run
+
+    yarn start
+or 
+
     npm start
+
+
+
+
