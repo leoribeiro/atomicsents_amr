@@ -1,13 +1,15 @@
 interface Props {
     scus: string[]
     smus: string[]
+
+    trees: string[]
     stus: string[]
     accSMUs: number
     accSTUs: number
 }
 
 export function TableElements(props: Props) {
-    const { scus, smus, stus, accSMUs, accSTUs } = props
+    const { scus, smus, trees, stus, accSMUs, accSTUs } = props
 
     const max = Math.max(scus.length, smus.length, stus.length)
     const output = []
@@ -18,6 +20,7 @@ export function TableElements(props: Props) {
                 <td>{scus.length > i ? scus[i] : ''}</td>
                 <td>{stus.length > i ? stus[i] : ''}</td>
                 <td>{smus.length > i ? smus[i] : ''}</td>
+                <td>{trees.length > i ? trees[i] : ''}</td>
             </tr>
         )
     }

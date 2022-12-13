@@ -7,6 +7,8 @@ from penman.models import amr
 from itertools import chain, combinations
 import spacy
 
+from amrlib.graph_processing.amr_fix import maybe_fix_unlinked_in_subgraph
+
 spacy = spacy.load("en_core_web_sm")
 
 # Download and unzip models https://github.com/bjascob/amrlib-models
@@ -266,6 +268,7 @@ def run_amr(filename, data_json):
             subgraphs = get_subgraphs2(g)
             subgraphs_tag = []
             for sb in subgraphs:
+                sb = maybe_fix_unlinked_in_subgraph(g, sb)
                 list_of_trees.append(sb)
                 sb = gstring_to_oneline(sb)
                 sb = replace_graph_with_tags(dict_tag, sb)
@@ -327,6 +330,6 @@ def run_realsumm():
 
 
 #run_realsumm()
-#run_pyyrxsum()
+run_pyyrxsum()
 run_tac08()
 run_tac09()

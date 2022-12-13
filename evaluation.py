@@ -49,8 +49,8 @@ def evaluate_summaries(scus, stus, smus, output_file):
         #print(scu['instance_id'])
         # Evaluate
         # Simple evaluation by a collection of sentences
-        # stus_evaluation = simple_evaluation(scu['scus'], stus[i]['stus'])
-        # smus_evaluation = simple_evaluation(scu['scus'], smus[i]['smus'])
+        stus_evaluation_total = simple_evaluation(scu['scus'], stus[i]['stus'])
+        smus_evaluation_total = simple_evaluation(scu['scus'], smus[i]['smus'])
 
         # Easiness_sent
         stus_evaluation = easiness_sent_evaluation(scu['scus'], stus[i]['stus'])
@@ -61,6 +61,8 @@ def evaluate_summaries(scus, stus, smus, output_file):
             'instance_id': scu['instance_id'],
             'acc-stus': stus_evaluation,
             'acc-smus': smus_evaluation,
+            'total_stus': stus_evaluation_total,
+            'total_smus': smus_evaluation_total,
         })
 
     # print(rouge.supports_multi_ref) # True
@@ -114,7 +116,7 @@ def evaluate_tac09():
     print("Tac2009 done!")
 
 
-#evaluate_pyrxsum()
-#evaluate_realsumm()
+evaluate_pyrxsum()
+evaluate_realsumm()
 evaluate_tac08()
 evaluate_tac09()

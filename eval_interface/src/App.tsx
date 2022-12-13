@@ -24,7 +24,7 @@ function App() {
             <div className='instance' key={ex.instance_id}>
               <h4>{ex.instance_id}</h4>
               {ex.summary}
-                <TableElements scus={scus[ind].scus} smus={smus[ind].smus} stus={stus[ind].stus} accSMUs={acc[ind]['acc-smus']} accSTUs={acc[ind]['acc-stus']} />
+                <TableElements scus={scus[ind].scus} smus={smus[ind].smus} trees={smus[ind].tree} stus={stus[ind].stus} accSMUs={acc[ind]['acc-smus']} accSTUs={acc[ind]['acc-stus']} />
             </div>
           ))
         }

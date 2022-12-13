@@ -109,7 +109,7 @@ def maybe_fix_unlinked_in_subgraph(amrgraphstring, amrgraphstring_sub):
             else:
                 raise IndexError("Can't replace unlinked var via supergraph")
         amrgraphstring_sub = "\n".join([line.rstrip() for line in amrgraphstring_sub.split("\n")])
-        print("subgraph fixed, all variables linked")
+        #print("subgraph fixed, all variables linked")
     except:
         print("something went wrong fixing the unlinked variables in subgraph, returning unlinked sugraph")
         amrgraphstring_sub = amrgraphstring_sub_old
