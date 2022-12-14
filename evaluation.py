@@ -16,11 +16,16 @@ def open_jsonl_file(filename):
 
 def simple_evaluation(scus, sxus):
     rouge = RougeMetric()
+    #print(sxus[0])
+    if sxus[0] is None:
+        return 0
     return rouge.evaluate_batch(scus, sxus)['rouge']['rouge_1_f_score']
 
 
 def easiness_sent_evaluation(scus, sxus):
     rouge = RougeMetric()
+    if sxus[0] is None:
+        return 0
     # Easiness_sent
     # Get acc of every scu
     list_of_acc = []
@@ -46,7 +51,7 @@ def evaluate_summaries(scus, stus, smus, output_file):
     # outputDict.append(rouge_dict)
 
     for i, scu in enumerate(scus):
-        #print(scu['instance_id'])
+        print(scu['instance_id'])
         # Evaluate
         # Simple evaluation by a collection of sentences
         stus_evaluation_total = simple_evaluation(scu['scus'], stus[i]['stus'])
@@ -116,7 +121,7 @@ def evaluate_tac09():
     print("Tac2009 done!")
 
 
-evaluate_pyrxsum()
-evaluate_realsumm()
+#evaluate_pyrxsum()
+# evaluate_realsumm()
 evaluate_tac08()
 evaluate_tac09()
