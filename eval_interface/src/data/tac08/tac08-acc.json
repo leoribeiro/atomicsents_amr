@@ -1,0 +1,338 @@
+[
+  {
+    "instance_id": "d0801-A",
+    "acc-stus": 0.6874692592592591,
+    "acc-smus": 0.565042962962963,
+    "total_stus": 0.10553,
+    "total_smus": 0.14193
+  },
+  {
+    "instance_id": "d0802-A",
+    "acc-stus": 0.5413721875,
+    "acc-smus": 0.3960428125000002,
+    "total_stus": 0.11836,
+    "total_smus": 0.10883
+  },
+  {
+    "instance_id": "d0803-A",
+    "acc-stus": 0.6319994444444444,
+    "acc-smus": 0.5343344444444444,
+    "total_stus": 0.10398,
+    "total_smus": 0.14117
+  },
+  {
+    "instance_id": "d0804-A",
+    "acc-stus": 0.5834084210526316,
+    "acc-smus": 0.4880502631578948,
+    "total_stus": 0.04708,
+    "total_smus": 0.08335
+  },
+  {
+    "instance_id": "d0805-A",
+    "acc-stus": 0.7068353333333335,
+    "acc-smus": 0.6092720000000001,
+    "total_stus": 0.16099,
+    "total_smus": 0.06754
+  },
+  {
+    "instance_id": "d0806-A",
+    "acc-stus": 0.5506099999999999,
+    "acc-smus": 0.5090827586206896,
+    "total_stus": 0.08404,
+    "total_smus": 0.07907
+  },
+  {
+    "instance_id": "d0807-A",
+    "acc-stus": 0.6235980000000002,
+    "acc-smus": 0.5718312000000001,
+    "total_stus": 0.2184,
+    "total_smus": 0.10507
+  },
+  {
+    "instance_id": "d0808-A",
+    "acc-stus": 0.7434265384615384,
+    "acc-smus": 0.5975996153846156,
+    "total_stus": 0.17724,
+    "total_smus": 0.1159
+  },
+  {
+    "instance_id": "d0809-A",
+    "acc-stus": 0.5922846428571429,
+    "acc-smus": 0.6163467857142857,
+    "total_stus": 0.10706,
+    "total_smus": 0.17047
+  },
+  {
+    "instance_id": "d0810-A",
+    "acc-stus": 0.611561304347826,
+    "acc-smus": 0.6378539130434783,
+    "total_stus": 0.11572,
+    "total_smus": 0.12425
+  },
+  {
+    "instance_id": "d0811-A",
+    "acc-stus": 0.621760625,
+    "acc-smus": 0.6023081250000001,
+    "total_stus": 0.20234,
+    "total_smus": 0.20116
+  },
+  {
+    "instance_id": "d0812-A",
+    "acc-stus": 0.6902143478260869,
+    "acc-smus": 0.7019186956521738,
+    "total_stus": 0.09503,
+    "total_smus": 0.11586
+  },
+  {
+    "instance_id": "d0813-A",
+    "acc-stus": 0.5878547826086956,
+    "acc-smus": 0.5320602173913044,
+    "total_stus": 0.15308,
+    "total_smus": 0.11312
+  },
+  {
+    "instance_id": "d0814-A",
+    "acc-stus": 0.4634929824561404,
+    "acc-smus": 0.3872105263157895,
+    "total_stus": 0.09108,
+    "total_smus": 0.11481
+  },
+  {
+    "instance_id": "d0815-A",
+    "acc-stus": 0.5376337209302325,
+    "acc-smus": 0.5027658139534883,
+    "total_stus": 0.10448,
+    "total_smus": 0.12072
+  },
+  {
+    "instance_id": "d0816-A",
+    "acc-stus": 0.4458151515151516,
+    "acc-smus": 0.4514309090909091,
+    "total_stus": 0.11729,
+    "total_smus": 0.1145
+  },
+  {
+    "instance_id": "d0817-A",
+    "acc-stus": 0.5664199999999999,
+    "acc-smus": 0.5340011111111113,
+    "total_stus": 0.16523,
+    "total_smus": 0.12867
+  },
+  {
+    "instance_id": "d0818-A",
+    "acc-stus": 0.499144827586207,
+    "acc-smus": 0.46898793103448283,
+    "total_stus": 0.09145,
+    "total_smus": 0.07781
+  },
+  {
+    "instance_id": "d0819-A",
+    "acc-stus": 0.5960444117647059,
+    "acc-smus": 0.4946376470588235,
+    "total_stus": 0.07613,
+    "total_smus": 0.05152
+  },
+  {
+    "instance_id": "d0820-A",
+    "acc-stus": 0.5099627906976745,
+    "acc-smus": 0.42093953488372104,
+    "total_stus": 0.07672,
+    "total_smus": 0.05449
+  },
+  {
+    "instance_id": "d0821-A",
+    "acc-stus": 0.6140287500000001,
+    "acc-smus": 0.57288375,
+    "total_stus": 0.08637,
+    "total_smus": 0.0788
+  },
+  {
+    "instance_id": "d0822-A",
+    "acc-stus": 0.5654810869565218,
+    "acc-smus": 0.5653095652173912,
+    "total_stus": 0.11853,
+    "total_smus": 0.13675
+  },
+  {
+    "instance_id": "d0823-A",
+    "acc-stus": 0.5312522222222222,
+    "acc-smus": 0.6734777777777775,
+    "total_stus": 0.11437,
+    "total_smus": 0.0792
+  },
+  {
+    "instance_id": "d0824-A",
+    "acc-stus": 0.7696557894736842,
+    "acc-smus": 0.7036873684210525,
+    "total_stus": 0.18612,
+    "total_smus": 0.29445
+  },
+  {
+    "instance_id": "d0825-A",
+    "acc-stus": 0.7408622222222222,
+    "acc-smus": 0.6565425925925926,
+    "total_stus": 0.08789,
+    "total_smus": 0.08916
+  },
+  {
+    "instance_id": "d0826-A",
+    "acc-stus": 0.45860249999999997,
+    "acc-smus": 0.5103825000000001,
+    "total_stus": 0.10902,
+    "total_smus": 0.06169
+  },
+  {
+    "instance_id": "d0827-A",
+    "acc-stus": 0.660376153846154,
+    "acc-smus": 0.5584476923076924,
+    "total_stus": 0.0857,
+    "total_smus": 0.05834
+  },
+  {
+    "instance_id": "d0828-A",
+    "acc-stus": 0.5188452777777778,
+    "acc-smus": 0.6238519444444446,
+    "total_stus": 0.06466,
+    "total_smus": 0.19798
+  },
+  {
+    "instance_id": "d0829-A",
+    "acc-stus": 0.6545540909090909,
+    "acc-smus": 0.5077722727272728,
+    "total_stus": 0.07155,
+    "total_smus": 0.09999
+  },
+  {
+    "instance_id": "d0830-A",
+    "acc-stus": 0.5915991666666667,
+    "acc-smus": 0.5579022222222223,
+    "total_stus": 0.11368,
+    "total_smus": 0.18961
+  },
+  {
+    "instance_id": "d0831-A",
+    "acc-stus": 0.6761797435897436,
+    "acc-smus": 0.6320279487179487,
+    "total_stus": 0.11253,
+    "total_smus": 0.11746
+  },
+  {
+    "instance_id": "d0832-A",
+    "acc-stus": 0.5744129411764705,
+    "acc-smus": 0.5743535294117647,
+    "total_stus": 0.14893,
+    "total_smus": 0.17059
+  },
+  {
+    "instance_id": "d0833-A",
+    "acc-stus": 0.5880368000000001,
+    "acc-smus": 0.6066471999999999,
+    "total_stus": 0.19466,
+    "total_smus": 0.14289
+  },
+  {
+    "instance_id": "d0834-A",
+    "acc-stus": 0.5338573076923078,
+    "acc-smus": 0.4500469230769231,
+    "total_stus": 0.10084,
+    "total_smus": 0.12421
+  },
+  {
+    "instance_id": "d0835-A",
+    "acc-stus": 0.7000243243243243,
+    "acc-smus": 0.670051891891892,
+    "total_stus": 0.12203,
+    "total_smus": 0.11874
+  },
+  {
+    "instance_id": "d0836-A",
+    "acc-stus": 0.7358600000000002,
+    "acc-smus": 0.6290165,
+    "total_stus": 0.13058,
+    "total_smus": 0.0984
+  },
+  {
+    "instance_id": "d0837-A",
+    "acc-stus": 0.5657621428571429,
+    "acc-smus": 0.6022507142857143,
+    "total_stus": 0.12988,
+    "total_smus": 0.11024
+  },
+  {
+    "instance_id": "d0838-A",
+    "acc-stus": 0.6253831818181818,
+    "acc-smus": 0.48453954545454536,
+    "total_stus": 0.08406,
+    "total_smus": 0.10329
+  },
+  {
+    "instance_id": "d0839-A",
+    "acc-stus": 0.5864375,
+    "acc-smus": 0.5391041666666667,
+    "total_stus": 0.14337,
+    "total_smus": 0.15313
+  },
+  {
+    "instance_id": "d0840-A",
+    "acc-stus": 0.6466003846153847,
+    "acc-smus": 0.5286865384615386,
+    "total_stus": 0.09178,
+    "total_smus": 0.08892
+  },
+  {
+    "instance_id": "d0841-A",
+    "acc-stus": 0.6813457575757578,
+    "acc-smus": 0.653319696969697,
+    "total_stus": 0.2106,
+    "total_smus": 0.19909
+  },
+  {
+    "instance_id": "d0842-A",
+    "acc-stus": 0.5923661538461538,
+    "acc-smus": 0.55953,
+    "total_stus": 0.13102,
+    "total_smus": 0.16105
+  },
+  {
+    "instance_id": "d0843-A",
+    "acc-stus": 0.7080255555555556,
+    "acc-smus": 0.553565,
+    "total_stus": 0.15839,
+    "total_smus": 0.08355
+  },
+  {
+    "instance_id": "d0844-A",
+    "acc-stus": 0.6594766666666667,
+    "acc-smus": 0.6762080952380952,
+    "total_stus": 0.17074,
+    "total_smus": 0.09746
+  },
+  {
+    "instance_id": "d0845-A",
+    "acc-stus": 0.5266518181818184,
+    "acc-smus": 0.4981872727272728,
+    "total_stus": 0.14883,
+    "total_smus": 0.16218
+  },
+  {
+    "instance_id": "d0846-A",
+    "acc-stus": 0.7508261904761905,
+    "acc-smus": 0.6507709523809524,
+    "total_stus": 0.13777,
+    "total_smus": 0.05707
+  },
+  {
+    "instance_id": "d0847-A",
+    "acc-stus": 0.6428075,
+    "acc-smus": 0.5738590625000001,
+    "total_stus": 0.11917,
+    "total_smus": 0.16286
+  },
+  {
+    "instance_id": "d0848-A",
+    "acc-stus": 0.5896766666666667,
+    "acc-smus": 0.5940103703703703,
+    "total_stus": 0.1277,
+    "total_smus": 0.11826
+  }
+]
