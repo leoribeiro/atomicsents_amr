@@ -1,1 +1,502 @@
-[{"instance_id": "pyrxsum-0", "acc-stus": 0.5743119999999999, "acc-smus": 0.377432, "total_stus": 0.41428, "total_smus": 0.17647}, {"instance_id": "pyrxsum-1", "acc-stus": 0.4623633333333333, "acc-smus": 0.4610266666666667, "total_stus": 0.39521, "total_smus": 0.36016}, {"instance_id": "pyrxsum-2", "acc-stus": 0.6483542857142857, "acc-smus": 0.5841071428571427, "total_stus": 0.33809, "total_smus": 0.35873}, {"instance_id": "pyrxsum-3", "acc-stus": 0.585642, "acc-smus": 0.30516800000000005, "total_stus": 0.60277, "total_smus": 0.23076}, {"instance_id": "pyrxsum-4", "acc-stus": 0.6102933333333334, "acc-smus": 0.5751633333333332, "total_stus": 0.625, "total_smus": 0.58824}, {"instance_id": "pyrxsum-5", "acc-stus": 0.615818, "acc-smus": 0.6894, "total_stus": 0.40572, "total_smus": 0.82273}, {"instance_id": "pyrxsum-6", "acc-stus": 0.471638, "acc-smus": 0.39563, "total_stus": 0.47368, "total_smus": 0.37724}, {"instance_id": "pyrxsum-7", "acc-stus": 0.4856366666666666, "acc-smus": 0.6046766666666666, "total_stus": 0.33738, "total_smus": 0.53875}, {"instance_id": "pyrxsum-8", "acc-stus": 0.7411125000000001, "acc-smus": 0.7681374999999999, "total_stus": 0.60508, "total_smus": 0.40084}, {"instance_id": "pyrxsum-9", "acc-stus": 0.58019, "acc-smus": 0.51364, "total_stus": 0.54381, "total_smus": 0.29072}, {"instance_id": "pyrxsum-10", "acc-stus": 0.5360128571428571, "acc-smus": 0.41858285714285715, "total_stus": 0.50869, "total_smus": 0.32931}, {"instance_id": "pyrxsum-11", "acc-stus": 0.26221428571428573, "acc-smus": 0.4165, "total_stus": 0.14814, "total_smus": 0.1923}, {"instance_id": "pyrxsum-12", "acc-stus": 0.5393933333333333, "acc-smus": 0.52091, "total_stus": 0.53904, "total_smus": 0.55059}, {"instance_id": "pyrxsum-13", "acc-stus": 0.6738566666666667, "acc-smus": 0.6455133333333333, "total_stus": 0.71666, "total_smus": 0.49254}, {"instance_id": "pyrxsum-14", "acc-stus": 0.7795699999999999, "acc-smus": 0.8917733333333333, "total_stus": 0.66855, "total_smus": 0.4144}, {"instance_id": "pyrxsum-15", "acc-stus": 0.79167, "acc-smus": 0.82684, "total_stus": 0.41667, "total_smus": 0.42867}, {"instance_id": "pyrxsum-16", "acc-stus": 0.5944866666666666, "acc-smus": 0.40016333333333326, "total_stus": 0.1775, "total_smus": 0.16279}, {"instance_id": "pyrxsum-17", "acc-stus": 0.6015175, "acc-smus": 0.559505, "total_stus": 0.61905, "total_smus": 0.55556}, {"instance_id": "pyrxsum-18", "acc-stus": 0.60317, "acc-smus": 0.6965833333333333, "total_stus": 0.57142, "total_smus": 0.33333}, {"instance_id": "pyrxsum-19", "acc-stus": 0.5858866666666667, "acc-smus": 0.67868, "total_stus": 0.56213, "total_smus": 0.33408}, {"instance_id": "pyrxsum-20", "acc-stus": 0.5851500000000001, "acc-smus": 0.6607149999999999, "total_stus": 0.45843, "total_smus": 0.6202}, {"instance_id": "pyrxsum-21", "acc-stus": 0.519908, "acc-smus": 0.52987, "total_stus": 0.44313, "total_smus": 0.40236}, {"instance_id": "pyrxsum-22", "acc-stus": 0.5557500000000001, "acc-smus": 0.4374975, "total_stus": 0.44499, "total_smus": 0.38971}, {"instance_id": "pyrxsum-23", "acc-stus": 0.2734971428571429, "acc-smus": 0.3434657142857142, "total_stus": 0.0, "total_smus": 0.32814}, {"instance_id": "pyrxsum-24", "acc-stus": 0.3968233333333333, "acc-smus": 0, "total_stus": 0.11111, "total_smus": 0}, {"instance_id": "pyrxsum-25", "acc-stus": 0.7212675, "acc-smus": 0.5248425, "total_stus": 0.25382, "total_smus": 0.35433}, {"instance_id": "pyrxsum-26", "acc-stus": 0.5709, "acc-smus": 0.6569325, "total_stus": 0.44862, "total_smus": 0.51584}, {"instance_id": "pyrxsum-27", "acc-stus": 0.4806014285714285, "acc-smus": 0, "total_stus": 0.38859, "total_smus": 0}, {"instance_id": "pyrxsum-28", "acc-stus": 0.44327500000000003, "acc-smus": 0.44420875, "total_stus": 0.2871, "total_smus": 0.12041}, {"instance_id": "pyrxsum-29", "acc-stus": 0.5521816666666666, "acc-smus": 0.48524333333333325, "total_stus": 0.45416, "total_smus": 0.40608}, {"instance_id": "pyrxsum-30", "acc-stus": 0.57168, "acc-smus": 0.6197933333333333, "total_stus": 0.37447, "total_smus": 0.47003}, {"instance_id": "pyrxsum-31", "acc-stus": 0.68301, "acc-smus": 0.54094, "total_stus": 0.77778, "total_smus": 0.52632}, {"instance_id": "pyrxsum-32", "acc-stus": 0.44464999999999993, "acc-smus": 0.4433685714285714, "total_stus": 0.37166, "total_smus": 0.23239}, {"instance_id": "pyrxsum-33", "acc-stus": 0.6668385714285714, "acc-smus": 0.43100428571428573, "total_stus": 0.38033, "total_smus": 0.26697}, {"instance_id": "pyrxsum-34", "acc-stus": 0.35313249999999996, "acc-smus": 0.46997500000000003, "total_stus": 0.42105, "total_smus": 0.13333}, {"instance_id": "pyrxsum-35", "acc-stus": 0.42023499999999997, "acc-smus": 0.4213725, "total_stus": 0.54545, "total_smus": 0.38384}, {"instance_id": "pyrxsum-36", "acc-stus": 0.61642, "acc-smus": 0.6304333333333333, "total_stus": 0.70588, "total_smus": 0.37661}, {"instance_id": "pyrxsum-37", "acc-stus": 0.5416650000000001, "acc-smus": 0.5923075, "total_stus": 0.45858, "total_smus": 0.56812}, {"instance_id": "pyrxsum-38", "acc-stus": 0.33190571428571425, "acc-smus": 0.3893614285714285, "total_stus": 0.13377, "total_smus": 0.19849}, {"instance_id": "pyrxsum-39", "acc-stus": 0.51368, "acc-smus": 0.46421, "total_stus": 0.24286, "total_smus": 0.38861}, {"instance_id": "pyrxsum-40", "acc-stus": 0.5919433333333333, "acc-smus": 0.61291, "total_stus": 0.57151, "total_smus": 0.19426}, {"instance_id": "pyrxsum-41", "acc-stus": 0.54394, "acc-smus": 0.5327914285714286, "total_stus": 0.19647, "total_smus": 0.31775}, {"instance_id": "pyrxsum-42", "acc-stus": 0.5719775, "acc-smus": 0.7644925, "total_stus": 0.39085, "total_smus": 0.54449}, {"instance_id": "pyrxsum-43", "acc-stus": 0.5014875, "acc-smus": 0.5014875, "total_stus": 0.42857, "total_smus": 0.42857}, {"instance_id": "pyrxsum-44", "acc-stus": 0.4925971428571428, "acc-smus": 0.39907857142857145, "total_stus": 0.19328, "total_smus": 0.34226}, {"instance_id": "pyrxsum-45", "acc-stus": 0.6518675, "acc-smus": 0.534805, "total_stus": 0.42967, "total_smus": 0.35387}, {"instance_id": "pyrxsum-46", "acc-stus": 0.5271419999999999, "acc-smus": 0.612112, "total_stus": 0.35314, "total_smus": 0.43295}, {"instance_id": "pyrxsum-47", "acc-stus": 0.263852, "acc-smus": 0.46262600000000004, "total_stus": 0.4, "total_smus": 0.39551}, {"instance_id": "pyrxsum-48", "acc-stus": 0.41489999999999994, "acc-smus": 0.4531914285714286, "total_stus": 0.27586, "total_smus": 0.21074}, {"instance_id": "pyrxsum-49", "acc-stus": 0.62087, "acc-smus": 0.57738, "total_stus": 0.72, "total_smus": 0.29166}, {"instance_id": "pyrxsum-50", "acc-stus": 0.4818720000000001, "acc-smus": 0.42432600000000004, "total_stus": 0.42603, "total_smus": 0.36853}, {"instance_id": "pyrxsum-51", "acc-stus": 0.46099500000000004, "acc-smus": 0.5289124999999999, "total_stus": 0.73684, "total_smus": 0.53451}, {"instance_id": "pyrxsum-52", "acc-stus": 0.4065000000000001, "acc-smus": 0.302544, "total_stus": 0.19117, "total_smus": 0.10527}, {"instance_id": "pyrxsum-53", "acc-stus": 0.6459825, "acc-smus": 0.6562525, "total_stus": 0.6, "total_smus": 0.35669}, {"instance_id": "pyrxsum-54", "acc-stus": 0.6099620000000001, "acc-smus": 0.358282, "total_stus": 0.46615, "total_smus": 0.25519}, {"instance_id": "pyrxsum-55", "acc-stus": 0.5867328571428571, "acc-smus": 0.5685457142857142, "total_stus": 0.48064, "total_smus": 0.51759}, {"instance_id": "pyrxsum-56", "acc-stus": 0.5234449999999999, "acc-smus": 0.32903333333333334, "total_stus": 0.4001, "total_smus": 0.16714}, {"instance_id": "pyrxsum-57", "acc-stus": 0.5191114285714286, "acc-smus": 0.5089799999999999, "total_stus": 0.24502, "total_smus": 0.22116}, {"instance_id": "pyrxsum-58", "acc-stus": 0.47104, "acc-smus": 0.41256000000000004, "total_stus": 0.40489, "total_smus": 0.24207}, {"instance_id": "pyrxsum-59", "acc-stus": 0.6611116666666665, "acc-smus": 0.4850266666666667, "total_stus": 0.40202, "total_smus": 0.18427}, {"instance_id": "pyrxsum-60", "acc-stus": 0.7209475000000001, "acc-smus": 0.583425, "total_stus": 0.54884, "total_smus": 0.32142}, {"instance_id": "pyrxsum-61", "acc-stus": 0.524626, "acc-smus": 0.584738, "total_stus": 0.58422, "total_smus": 0.15449}, {"instance_id": "pyrxsum-62", "acc-stus": 0.4988085714285714, "acc-smus": 0.33381857142857146, "total_stus": 0.24925, "total_smus": 0.26759}, {"instance_id": "pyrxsum-63", "acc-stus": 0.36576000000000003, "acc-smus": 0.42456800000000006, "total_stus": 0.45454, "total_smus": 0.43563}, {"instance_id": "pyrxsum-64", "acc-stus": 0.5611599999999999, "acc-smus": 0.64844, "total_stus": 0.52174, "total_smus": 0.55482}, {"instance_id": "pyrxsum-65", "acc-stus": 0.6925675, "acc-smus": 0.7777799999999999, "total_stus": 0.63861, "total_smus": 0.53712}, {"instance_id": "pyrxsum-66", "acc-stus": 0.7, "acc-smus": 0.7472224999999999, "total_stus": 0.27877, "total_smus": 0.33838}, {"instance_id": "pyrxsum-67", "acc-stus": 0.6494324999999999, "acc-smus": 0.60755, "total_stus": 0.67525, "total_smus": 0.27803}, {"instance_id": "pyrxsum-68", "acc-stus": 0.541125, "acc-smus": 0.45475999999999994, "total_stus": 0.54762, "total_smus": 0.35714}, {"instance_id": "pyrxsum-69", "acc-stus": 0.5316066666666666, "acc-smus": 0.6479933333333332, "total_stus": 0.58824, "total_smus": 0.58333}, {"instance_id": "pyrxsum-70", "acc-stus": 0.49654200000000004, "acc-smus": 0.511718, "total_stus": 0.27668, "total_smus": 0.39865}, {"instance_id": "pyrxsum-71", "acc-stus": 0.49378200000000005, "acc-smus": 0.40204200000000007, "total_stus": 0.33142, "total_smus": 0.30346}, {"instance_id": "pyrxsum-72", "acc-stus": 0.3333966666666666, "acc-smus": 0.3726733333333333, "total_stus": 0.18519, "total_smus": 0.18927}, {"instance_id": "pyrxsum-73", "acc-stus": 0.6232266666666666, "acc-smus": 0.6075133333333333, "total_stus": 0.55388, "total_smus": 0.53892}, {"instance_id": "pyrxsum-74", "acc-stus": 0.661452, "acc-smus": 0.631668, "total_stus": 0.30756, "total_smus": 0.52767}, {"instance_id": "pyrxsum-75", "acc-stus": 0.5077125, "acc-smus": 0.5208925, "total_stus": 0.44499, "total_smus": 0.35623}, {"instance_id": "pyrxsum-76", "acc-stus": 0.5395500000000001, "acc-smus": 0.5380480000000001, "total_stus": 0.35663, "total_smus": 0.32115}, {"instance_id": "pyrxsum-77", "acc-stus": 0.5474100000000001, "acc-smus": 0.46431000000000006, "total_stus": 0.20875, "total_smus": 0.24863}, {"instance_id": "pyrxsum-78", "acc-stus": 0.7718180000000001, "acc-smus": 0.5999980000000001, "total_stus": 0.73685, "total_smus": 0.56883}, {"instance_id": "pyrxsum-79", "acc-stus": 0.664215, "acc-smus": 0.577775, "total_stus": 0.40813, "total_smus": 0.51493}, {"instance_id": "pyrxsum-80", "acc-stus": 0.5024533333333333, "acc-smus": 0.7283933333333332, "total_stus": 0.42857, "total_smus": 0.63729}, {"instance_id": "pyrxsum-81", "acc-stus": 0.415398, "acc-smus": 0.523068, "total_stus": 0.54545, "total_smus": 0.28841}, {"instance_id": "pyrxsum-82", "acc-stus": 0.9276916666666666, "acc-smus": 0.4055466666666666, "total_stus": 0.92253, "total_smus": 0.33643}, {"instance_id": "pyrxsum-83", "acc-stus": 0.5135566666666667, "acc-smus": 0.42713333333333336, "total_stus": 0.15182, "total_smus": 0.33206}, {"instance_id": "pyrxsum-84", "acc-stus": 0.3807933333333333, "acc-smus": 0.4711516666666667, "total_stus": 0.34783, "total_smus": 0.29158}, {"instance_id": "pyrxsum-85", "acc-stus": 0.48970333333333327, "acc-smus": 0.4104199999999999, "total_stus": 0.39232, "total_smus": 0.28897}, {"instance_id": "pyrxsum-86", "acc-stus": 0.4515118181818181, "acc-smus": 0.4702363636363637, "total_stus": 0.296, "total_smus": 0.40263}, {"instance_id": "pyrxsum-87", "acc-stus": 0.489545, "acc-smus": 0.5, "total_stus": 0.22728, "total_smus": 0.37782}, {"instance_id": "pyrxsum-88", "acc-stus": 0.48268999999999995, "acc-smus": 0.46093166666666674, "total_stus": 0.51191, "total_smus": 0.22189}, {"instance_id": "pyrxsum-89", "acc-stus": 0.5803125, "acc-smus": 0.59524, "total_stus": 0.40057, "total_smus": 0.46698}, {"instance_id": "pyrxsum-90", "acc-stus": 0.5708575, "acc-smus": 0.5426150000000001, "total_stus": 0.18182, "total_smus": 0.32146}, {"instance_id": "pyrxsum-91", "acc-stus": 0.5019560000000001, "acc-smus": 0.496948, "total_stus": 0.58064, "total_smus": 0.37825}, {"instance_id": "pyrxsum-92", "acc-stus": 0.5056116666666666, "acc-smus": 0.4351383333333333, "total_stus": 0.36086, "total_smus": 0.46561}, {"instance_id": "pyrxsum-93", "acc-stus": 0.3303583333333333, "acc-smus": 0.5470549999999998, "total_stus": 0.33334, "total_smus": 0.34863}, {"instance_id": "pyrxsum-94", "acc-stus": 0.47956, "acc-smus": 0.534265, "total_stus": 0.33304, "total_smus": 0.22469}, {"instance_id": "pyrxsum-95", "acc-stus": 0.4363216666666666, "acc-smus": 0.44731166666666666, "total_stus": 0.29498, "total_smus": 0.30546}, {"instance_id": "pyrxsum-96", "acc-stus": 0.5960175, "acc-smus": 0.6364125, "total_stus": 0.67056, "total_smus": 0.25824}, {"instance_id": "pyrxsum-97", "acc-stus": 0.5892850000000001, "acc-smus": 0.508105, "total_stus": 0.78605, "total_smus": 0.06347}, {"instance_id": "pyrxsum-98", "acc-stus": 0.5310520000000001, "acc-smus": 0.49089399999999994, "total_stus": 0.3715, "total_smus": 0.18064}, {"instance_id": "pyrxsum-99", "acc-stus": 0.5383399999999999, "acc-smus": 0, "total_stus": 0.47058, "total_smus": 0}]
+[
+  {
+    "instance_id": "pyrxsum-0",
+    "easiness-stus-acc-bert": 0.7010566115379334,
+    "easiness-smus-acc-bert": 0.6886654138565064
+  },
+  {
+    "instance_id": "pyrxsum-1",
+    "easiness-stus-acc-bert": 0.5958250711361567,
+    "easiness-smus-acc-bert": 0.6242005825042725
+  },
+  {
+    "instance_id": "pyrxsum-2",
+    "easiness-stus-acc-bert": 0.732775228364127,
+    "easiness-smus-acc-bert": 0.7565346104758126
+  },
+  {
+    "instance_id": "pyrxsum-3",
+    "easiness-stus-acc-bert": 0.6667320370674134,
+    "easiness-smus-acc-bert": 0.577108907699585
+  },
+  {
+    "instance_id": "pyrxsum-4",
+    "easiness-stus-acc-bert": 0.6124702095985413,
+    "easiness-smus-acc-bert": 0.6620290676752726
+  },
+  {
+    "instance_id": "pyrxsum-5",
+    "easiness-stus-acc-bert": 0.6836874246597291,
+    "easiness-smus-acc-bert": 0.8030351638793946
+  },
+  {
+    "instance_id": "pyrxsum-6",
+    "easiness-stus-acc-bert": 0.5921217799186707,
+    "easiness-smus-acc-bert": 0.5953822374343872
+  },
+  {
+    "instance_id": "pyrxsum-7",
+    "easiness-stus-acc-bert": 0.661967138449351,
+    "easiness-smus-acc-bert": 0.7323899070421854
+  },
+  {
+    "instance_id": "pyrxsum-8",
+    "easiness-stus-acc-bert": 0.8313167095184326,
+    "easiness-smus-acc-bert": 0.8856361210346222
+  },
+  {
+    "instance_id": "pyrxsum-9",
+    "easiness-stus-acc-bert": 0.6192510962486267,
+    "easiness-smus-acc-bert": 0.6516164898872376
+  },
+  {
+    "instance_id": "pyrxsum-10",
+    "easiness-stus-acc-bert": 0.6268518992832729,
+    "easiness-smus-acc-bert": 0.6321023106575012
+  },
+  {
+    "instance_id": "pyrxsum-11",
+    "easiness-stus-acc-bert": 0.5350502814565385,
+    "easiness-smus-acc-bert": 0.6423938657556261
+  },
+  {
+    "instance_id": "pyrxsum-12",
+    "easiness-stus-acc-bert": 0.6934252778689066,
+    "easiness-smus-acc-bert": 0.6889083782831827
+  },
+  {
+    "instance_id": "pyrxsum-13",
+    "easiness-stus-acc-bert": 0.7471965551376343,
+    "easiness-smus-acc-bert": 0.7244368592898051
+  },
+  {
+    "instance_id": "pyrxsum-14",
+    "easiness-stus-acc-bert": 0.7858799497286478,
+    "easiness-smus-acc-bert": 0.8534590204556782
+  },
+  {
+    "instance_id": "pyrxsum-15",
+    "easiness-stus-acc-bert": 0.7870709101359049,
+    "easiness-smus-acc-bert": 0.8542067805926005
+  },
+  {
+    "instance_id": "pyrxsum-16",
+    "easiness-stus-acc-bert": 0.7101695040861765,
+    "easiness-smus-acc-bert": 0.611650933821996
+  },
+  {
+    "instance_id": "pyrxsum-17",
+    "easiness-stus-acc-bert": 0.6501744464039803,
+    "easiness-smus-acc-bert": 0.6299581825733185
+  },
+  {
+    "instance_id": "pyrxsum-18",
+    "easiness-stus-acc-bert": 0.6669150193532307,
+    "easiness-smus-acc-bert": 0.7871792912483215
+  },
+  {
+    "instance_id": "pyrxsum-19",
+    "easiness-stus-acc-bert": 0.7159969806671143,
+    "easiness-smus-acc-bert": 0.7806393305460612
+  },
+  {
+    "instance_id": "pyrxsum-20",
+    "easiness-stus-acc-bert": 0.676041841506958,
+    "easiness-smus-acc-bert": 0.7806391716003418
+  },
+  {
+    "instance_id": "pyrxsum-21",
+    "easiness-stus-acc-bert": 0.6185699820518494,
+    "easiness-smus-acc-bert": 0.6844748616218568
+  },
+  {
+    "instance_id": "pyrxsum-22",
+    "easiness-stus-acc-bert": 0.6597659438848495,
+    "easiness-smus-acc-bert": 0.6395977735519409
+  },
+  {
+    "instance_id": "pyrxsum-23",
+    "easiness-stus-acc-bert": 0.4997859299182892,
+    "easiness-smus-acc-bert": 0.5971963703632355
+  },
+  {
+    "instance_id": "pyrxsum-24",
+    "easiness-stus-acc-bert": 0.5274912714958191,
+    "easiness-smus-acc-bert": 0
+  },
+  {
+    "instance_id": "pyrxsum-25",
+    "easiness-stus-acc-bert": 0.7354177087545395,
+    "easiness-smus-acc-bert": 0.6915349811315536
+  },
+  {
+    "instance_id": "pyrxsum-26",
+    "easiness-stus-acc-bert": 0.6391987204551697,
+    "easiness-smus-acc-bert": 0.7068029195070267
+  },
+  {
+    "instance_id": "pyrxsum-27",
+    "easiness-stus-acc-bert": 0.5844745125089372,
+    "easiness-smus-acc-bert": 0
+  },
+  {
+    "instance_id": "pyrxsum-28",
+    "easiness-stus-acc-bert": 0.611438687890768,
+    "easiness-smus-acc-bert": 0.6530267521739006
+  },
+  {
+    "instance_id": "pyrxsum-29",
+    "easiness-stus-acc-bert": 0.602232868472735,
+    "easiness-smus-acc-bert": 0.5700355966885884
+  },
+  {
+    "instance_id": "pyrxsum-30",
+    "easiness-stus-acc-bert": 0.6631711522738138,
+    "easiness-smus-acc-bert": 0.7749557296435038
+  },
+  {
+    "instance_id": "pyrxsum-31",
+    "easiness-stus-acc-bert": 0.7286142706871033,
+    "easiness-smus-acc-bert": 0.7440771460533142
+  },
+  {
+    "instance_id": "pyrxsum-32",
+    "easiness-stus-acc-bert": 0.5937649692807878,
+    "easiness-smus-acc-bert": 0.6116385630198887
+  },
+  {
+    "instance_id": "pyrxsum-33",
+    "easiness-stus-acc-bert": 0.7279104547841208,
+    "easiness-smus-acc-bert": 0.6240295597485134
+  },
+  {
+    "instance_id": "pyrxsum-34",
+    "easiness-stus-acc-bert": 0.5516247898340225,
+    "easiness-smus-acc-bert": 0.6177753508090973
+  },
+  {
+    "instance_id": "pyrxsum-35",
+    "easiness-stus-acc-bert": 0.5857594013214111,
+    "easiness-smus-acc-bert": 0.6238248944282532
+  },
+  {
+    "instance_id": "pyrxsum-36",
+    "easiness-stus-acc-bert": 0.7278198202451069,
+    "easiness-smus-acc-bert": 0.7959890166918436
+  },
+  {
+    "instance_id": "pyrxsum-37",
+    "easiness-stus-acc-bert": 0.6154173016548157,
+    "easiness-smus-acc-bert": 0.6673425436019897
+  },
+  {
+    "instance_id": "pyrxsum-38",
+    "easiness-stus-acc-bert": 0.5457329494612557,
+    "easiness-smus-acc-bert": 0.5986452613558088
+  },
+  {
+    "instance_id": "pyrxsum-39",
+    "easiness-stus-acc-bert": 0.6059187829494477,
+    "easiness-smus-acc-bert": 0.5964235305786133
+  },
+  {
+    "instance_id": "pyrxsum-40",
+    "easiness-stus-acc-bert": 0.6877200404802958,
+    "easiness-smus-acc-bert": 0.7329705158869425
+  },
+  {
+    "instance_id": "pyrxsum-41",
+    "easiness-stus-acc-bert": 0.6544117416654314,
+    "easiness-smus-acc-bert": 0.697659569127219
+  },
+  {
+    "instance_id": "pyrxsum-42",
+    "easiness-stus-acc-bert": 0.7177056819200516,
+    "easiness-smus-acc-bert": 0.8614038079977036
+  },
+  {
+    "instance_id": "pyrxsum-43",
+    "easiness-stus-acc-bert": 0.6440421938896179,
+    "easiness-smus-acc-bert": 0.6847462058067322
+  },
+  {
+    "instance_id": "pyrxsum-44",
+    "easiness-stus-acc-bert": 0.6481609174183437,
+    "easiness-smus-acc-bert": 0.6230621082442147
+  },
+  {
+    "instance_id": "pyrxsum-45",
+    "easiness-stus-acc-bert": 0.7202491015195847,
+    "easiness-smus-acc-bert": 0.7357005476951599
+  },
+  {
+    "instance_id": "pyrxsum-46",
+    "easiness-stus-acc-bert": 0.6273597598075867,
+    "easiness-smus-acc-bert": 0.6587103247642517
+  },
+  {
+    "instance_id": "pyrxsum-47",
+    "easiness-stus-acc-bert": 0.5406776368618011,
+    "easiness-smus-acc-bert": 0.6591218233108521
+  },
+  {
+    "instance_id": "pyrxsum-48",
+    "easiness-stus-acc-bert": 0.5799301479543958,
+    "easiness-smus-acc-bert": 0.6225424664361136
+  },
+  {
+    "instance_id": "pyrxsum-49",
+    "easiness-stus-acc-bert": 0.730576753616333,
+    "easiness-smus-acc-bert": 0.7325729727745056
+  },
+  {
+    "instance_id": "pyrxsum-50",
+    "easiness-stus-acc-bert": 0.5903186559677124,
+    "easiness-smus-acc-bert": 0.6022017359733582
+  },
+  {
+    "instance_id": "pyrxsum-51",
+    "easiness-stus-acc-bert": 0.6066727936267853,
+    "easiness-smus-acc-bert": 0.6526481658220291
+  },
+  {
+    "instance_id": "pyrxsum-52",
+    "easiness-stus-acc-bert": 0.575490266084671,
+    "easiness-smus-acc-bert": 0.5201466500759125
+  },
+  {
+    "instance_id": "pyrxsum-53",
+    "easiness-stus-acc-bert": 0.6013665050268173,
+    "easiness-smus-acc-bert": 0.6788532435894012
+  },
+  {
+    "instance_id": "pyrxsum-54",
+    "easiness-stus-acc-bert": 0.6866192281246186,
+    "easiness-smus-acc-bert": 0.5926809191703797
+  },
+  {
+    "instance_id": "pyrxsum-55",
+    "easiness-stus-acc-bert": 0.6723563841411045,
+    "easiness-smus-acc-bert": 0.671916195324489
+  },
+  {
+    "instance_id": "pyrxsum-56",
+    "easiness-stus-acc-bert": 0.6228360037008921,
+    "easiness-smus-acc-bert": 0.6300690323114395
+  },
+  {
+    "instance_id": "pyrxsum-57",
+    "easiness-stus-acc-bert": 0.6454463430813381,
+    "easiness-smus-acc-bert": 0.625398780618395
+  },
+  {
+    "instance_id": "pyrxsum-58",
+    "easiness-stus-acc-bert": 0.6054255247116089,
+    "easiness-smus-acc-bert": 0.5797101140022278
+  },
+  {
+    "instance_id": "pyrxsum-59",
+    "easiness-stus-acc-bert": 0.7176401217778523,
+    "easiness-smus-acc-bert": 0.7183841367562611
+  },
+  {
+    "instance_id": "pyrxsum-60",
+    "easiness-stus-acc-bert": 0.7389936000108719,
+    "easiness-smus-acc-bert": 0.7684089094400406
+  },
+  {
+    "instance_id": "pyrxsum-61",
+    "easiness-stus-acc-bert": 0.5988692581653595,
+    "easiness-smus-acc-bert": 0.6822148442268372
+  },
+  {
+    "instance_id": "pyrxsum-62",
+    "easiness-stus-acc-bert": 0.6353263684681484,
+    "easiness-smus-acc-bert": 0.6017979553767613
+  },
+  {
+    "instance_id": "pyrxsum-63",
+    "easiness-stus-acc-bert": 0.5343158125877381,
+    "easiness-smus-acc-bert": 0.6175502181053162
+  },
+  {
+    "instance_id": "pyrxsum-64",
+    "easiness-stus-acc-bert": 0.679915726184845,
+    "easiness-smus-acc-bert": 0.7580215732256571
+  },
+  {
+    "instance_id": "pyrxsum-65",
+    "easiness-stus-acc-bert": 0.7680865824222565,
+    "easiness-smus-acc-bert": 0.8685764670372009
+  },
+  {
+    "instance_id": "pyrxsum-66",
+    "easiness-stus-acc-bert": 0.6175808310508728,
+    "easiness-smus-acc-bert": 0.6998542696237564
+  },
+  {
+    "instance_id": "pyrxsum-67",
+    "easiness-stus-acc-bert": 0.6681955754756927,
+    "easiness-smus-acc-bert": 0.7336733490228653
+  },
+  {
+    "instance_id": "pyrxsum-68",
+    "easiness-stus-acc-bert": 0.6415318697690964,
+    "easiness-smus-acc-bert": 0.6602304428815842
+  },
+  {
+    "instance_id": "pyrxsum-69",
+    "easiness-stus-acc-bert": 0.6388202706972758,
+    "easiness-smus-acc-bert": 0.7419002254803975
+  },
+  {
+    "instance_id": "pyrxsum-70",
+    "easiness-stus-acc-bert": 0.6302050113677979,
+    "easiness-smus-acc-bert": 0.6861662983894349
+  },
+  {
+    "instance_id": "pyrxsum-71",
+    "easiness-stus-acc-bert": 0.6094606220722198,
+    "easiness-smus-acc-bert": 0.5912347555160523
+  },
+  {
+    "instance_id": "pyrxsum-72",
+    "easiness-stus-acc-bert": 0.5388386646906534,
+    "easiness-smus-acc-bert": 0.6201660335063934
+  },
+  {
+    "instance_id": "pyrxsum-73",
+    "easiness-stus-acc-bert": 0.727233350276947,
+    "easiness-smus-acc-bert": 0.7404345472653706
+  },
+  {
+    "instance_id": "pyrxsum-74",
+    "easiness-stus-acc-bert": 0.7018616199493408,
+    "easiness-smus-acc-bert": 0.725167989730835
+  },
+  {
+    "instance_id": "pyrxsum-75",
+    "easiness-stus-acc-bert": 0.6270748674869537,
+    "easiness-smus-acc-bert": 0.6672981977462769
+  },
+  {
+    "instance_id": "pyrxsum-76",
+    "easiness-stus-acc-bert": 0.6248921632766724,
+    "easiness-smus-acc-bert": 0.6504745483398438
+  },
+  {
+    "instance_id": "pyrxsum-77",
+    "easiness-stus-acc-bert": 0.5886367201805115,
+    "easiness-smus-acc-bert": 0.6287587761878968
+  },
+  {
+    "instance_id": "pyrxsum-78",
+    "easiness-stus-acc-bert": 0.8052699089050294,
+    "easiness-smus-acc-bert": 0.730979335308075
+  },
+  {
+    "instance_id": "pyrxsum-79",
+    "easiness-stus-acc-bert": 0.6795710623264313,
+    "easiness-smus-acc-bert": 0.6984642148017883
+  },
+  {
+    "instance_id": "pyrxsum-80",
+    "easiness-stus-acc-bert": 0.6533068021138508,
+    "easiness-smus-acc-bert": 0.7746957540512085
+  },
+  {
+    "instance_id": "pyrxsum-81",
+    "easiness-stus-acc-bert": 0.5823123037815094,
+    "easiness-smus-acc-bert": 0.6826404690742494
+  },
+  {
+    "instance_id": "pyrxsum-82",
+    "easiness-stus-acc-bert": 0.9121296207110087,
+    "easiness-smus-acc-bert": 0.6776091158390045
+  },
+  {
+    "instance_id": "pyrxsum-83",
+    "easiness-stus-acc-bert": 0.6850115756193796,
+    "easiness-smus-acc-bert": 0.6499508619308472
+  },
+  {
+    "instance_id": "pyrxsum-84",
+    "easiness-stus-acc-bert": 0.5944516162077585,
+    "easiness-smus-acc-bert": 0.6858325898647308
+  },
+  {
+    "instance_id": "pyrxsum-85",
+    "easiness-stus-acc-bert": 0.607178250948588,
+    "easiness-smus-acc-bert": 0.6271143356959025
+  },
+  {
+    "instance_id": "pyrxsum-86",
+    "easiness-stus-acc-bert": 0.6362152370539579,
+    "easiness-smus-acc-bert": 0.6824234561486678
+  },
+  {
+    "instance_id": "pyrxsum-87",
+    "easiness-stus-acc-bert": 0.6220578253269196,
+    "easiness-smus-acc-bert": 0.6698457449674606
+  },
+  {
+    "instance_id": "pyrxsum-88",
+    "easiness-stus-acc-bert": 0.6518205106258392,
+    "easiness-smus-acc-bert": 0.6954324642817179
+  },
+  {
+    "instance_id": "pyrxsum-89",
+    "easiness-stus-acc-bert": 0.6491770297288895,
+    "easiness-smus-acc-bert": 0.7280993014574051
+  },
+  {
+    "instance_id": "pyrxsum-90",
+    "easiness-stus-acc-bert": 0.6559503898024559,
+    "easiness-smus-acc-bert": 0.7148197144269943
+  },
+  {
+    "instance_id": "pyrxsum-91",
+    "easiness-stus-acc-bert": 0.6697260975837708,
+    "easiness-smus-acc-bert": 0.6838178992271424
+  },
+  {
+    "instance_id": "pyrxsum-92",
+    "easiness-stus-acc-bert": 0.6438271204630533,
+    "easiness-smus-acc-bert": 0.6676456183195114
+  },
+  {
+    "instance_id": "pyrxsum-93",
+    "easiness-stus-acc-bert": 0.5419062127669652,
+    "easiness-smus-acc-bert": 0.7313124537467957
+  },
+  {
+    "instance_id": "pyrxsum-94",
+    "easiness-stus-acc-bert": 0.6325198113918304,
+    "easiness-smus-acc-bert": 0.7419575303792953
+  },
+  {
+    "instance_id": "pyrxsum-95",
+    "easiness-stus-acc-bert": 0.550367737809817,
+    "easiness-smus-acc-bert": 0.6301885942618052
+  },
+  {
+    "instance_id": "pyrxsum-96",
+    "easiness-stus-acc-bert": 0.7310588508844376,
+    "easiness-smus-acc-bert": 0.7033989727497101
+  },
+  {
+    "instance_id": "pyrxsum-97",
+    "easiness-stus-acc-bert": 0.7165307775139809,
+    "easiness-smus-acc-bert": 0.7150811851024628
+  },
+  {
+    "instance_id": "pyrxsum-98",
+    "easiness-stus-acc-bert": 0.6952052295207978,
+    "easiness-smus-acc-bert": 0.6950065851211549
+  },
+  {
+    "instance_id": "pyrxsum-99",
+    "easiness-stus-acc-bert": 0.6833283305168152,
+    "easiness-smus-acc-bert": 0
+  }
+]

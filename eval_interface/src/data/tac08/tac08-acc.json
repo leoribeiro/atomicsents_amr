@@ -1,338 +1,242 @@
 [
   {
     "instance_id": "d0801-A",
-    "acc-stus": 0.6874692592592591,
-    "acc-smus": 0.565042962962963,
-    "total_stus": 0.10553,
-    "total_smus": 0.14193
+    "easiness-stus-acc-bert": 0.7594654460748036,
+    "easiness-smus-acc-bert": 0.6818910947552433
   },
   {
     "instance_id": "d0802-A",
-    "acc-stus": 0.5413721875,
-    "acc-smus": 0.3960428125000002,
-    "total_stus": 0.11836,
-    "total_smus": 0.10883
+    "easiness-stus-acc-bert": 0.6883854418992996,
+    "easiness-smus-acc-bert": 0.6059714835137129
   },
   {
     "instance_id": "d0803-A",
-    "acc-stus": 0.6319994444444444,
-    "acc-smus": 0.5343344444444444,
-    "total_stus": 0.10398,
-    "total_smus": 0.14117
+    "easiness-stus-acc-bert": 0.7246954308615791,
+    "easiness-smus-acc-bert": 0.6672475884358088
   },
   {
     "instance_id": "d0804-A",
-    "acc-stus": 0.5834084210526316,
-    "acc-smus": 0.4880502631578948,
-    "total_stus": 0.04708,
-    "total_smus": 0.08335
+    "easiness-stus-acc-bert": 0.7047563446195502,
+    "easiness-smus-acc-bert": 0.6505113369540164
   },
   {
     "instance_id": "d0805-A",
-    "acc-stus": 0.7068353333333335,
-    "acc-smus": 0.6092720000000001,
-    "total_stus": 0.16099,
-    "total_smus": 0.06754
+    "easiness-stus-acc-bert": 0.7904595494270324,
+    "easiness-smus-acc-bert": 0.7285496850808462
   },
   {
     "instance_id": "d0806-A",
-    "acc-stus": 0.5506099999999999,
-    "acc-smus": 0.5090827586206896,
-    "total_stus": 0.08404,
-    "total_smus": 0.07907
+    "easiness-stus-acc-bert": 0.6493130788720887,
+    "easiness-smus-acc-bert": 0.6443089051493283
   },
   {
     "instance_id": "d0807-A",
-    "acc-stus": 0.6235980000000002,
-    "acc-smus": 0.5718312000000001,
-    "total_stus": 0.2184,
-    "total_smus": 0.10507
+    "easiness-stus-acc-bert": 0.7354022359848023,
+    "easiness-smus-acc-bert": 0.6836228084564209
   },
   {
     "instance_id": "d0808-A",
-    "acc-stus": 0.7434265384615384,
-    "acc-smus": 0.5975996153846156,
-    "total_stus": 0.17724,
-    "total_smus": 0.1159
+    "easiness-stus-acc-bert": 0.813776229436581,
+    "easiness-smus-acc-bert": 0.7172337449513949
   },
   {
     "instance_id": "d0809-A",
-    "acc-stus": 0.5922846428571429,
-    "acc-smus": 0.6163467857142857,
-    "total_stus": 0.10706,
-    "total_smus": 0.17047
+    "easiness-stus-acc-bert": 0.6648828802364213,
+    "easiness-smus-acc-bert": 0.7003346000398908
   },
   {
     "instance_id": "d0810-A",
-    "acc-stus": 0.611561304347826,
-    "acc-smus": 0.6378539130434783,
-    "total_stus": 0.11572,
-    "total_smus": 0.12425
+    "easiness-stus-acc-bert": 0.7212660234907399,
+    "easiness-smus-acc-bert": 0.7535582832668138
   },
   {
     "instance_id": "d0811-A",
-    "acc-stus": 0.621760625,
-    "acc-smus": 0.6023081250000001,
-    "total_stus": 0.20234,
-    "total_smus": 0.20116
+    "easiness-stus-acc-bert": 0.7233030907809734,
+    "easiness-smus-acc-bert": 0.7362152989953756
   },
   {
     "instance_id": "d0812-A",
-    "acc-stus": 0.6902143478260869,
-    "acc-smus": 0.7019186956521738,
-    "total_stus": 0.09503,
-    "total_smus": 0.11586
+    "easiness-stus-acc-bert": 0.772724229356517,
+    "easiness-smus-acc-bert": 0.8083539397820182
   },
   {
     "instance_id": "d0813-A",
-    "acc-stus": 0.5878547826086956,
-    "acc-smus": 0.5320602173913044,
-    "total_stus": 0.15308,
-    "total_smus": 0.11312
+    "easiness-stus-acc-bert": 0.6818989677273709,
+    "easiness-smus-acc-bert": 0.6509719491004944
   },
   {
     "instance_id": "d0814-A",
-    "acc-stus": 0.4634929824561404,
-    "acc-smus": 0.3872105263157895,
-    "total_stus": 0.09108,
-    "total_smus": 0.11481
+    "easiness-stus-acc-bert": 0.6370986354978461,
+    "easiness-smus-acc-bert": 0.6122886355508838
   },
   {
     "instance_id": "d0815-A",
-    "acc-stus": 0.5376337209302325,
-    "acc-smus": 0.5027658139534883,
-    "total_stus": 0.10448,
-    "total_smus": 0.12072
+    "easiness-stus-acc-bert": 0.6582270375517911,
+    "easiness-smus-acc-bert": 0.6436779630738635
   },
   {
     "instance_id": "d0816-A",
-    "acc-stus": 0.4458151515151516,
-    "acc-smus": 0.4514309090909091,
-    "total_stus": 0.11729,
-    "total_smus": 0.1145
+    "easiness-stus-acc-bert": 0.6276145017508304,
+    "easiness-smus-acc-bert": 0.6317577036944303
   },
   {
     "instance_id": "d0817-A",
-    "acc-stus": 0.5664199999999999,
-    "acc-smus": 0.5340011111111113,
-    "total_stus": 0.16523,
-    "total_smus": 0.12867
+    "easiness-stus-acc-bert": 0.6660342227529596,
+    "easiness-smus-acc-bert": 0.6356299651993645
   },
   {
     "instance_id": "d0818-A",
-    "acc-stus": 0.499144827586207,
-    "acc-smus": 0.46898793103448283,
-    "total_stus": 0.09145,
-    "total_smus": 0.07781
+    "easiness-stus-acc-bert": 0.6549158209356768,
+    "easiness-smus-acc-bert": 0.6450984190250265
   },
   {
     "instance_id": "d0819-A",
-    "acc-stus": 0.5960444117647059,
-    "acc-smus": 0.4946376470588235,
-    "total_stus": 0.07613,
-    "total_smus": 0.05152
+    "easiness-stus-acc-bert": 0.741100128959207,
+    "easiness-smus-acc-bert": 0.6482145146412008
   },
   {
     "instance_id": "d0820-A",
-    "acc-stus": 0.5099627906976745,
-    "acc-smus": 0.42093953488372104,
-    "total_stus": 0.07672,
-    "total_smus": 0.05449
+    "easiness-stus-acc-bert": 0.6868107291155083,
+    "easiness-smus-acc-bert": 0.6138573988925579
   },
   {
     "instance_id": "d0821-A",
-    "acc-stus": 0.6140287500000001,
-    "acc-smus": 0.57288375,
-    "total_stus": 0.08637,
-    "total_smus": 0.0788
+    "easiness-stus-acc-bert": 0.7050620838999748,
+    "easiness-smus-acc-bert": 0.6821162877604365
   },
   {
     "instance_id": "d0822-A",
-    "acc-stus": 0.5654810869565218,
-    "acc-smus": 0.5653095652173912,
-    "total_stus": 0.11853,
-    "total_smus": 0.13675
+    "easiness-stus-acc-bert": 0.6916795385920483,
+    "easiness-smus-acc-bert": 0.6883684953917627
   },
   {
     "instance_id": "d0823-A",
-    "acc-stus": 0.5312522222222222,
-    "acc-smus": 0.6734777777777775,
-    "total_stus": 0.11437,
-    "total_smus": 0.0792
+    "easiness-stus-acc-bert": 0.6995503786537381,
+    "easiness-smus-acc-bert": 0.7609102908107969
   },
   {
     "instance_id": "d0824-A",
-    "acc-stus": 0.7696557894736842,
-    "acc-smus": 0.7036873684210525,
-    "total_stus": 0.18612,
-    "total_smus": 0.29445
+    "easiness-stus-acc-bert": 0.8368220580251593,
+    "easiness-smus-acc-bert": 0.781412683035198
   },
   {
     "instance_id": "d0825-A",
-    "acc-stus": 0.7408622222222222,
-    "acc-smus": 0.6565425925925926,
-    "total_stus": 0.08789,
-    "total_smus": 0.08916
+    "easiness-stus-acc-bert": 0.7983548685356422,
+    "easiness-smus-acc-bert": 0.7492489262863441
   },
   {
     "instance_id": "d0826-A",
-    "acc-stus": 0.45860249999999997,
-    "acc-smus": 0.5103825000000001,
-    "total_stus": 0.10902,
-    "total_smus": 0.06169
+    "easiness-stus-acc-bert": 0.6528642185032368,
+    "easiness-smus-acc-bert": 0.6708302944898605
   },
   {
     "instance_id": "d0827-A",
-    "acc-stus": 0.660376153846154,
-    "acc-smus": 0.5584476923076924,
-    "total_stus": 0.0857,
-    "total_smus": 0.05834
+    "easiness-stus-acc-bert": 0.7891818445462447,
+    "easiness-smus-acc-bert": 0.7173407146563897
   },
   {
     "instance_id": "d0828-A",
-    "acc-stus": 0.5188452777777778,
-    "acc-smus": 0.6238519444444446,
-    "total_stus": 0.06466,
-    "total_smus": 0.19798
+    "easiness-stus-acc-bert": 0.6651301383972168,
+    "easiness-smus-acc-bert": 0.7244616316424476
   },
   {
     "instance_id": "d0829-A",
-    "acc-stus": 0.6545540909090909,
-    "acc-smus": 0.5077722727272728,
-    "total_stus": 0.07155,
-    "total_smus": 0.09999
+    "easiness-stus-acc-bert": 0.7498199912634763,
+    "easiness-smus-acc-bert": 0.667076977816495
   },
   {
     "instance_id": "d0830-A",
-    "acc-stus": 0.5915991666666667,
-    "acc-smus": 0.5579022222222223,
-    "total_stus": 0.11368,
-    "total_smus": 0.18961
+    "easiness-stus-acc-bert": 0.7166398606366581,
+    "easiness-smus-acc-bert": 0.6822624488009347
   },
   {
     "instance_id": "d0831-A",
-    "acc-stus": 0.6761797435897436,
-    "acc-smus": 0.6320279487179487,
-    "total_stus": 0.11253,
-    "total_smus": 0.11746
+    "easiness-stus-acc-bert": 0.7729659905800452,
+    "easiness-smus-acc-bert": 0.7449238162774305
   },
   {
     "instance_id": "d0832-A",
-    "acc-stus": 0.5744129411764705,
-    "acc-smus": 0.5743535294117647,
-    "total_stus": 0.14893,
-    "total_smus": 0.17059
+    "easiness-stus-acc-bert": 0.6677055130986607,
+    "easiness-smus-acc-bert": 0.6999684169011957
   },
   {
     "instance_id": "d0833-A",
-    "acc-stus": 0.5880368000000001,
-    "acc-smus": 0.6066471999999999,
-    "total_stus": 0.19466,
-    "total_smus": 0.14289
+    "easiness-stus-acc-bert": 0.7204176568984986,
+    "easiness-smus-acc-bert": 0.7378910684585571
   },
   {
     "instance_id": "d0834-A",
-    "acc-stus": 0.5338573076923078,
-    "acc-smus": 0.4500469230769231,
-    "total_stus": 0.10084,
-    "total_smus": 0.12421
+    "easiness-stus-acc-bert": 0.6668366388632702,
+    "easiness-smus-acc-bert": 0.6333272778070891
   },
   {
     "instance_id": "d0835-A",
-    "acc-stus": 0.7000243243243243,
-    "acc-smus": 0.670051891891892,
-    "total_stus": 0.12203,
-    "total_smus": 0.11874
+    "easiness-stus-acc-bert": 0.7777867550785478,
+    "easiness-smus-acc-bert": 0.7491407120550001
   },
   {
     "instance_id": "d0836-A",
-    "acc-stus": 0.7358600000000002,
-    "acc-smus": 0.6290165,
-    "total_stus": 0.13058,
-    "total_smus": 0.0984
+    "easiness-stus-acc-bert": 0.8128356575965882,
+    "easiness-smus-acc-bert": 0.7580369800329209
   },
   {
     "instance_id": "d0837-A",
-    "acc-stus": 0.5657621428571429,
-    "acc-smus": 0.6022507142857143,
-    "total_stus": 0.12988,
-    "total_smus": 0.11024
+    "easiness-stus-acc-bert": 0.6971356975180761,
+    "easiness-smus-acc-bert": 0.7422789973872048
   },
   {
     "instance_id": "d0838-A",
-    "acc-stus": 0.6253831818181818,
-    "acc-smus": 0.48453954545454536,
-    "total_stus": 0.08406,
-    "total_smus": 0.10329
+    "easiness-stus-acc-bert": 0.7631843957034025,
+    "easiness-smus-acc-bert": 0.7031938420100646
   },
   {
     "instance_id": "d0839-A",
-    "acc-stus": 0.5864375,
-    "acc-smus": 0.5391041666666667,
-    "total_stus": 0.14337,
-    "total_smus": 0.15313
+    "easiness-stus-acc-bert": 0.6973330229520798,
+    "easiness-smus-acc-bert": 0.70486681163311
   },
   {
     "instance_id": "d0840-A",
-    "acc-stus": 0.6466003846153847,
-    "acc-smus": 0.5286865384615386,
-    "total_stus": 0.09178,
-    "total_smus": 0.08892
+    "easiness-stus-acc-bert": 0.7678150328306051,
+    "easiness-smus-acc-bert": 0.7233457427758437
   },
   {
     "instance_id": "d0841-A",
-    "acc-stus": 0.6813457575757578,
-    "acc-smus": 0.653319696969697,
-    "total_stus": 0.2106,
-    "total_smus": 0.19909
+    "easiness-stus-acc-bert": 0.7996627814841993,
+    "easiness-smus-acc-bert": 0.7700397841858142
   },
   {
     "instance_id": "d0842-A",
-    "acc-stus": 0.5923661538461538,
-    "acc-smus": 0.55953,
-    "total_stus": 0.13102,
-    "total_smus": 0.16105
+    "easiness-stus-acc-bert": 0.733777085175881,
+    "easiness-smus-acc-bert": 0.7194364942037142
   },
   {
     "instance_id": "d0843-A",
-    "acc-stus": 0.7080255555555556,
-    "acc-smus": 0.553565,
-    "total_stus": 0.15839,
-    "total_smus": 0.08355
+    "easiness-stus-acc-bert": 0.7867621017826928,
+    "easiness-smus-acc-bert": 0.6952226410309473
   },
   {
     "instance_id": "d0844-A",
-    "acc-stus": 0.6594766666666667,
-    "acc-smus": 0.6762080952380952,
-    "total_stus": 0.17074,
-    "total_smus": 0.09746
+    "easiness-stus-acc-bert": 0.7197347027914864,
+    "easiness-smus-acc-bert": 0.7655546438126336
   },
   {
     "instance_id": "d0845-A",
-    "acc-stus": 0.5266518181818184,
-    "acc-smus": 0.4981872727272728,
-    "total_stus": 0.14883,
-    "total_smus": 0.16218
+    "easiness-stus-acc-bert": 0.6702384352684021,
+    "easiness-smus-acc-bert": 0.7018340690569445
   },
   {
     "instance_id": "d0846-A",
-    "acc-stus": 0.7508261904761905,
-    "acc-smus": 0.6507709523809524,
-    "total_stus": 0.13777,
-    "total_smus": 0.05707
+    "easiness-stus-acc-bert": 0.8046687585966927,
+    "easiness-smus-acc-bert": 0.7839800005867368
   },
   {
     "instance_id": "d0847-A",
-    "acc-stus": 0.6428075,
-    "acc-smus": 0.5738590625000001,
-    "total_stus": 0.11917,
-    "total_smus": 0.16286
+    "easiness-stus-acc-bert": 0.7299838103353977,
+    "easiness-smus-acc-bert": 0.7428604010492563
   },
   {
     "instance_id": "d0848-A",
-    "acc-stus": 0.5896766666666667,
-    "acc-smus": 0.5940103703703703,
-    "total_stus": 0.1277,
-    "total_smus": 0.11826
+    "easiness-stus-acc-bert": 0.729993979136149,
+    "easiness-smus-acc-bert": 0.7611087715184247
   }
 ]

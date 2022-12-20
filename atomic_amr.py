@@ -244,7 +244,7 @@ def open_jsonl_file(filename):
 
 def run_amr(filename, data_json):
     outputDict = []
-    for example in data_json:  # [:2]:
+    for example in data_json[:2]:
         # print("Id:", example['instance_id'])
         # print("Summary:", example['summary'])
         page_doc = spacy(example['summary'], disable=["tagger"])
@@ -326,10 +326,10 @@ def run_pyyrxsum():
 # Create smus out of REALSumm data
 def run_realsumm():
     data_json = open_json_file('eval_interface/src/data/realsumm/realsumm-scus.json')
-    run_amr('eval_interface/src/data/realsumm/realsumm-smus.json', data_json)
+    run_amr('eval_interface/src/data/realsumm/realsumm-smus-test.json', data_json)
 
 
-#run_realsumm()
+run_realsumm()
 #run_pyyrxsum()
 #run_tac08()
 #run_tac09()
