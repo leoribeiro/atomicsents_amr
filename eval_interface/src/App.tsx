@@ -23,8 +23,8 @@ function App() {
           {scus.map((ex, ind) => (
             <div className='instance' key={ex.instance_id}>
               <h4>{ex.instance_id}</h4>
-              {ex.summary}
-                <TableElements scus={scus[ind].scus} smus={smus[ind].smus} trees={smus[ind].tree} stus={stus[ind].stus} accSMUs={acc[ind]['acc-smus']} accSTUs={acc[ind]['acc-stus']} />
+              {ex.summary.replaceAll("<t>", "").replaceAll("</t>", "")}
+                <TableElements scus={scus[ind].scus} smus={smus[ind].smus} trees={smus[ind].tree} stus={stus[ind].stus} accSMUs={acc[ind]['easiness-smus-acc-bert']} accSTUs={acc[ind]['easiness-stus-acc-bert']} />
             </div>
           ))
         }

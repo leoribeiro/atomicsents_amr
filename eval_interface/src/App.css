@@ -18,6 +18,7 @@
 table, th, td, tr {
   border: none;
   border-collapse: collapse;
+  vertical-align: top;
 }
 
 .instance table td, .instance table th {

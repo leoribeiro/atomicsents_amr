@@ -1,3 +1,5 @@
+import './TableElements.css';
+
 interface Props {
     scus: string[]
     smus: string[]
@@ -20,7 +22,7 @@ export function TableElements(props: Props) {
                 <td>{scus.length > i ? scus[i] : ''}</td>
                 <td>{stus.length > i ? stus[i] : ''}</td>
                 <td>{smus.length > i ? smus[i] : ''}</td>
-                <td>{trees.length > i ? trees[i] : ''}</td>
+                <td className="trees">{trees.length > i ? trees[i]: ''}</td>
             </tr>
         )
     }
