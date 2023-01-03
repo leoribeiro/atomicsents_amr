@@ -12,6 +12,16 @@ if __name__ == '__main__':
     setup_logging(logfname='logs/test_model_parse_xfm.log', level=WARN)
     silence_penman()
     device     = 'cuda:0'
+    if not torch.backends.mps.is_available():
+        if not torch.backends.mps.is_built():
+            print("MPS not available because the current PyTorch install was not "
+                  "built with MPS enabled.")
+        else:
+            print("MPS not available because the current MacOS version is not 12.3+ "
+                  "and/or you do not have an MPS-enabled device on this machine.")
+
+    else:
+        device = torch.device("mps")
     corpus_dir = 'amrlib/data/tdata_xfm/'
     ref_in_fn  = 'test.txt.nowiki'     # 1898 amr entries
     model_dir  = 'amrlib/data/model_parse_xfm_bart_large-v0_1_0'

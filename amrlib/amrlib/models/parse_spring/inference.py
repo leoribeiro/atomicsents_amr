@@ -17,6 +17,16 @@ class Inference(STOGInferenceBase):
     def __init__(self, model_dir=None, model_fn=None, model=None, tokenizer=None, config=None, **kwargs):
         logging.getLogger('transformers.tokenization_utils_base').setLevel(logging.ERROR)   # skip tokenizer warning
         default_device     = 'cuda:0' if torch.cuda.is_available() else 'cpu'
+        if not torch.backends.mps.is_available():
+            if not torch.backends.mps.is_built():
+                print("MPS not available because the current PyTorch install was not "
+                      "built with MPS enabled.")
+            else:
+                print("MPS not available because the current MacOS version is not 12.3+ "
+                      "and/or you do not have an MPS-enabled device on this machine.")
+
+        else:
+            default_device = torch.device("mps")
         self.device        = torch.device(kwargs.get('device', default_device))
         self.batch_size    = kwargs.get('batch_size', 8)    # in number of sentences
         self.num_beams     = kwargs.get('num_beams',  5)

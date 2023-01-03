@@ -121,8 +121,8 @@
   },
   {
     "instance_id": "pyrxsum-24",
-    "easiness-stus-acc-bert": 0.5274912714958191,
-    "easiness-smus-acc-bert": 0
+    "easiness-stus-acc-bert": 0.5274912615617116,
+    "easiness-smus-acc-bert": 0.6340192953745524
   },
   {
     "instance_id": "pyrxsum-25",
@@ -136,8 +136,8 @@
   },
   {
     "instance_id": "pyrxsum-27",
-    "easiness-stus-acc-bert": 0.5844745125089372,
-    "easiness-smus-acc-bert": 0
+    "easiness-stus-acc-bert": 0.5844745295388357,
+    "easiness-smus-acc-bert": 0.5948381338800702
   },
   {
     "instance_id": "pyrxsum-28",
@@ -497,6 +497,6 @@
   {
     "instance_id": "pyrxsum-99",
     "easiness-stus-acc-bert": 0.6833283305168152,
-    "easiness-smus-acc-bert": 0
+    "easiness-smus-acc-bert": 0.7355749011039734
   }
 ]

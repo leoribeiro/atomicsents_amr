@@ -107,7 +107,7 @@ def nli_evaluate_tac09():
     print("Tac2009 done!")
 
 
-# nli_evaluate_pyrxsum()
+nli_evaluate_pyrxsum()
 nli_evaluate_realsumm()
-nli_evaluate_tac08()
-nli_evaluate_tac09()
+#nli_evaluate_tac08()
+#nli_evaluate_tac09()

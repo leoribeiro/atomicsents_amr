@@ -6,6 +6,7 @@ import penman
 from penman.models import amr
 from itertools import chain, combinations
 import spacy
+import re
 
 from amrlib.graph_processing.amr_fix import maybe_fix_unlinked_in_subgraph
 
@@ -244,60 +245,86 @@ def open_jsonl_file(filename):
 
 def run_amr(filename, data_json):
     outputDict = []
-    for example in data_json[:2]:
-        # print("Id:", example['instance_id'])
-        # print("Summary:", example['summary'])
-        page_doc = spacy(example['summary'], disable=["tagger"])
-        sentences = [sent.text for sent in page_doc.sents]
 
-        graphs, graphs_tags = stog.parse_sents(sentences, add_metadata=True)
+    for index_i, example in enumerate(data_json):
+        if index_i not in [5, 61, 86, 38] and False:
+            print(f"Skip example: {example['instance_id']}")
+        else:
+            # print("Id:", example['instance_id'])
+            # print("Summary:", example['summary'])
 
-        # print("  ")
-        # print("  ")
-        list_of_sents = []
-        list_of_trees = []
-        for idx, (s, g, g_tag) in enumerate(zip(sentences, graphs, graphs_tags)):
-            # print("Sentence #", idx)
-            # print(s)
-            # print(g)
-            # print(g_tag)
+            if "<t>" in example['summary']:
+                # initializing tag
+                tag = "t"
+                # regex to extract required strings
+                reg_str = "<" + tag + ">(.*?)</" + tag + ">"
+                sentences = re.findall(reg_str, example['summary'])
+            else:
+                page_doc = spacy(example['summary'], disable=["tagger"])
+                sentences = [sent.text for sent in page_doc.sents]
+            # sentences.encode("utf-8").decode("utf-8", "replace")
+
+            #sentences = list(map(lambda string: "".join(
+            #    map(lambda x: "_" if string.find("'") <= x[0] < string.find("'", string.find("'") + 1) and x[1] == " " else x[1], enumerate(string))) if "'" in string else string, sentences))
+            #print(sentences)
+
+            graphs, graphs_tags = stog.parse_sents(sentences, add_metadata=True)
+
             # print("  ")
-            # print("AMR subgraphs:")
             # print("  ")
-            dict_tag = get_concepts(g_tag)
-            subgraphs = get_subgraphs2(g)
-            subgraphs_tag = []
-            for sb in subgraphs:
-                sb = maybe_fix_unlinked_in_subgraph(g, sb)
-                list_of_trees.append(sb)
-                sb = gstring_to_oneline(sb)
-                sb = replace_graph_with_tags(dict_tag, sb)
-                subgraphs_tag.append(sb)
-                # print("-")
+            print(example['instance_id'])
+            list_of_sents = []
+            list_of_trees = []
+            for idx, (s, g, g_tag) in enumerate(zip(sentences, graphs, graphs_tags)):
 
-            sents, _ = gtos.generate_taged(subgraphs_tag, disable_progress=True)
-            for sent in sents:
-                if sent.__contains__(" ") and not sent.__contains__("* * "):
-                    list_of_sents.append(sent)
-        # Think about something that makes more sense ( NONE etc.)
-        if len(list_of_sents) == 0:
-            list_of_sents.append(None)
-        outputDict.append(
-            {'instance_id': example['instance_id'],
-             'summary': example['summary'],
-             'tree': list_of_trees,
-             'smus': list_of_sents, }
-        )
-        # for s1, g1 in zip(sents, subgraphs):
-        # print(g1)
-        # print(s1)
-        # print(" ")
-        # print(" ")
-        # print("--")
+                # print("  ")
+                # print("AMR subgraphs:")
+                # print("  ")
+                dict_tag = get_concepts(g_tag)
+                subgraphs = get_subgraphs(g)
+                if 0 == len(subgraphs):
+                    subgraphs = get_subgraphs(g)
 
-        # print("----")
-        # print(" ")
-        # print(" ")
+                subgraphs_tag = []
+                for sb in subgraphs:
+                    sb = maybe_fix_unlinked_in_subgraph(g, sb)
+                    list_of_trees.append(sb)
+                    sb = gstring_to_oneline(sb)
+                    sb = replace_graph_with_tags(dict_tag, sb)
+                    subgraphs_tag.append(sb)
+                    # print("-")
+
+                sents, _ = gtos.generate_taged(subgraphs_tag, disable_progress=True)
+                if False:
+                    print("Sentence #", idx)
+                    print(s)
+                    print(graphs)
+                    print(graphs_tags)
+                    print(subgraphs)
+                    print(g_tag)
+                    print(sents)
+                for sent in sents:
+                    if sent not in list_of_sents:  # sent.__contains__(" ") and not sent.__contains__("* * "):
+                        list_of_sents.append(sent)
+            # Think about something that makes more sense ( NONE etc.)
+            if len(list_of_sents) == 0:
+                list_of_sents.append(None)
+            outputDict.append(
+                {'instance_id': example['instance_id'],
+                 'summary': example['summary'],
+                 'tree': list_of_trees,
+                 'smus': list_of_sents, }
+            )
+            # for s1, g1 in zip(sents, subgraphs):
+            # print(g1)
+            # print(s1)
+            # print(" ")
+            # print(" ")
+            # print("--")
+
+            # print("----")
+            # print(" ")
+            # print(" ")
 
     jsonString = json.dumps(outputDict)
     jsonFile = open(filename, "w")
@@ -308,7 +335,7 @@ def run_amr(filename, data_json):
 # Create smus out of Tac2008 data
 def run_tac08():
     data_json = open_json_file('eval_interface/src/data/tac08/tac2008-scus.json')
-    run_amr('eval_interface/src/data/tac08/tac2008-smus.json', data_json)
+    run_amr('eval_interface/src/data/tac08/tac2008-smus-test.json', data_json)
 
 
 # Create smus out of Tac2009 data
@@ -326,10 +353,10 @@ def run_pyyrxsum():
 # Create smus out of REALSumm data
 def run_realsumm():
     data_json = open_json_file('eval_interface/src/data/realsumm/realsumm-scus.json')
-    run_amr('eval_interface/src/data/realsumm/realsumm-smus-test.json', data_json)
+    run_amr('eval_interface/src/data/realsumm/realsumm-smus.json', data_json)
 
 
 run_realsumm()
-#run_pyyrxsum()
-#run_tac08()
-#run_tac09()
+# run_pyyrxsum()
+# run_tac08()
+# run_tac09()

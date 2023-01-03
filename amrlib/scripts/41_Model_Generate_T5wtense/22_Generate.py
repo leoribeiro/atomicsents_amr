@@ -19,6 +19,16 @@ def get_sentence(graph):
 if __name__ == '__main__':
     setup_logging(logfname='logs/generate_t5wtense.log', level=ERROR)
     device     = 'cuda:0'
+    if not torch.backends.mps.is_available():
+        if not torch.backends.mps.is_built():
+            print("MPS not available because the current PyTorch install was not "
+                  "built with MPS enabled.")
+        else:
+            print("MPS not available because the current MacOS version is not 12.3+ "
+                  "and/or you do not have an MPS-enabled device on this machine.")
+
+    else:
+        device = torch.device("mps")
     model_dir  = 'amrlib/data/model_generate_t5wtense/'
     corpus_dir = 'amrlib/data/tdata_generate_t5wtense/'
     test_fn    = 'test.txt.features.nowiki'             # standard AMR graphs

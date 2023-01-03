@@ -14,6 +14,16 @@ logger = logging.getLogger(__name__)
 class Inference(GTOSInferenceBase):
     def __init__(self, model_dir, model_fn=None, **kwargs):
         default_device     = 'cuda:0' if torch.cuda.is_available() else 'cpu'
+        if not torch.backends.mps.is_available():
+            if not torch.backends.mps.is_built():
+                print("MPS not available because the current PyTorch install was not "
+                      "built with MPS enabled.")
+            else:
+                print("MPS not available because the current MacOS version is not 12.3+ "
+                      "and/or you do not have an MPS-enabled device on this machine.")
+
+        else:
+            default_device = torch.device("mps")
         device             = kwargs.get('device', default_device)
         self.device        = torch.device(device)
         # The following produces a logger warning that we can ignore so eliminate temporarily set the level higher

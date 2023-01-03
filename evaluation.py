@@ -123,27 +123,6 @@ def easiness_sent_evaluation(scus, sxus):
     return acc_sxu
 
 
-def easiness_sent_evaluation_Bert(scus, sxus):
-    bert = BertScoreMetric()
-    if sxus[0] is None:
-        return 0
-    # Easiness_sent
-    # Get acc of every scu
-    list_of_acc = []
-    for scu in scus:
-        score = []
-        # print(scu)
-        for sxu in sxus:
-            # print(sxu)
-            score.append(bert.evaluate_example(scu, sxu)['bert_score_f1'])
-        print(score)
-        list_of_acc.append(max(score))
-    # calculate average of acc list
-    print(list_of_acc)
-    acc_sxu = (1 / len(list_of_acc)) * sum(list_of_acc)
-    return acc_sxu
-
-
 def easiness_sent_evaluation_Mover(scus, sxus):
     mover = MoverScoreMetric()
     if sxus[0] is None:
@@ -300,7 +279,7 @@ def debug():
 
 
 #evaluate_pyrxsum(False, True, False)
-#evaluate_realsumm(False, True, False)
+# evaluate_realsumm(False, True, False)
 evaluate_tac08(False, True, False)
-evaluate_tac09(False, True, False)
+# evaluate_tac09(False, True, False)
 # debug()
