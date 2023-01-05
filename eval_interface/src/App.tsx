@@ -8,7 +8,7 @@ import { TableElements } from './TableElements';
 import stus from './data/realsumm/realsumm-stus.json';
 import smus from './data/realsumm/realsumm-smus-test.json';
 import scus from './data/realsumm/realsumm-scus.json';
-import acc from './data/realsumm/realsumm-acc.json';
+import acc from './data/realsumm/realsumm-acc-test.json';
 
 function App() {
   return (
@@ -24,7 +24,9 @@ function App() {
             <div className='instance' key={ex.instance_id}>
               <h4>{ex.instance_id}</h4>
               {ex.summary.replaceAll("<t>", "").replaceAll("</t>", "")}
-                <TableElements scus={scus[ind].scus} smus={smus[ind].smus} trees={smus[ind].tree} stus={stus[ind].stus} accSMUs={acc[ind]['easiness-smus-acc-bert']} accSTUs={acc[ind]['easiness-stus-acc-bert']} />
+                <TableElements scus={scus[ind].scus} smus={smus[ind].smus} trees={smus[ind].tree} stus={stus[ind].stus}
+                               accSMUs={acc[ind]['easiness-smus-acc-bert']} accSTUs={acc[ind]['easiness-stus-acc-bert']}
+                               stu_pos={acc[ind]['stus-pos-bert']} smu_pos={acc[ind]['smus-pos-bert']} />
             </div>
           ))
         }
