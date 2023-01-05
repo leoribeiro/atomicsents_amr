@@ -13,7 +13,7 @@ interface Props {
 export function TableElements(props: Props) {
     const { scus, smus, trees, stus, accSMUs, accSTUs } = props
 
-    const max = Math.max(scus.length, smus.length, stus.length)
+    const max = Math.max(scus.length, smus.length, stus.length, trees.length)
     const output = []
 
     for (let i = 0; i < max; i++) {
