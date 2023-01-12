@@ -1,1 +1,402 @@
-[{"instance_id": "realsumm-0", "score": 1.0}, {"instance_id": "realsumm-1", "score": 1.0}, {"instance_id": "realsumm-2", "score": 0.5}, {"instance_id": "realsumm-3", "score": 0.8181818181818182}, {"instance_id": "realsumm-4", "score": 0.75}, {"instance_id": "realsumm-5", "score": 0.5833333333333334}, {"instance_id": "realsumm-6", "score": 0.7}, {"instance_id": "realsumm-7", "score": 0.8888888888888888}, {"instance_id": "realsumm-8", "score": 1.0}, {"instance_id": "realsumm-9", "score": 0.75}, {"instance_id": "realsumm-10", "score": 0.4166666666666667}, {"instance_id": "realsumm-11", "score": 0.42857142857142855}, {"instance_id": "realsumm-12", "score": 0.8571428571428571}, {"instance_id": "realsumm-13", "score": 1.0}, {"instance_id": "realsumm-14", "score": 1.0}, {"instance_id": "realsumm-15", "score": 0.7777777777777778}, {"instance_id": "realsumm-16", "score": 0.7777777777777778}, {"instance_id": "realsumm-17", "score": 0.6363636363636364}, {"instance_id": "realsumm-18", "score": 0.8181818181818182}, {"instance_id": "realsumm-19", "score": 0.7}, {"instance_id": "realsumm-20", "score": 0.6363636363636364}, {"instance_id": "realsumm-21", "score": 1.0}, {"instance_id": "realsumm-22", "score": 0.7}, {"instance_id": "realsumm-23", "score": 0.5384615384615384}, {"instance_id": "realsumm-24", "score": 0.5714285714285714}, {"instance_id": "realsumm-25", "score": 0.25}, {"instance_id": "realsumm-26", "score": 0.5}, {"instance_id": "realsumm-27", "score": 0.7692307692307693}, {"instance_id": "realsumm-28", "score": 0.5}, {"instance_id": "realsumm-29", "score": 0.9}, {"instance_id": "realsumm-30", "score": 1.0}, {"instance_id": "realsumm-31", "score": 1.0}, {"instance_id": "realsumm-32", "score": 0.6}, {"instance_id": "realsumm-33", "score": 1.0}, {"instance_id": "realsumm-34", "score": 0.875}, {"instance_id": "realsumm-35", "score": 0.5}, {"instance_id": "realsumm-36", "score": 0.875}, {"instance_id": "realsumm-37", "score": 0.4166666666666667}, {"instance_id": "realsumm-38", "score": 0.75}, {"instance_id": "realsumm-39", "score": 0.875}, {"instance_id": "realsumm-40", "score": 0.8571428571428571}, {"instance_id": "realsumm-41", "score": 0.8}, {"instance_id": "realsumm-42", "score": 1.0}, {"instance_id": "realsumm-43", "score": 0.42857142857142855}, {"instance_id": "realsumm-44", "score": 0.7368421052631579}, {"instance_id": "realsumm-45", "score": 0.45454545454545453}, {"instance_id": "realsumm-46", "score": 0.2727272727272727}, {"instance_id": "realsumm-47", "score": 1.0}, {"instance_id": "realsumm-48", "score": 0.8181818181818182}, {"instance_id": "realsumm-49", "score": 0.5454545454545454}, {"instance_id": "realsumm-50", "score": 1.0}, {"instance_id": "realsumm-51", "score": 0.8888888888888888}, {"instance_id": "realsumm-52", "score": 0.625}, {"instance_id": "realsumm-53", "score": 0.7142857142857143}, {"instance_id": "realsumm-54", "score": 0.9285714285714286}, {"instance_id": "realsumm-55", "score": 0.5833333333333334}, {"instance_id": "realsumm-56", "score": 0.7}, {"instance_id": "realsumm-57", "score": 0.5714285714285714}, {"instance_id": "realsumm-58", "score": 0.9230769230769231}, {"instance_id": "realsumm-59", "score": 0.7333333333333333}, {"instance_id": "realsumm-60", "score": 0.6111111111111112}, {"instance_id": "realsumm-61", "score": 0.7}, {"instance_id": "realsumm-62", "score": 1.0}, {"instance_id": "realsumm-63", "score": 0.75}, {"instance_id": "realsumm-64", "score": 0.7}, {"instance_id": "realsumm-65", "score": 0.7142857142857143}, {"instance_id": "realsumm-66", "score": 0.8333333333333334}, {"instance_id": "realsumm-67", "score": 1.0}, {"instance_id": "realsumm-68", "score": 0.625}, {"instance_id": "realsumm-69", "score": 0.18181818181818182}, {"instance_id": "realsumm-70", "score": 0.4}, {"instance_id": "realsumm-71", "score": 1.0}, {"instance_id": "realsumm-72", "score": 0.8}, {"instance_id": "realsumm-73", "score": 1.0}, {"instance_id": "realsumm-74", "score": 0.5454545454545454}, {"instance_id": "realsumm-75", "score": 0.7058823529411765}, {"instance_id": "realsumm-76", "score": 1.0}, {"instance_id": "realsumm-77", "score": 0.875}, {"instance_id": "realsumm-78", "score": 0.7}, {"instance_id": "realsumm-79", "score": 0.9285714285714286}, {"instance_id": "realsumm-80", "score": 1.0}, {"instance_id": "realsumm-81", "score": 0.7}, {"instance_id": "realsumm-82", "score": 0.6666666666666666}, {"instance_id": "realsumm-83", "score": 1.0}, {"instance_id": "realsumm-84", "score": 0.625}, {"instance_id": "realsumm-85", "score": 0.75}, {"instance_id": "realsumm-86", "score": 1.0}, {"instance_id": "realsumm-87", "score": 0.7}, {"instance_id": "realsumm-88", "score": 0.6363636363636364}, {"instance_id": "realsumm-89", "score": 0.3076923076923077}, {"instance_id": "realsumm-90", "score": 0.75}, {"instance_id": "realsumm-91", "score": 0.4}, {"instance_id": "realsumm-92", "score": 0.6666666666666666}, {"instance_id": "realsumm-93", "score": 0.7777777777777778}, {"instance_id": "realsumm-94", "score": 0.8181818181818182}, {"instance_id": "realsumm-95", "score": 0.8571428571428571}, {"instance_id": "realsumm-96", "score": 0.6875}, {"instance_id": "realsumm-97", "score": 0.6}, {"instance_id": "realsumm-98", "score": 0.9285714285714286}, {"instance_id": "realsumm-99", "score": 0.6363636363636364}]
+[
+  {
+    "instance_id": "realsumm-0",
+    "score": 1.0
+  },
+  {
+    "instance_id": "realsumm-1",
+    "score": 1.0
+  },
+  {
+    "instance_id": "realsumm-2",
+    "score": 0.5
+  },
+  {
+    "instance_id": "realsumm-3",
+    "score": 0.8181818181818182
+  },
+  {
+    "instance_id": "realsumm-4",
+    "score": 0.75
+  },
+  {
+    "instance_id": "realsumm-5",
+    "score": 0.5833333333333334
+  },
+  {
+    "instance_id": "realsumm-6",
+    "score": 0.7
+  },
+  {
+    "instance_id": "realsumm-7",
+    "score": 0.8888888888888888
+  },
+  {
+    "instance_id": "realsumm-8",
+    "score": 1.0
+  },
+  {
+    "instance_id": "realsumm-9",
+    "score": 0.75
+  },
+  {
+    "instance_id": "realsumm-10",
+    "score": 0.4166666666666667
+  },
+  {
+    "instance_id": "realsumm-11",
+    "score": 0.42857142857142855
+  },
+  {
+    "instance_id": "realsumm-12",
+    "score": 0.8571428571428571
+  },
+  {
+    "instance_id": "realsumm-13",
+    "score": 1.0
+  },
+  {
+    "instance_id": "realsumm-14",
+    "score": 1.0
+  },
+  {
+    "instance_id": "realsumm-15",
+    "score": 0.7777777777777778
+  },
+  {
+    "instance_id": "realsumm-16",
+    "score": 0.7777777777777778
+  },
+  {
+    "instance_id": "realsumm-17",
+    "score": 0.6363636363636364
+  },
+  {
+    "instance_id": "realsumm-18",
+    "score": 0.8181818181818182
+  },
+  {
+    "instance_id": "realsumm-19",
+    "score": 0.7
+  },
+  {
+    "instance_id": "realsumm-20",
+    "score": 0.6363636363636364
+  },
+  {
+    "instance_id": "realsumm-21",
+    "score": 1.0
+  },
+  {
+    "instance_id": "realsumm-22",
+    "score": 0.7
+  },
+  {
+    "instance_id": "realsumm-23",
+    "score": 0.5384615384615384
+  },
+  {
+    "instance_id": "realsumm-24",
+    "score": 0.5714285714285714
+  },
+  {
+    "instance_id": "realsumm-25",
+    "score": 0.25
+  },
+  {
+    "instance_id": "realsumm-26",
+    "score": 0.5
+  },
+  {
+    "instance_id": "realsumm-27",
+    "score": 0.7692307692307693
+  },
+  {
+    "instance_id": "realsumm-28",
+    "score": 0.5
+  },
+  {
+    "instance_id": "realsumm-29",
+    "score": 0.9
+  },
+  {
+    "instance_id": "realsumm-30",
+    "score": 1.0
+  },
+  {
+    "instance_id": "realsumm-31",
+    "score": 1.0
+  },
+  {
+    "instance_id": "realsumm-32",
+    "score": 0.6
+  },
+  {
+    "instance_id": "realsumm-33",
+    "score": 1.0
+  },
+  {
+    "instance_id": "realsumm-34",
+    "score": 0.875
+  },
+  {
+    "instance_id": "realsumm-35",
+    "score": 0.5
+  },
+  {
+    "instance_id": "realsumm-36",
+    "score": 0.875
+  },
+  {
+    "instance_id": "realsumm-37",
+    "score": 0.4166666666666667
+  },
+  {
+    "instance_id": "realsumm-38",
+    "score": 0.75
+  },
+  {
+    "instance_id": "realsumm-39",
+    "score": 0.875
+  },
+  {
+    "instance_id": "realsumm-40",
+    "score": 0.8571428571428571
+  },
+  {
+    "instance_id": "realsumm-41",
+    "score": 0.8
+  },
+  {
+    "instance_id": "realsumm-42",
+    "score": 1.0
+  },
+  {
+    "instance_id": "realsumm-43",
+    "score": 0.42857142857142855
+  },
+  {
+    "instance_id": "realsumm-44",
+    "score": 0.7368421052631579
+  },
+  {
+    "instance_id": "realsumm-45",
+    "score": 0.45454545454545453
+  },
+  {
+    "instance_id": "realsumm-46",
+    "score": 0.2727272727272727
+  },
+  {
+    "instance_id": "realsumm-47",
+    "score": 1.0
+  },
+  {
+    "instance_id": "realsumm-48",
+    "score": 0.8181818181818182
+  },
+  {
+    "instance_id": "realsumm-49",
+    "score": 0.5454545454545454
+  },
+  {
+    "instance_id": "realsumm-50",
+    "score": 1.0
+  },
+  {
+    "instance_id": "realsumm-51",
+    "score": 0.8888888888888888
+  },
+  {
+    "instance_id": "realsumm-52",
+    "score": 0.625
+  },
+  {
+    "instance_id": "realsumm-53",
+    "score": 0.7142857142857143
+  },
+  {
+    "instance_id": "realsumm-54",
+    "score": 0.9285714285714286
+  },
+  {
+    "instance_id": "realsumm-55",
+    "score": 0.5833333333333334
+  },
+  {
+    "instance_id": "realsumm-56",
+    "score": 0.7
+  },
+  {
+    "instance_id": "realsumm-57",
+    "score": 0.5714285714285714
+  },
+  {
+    "instance_id": "realsumm-58",
+    "score": 0.9230769230769231
+  },
+  {
+    "instance_id": "realsumm-59",
+    "score": 0.7333333333333333
+  },
+  {
+    "instance_id": "realsumm-60",
+    "score": 0.6111111111111112
+  },
+  {
+    "instance_id": "realsumm-61",
+    "score": 0.7
+  },
+  {
+    "instance_id": "realsumm-62",
+    "score": 1.0
+  },
+  {
+    "instance_id": "realsumm-63",
+    "score": 0.75
+  },
+  {
+    "instance_id": "realsumm-64",
+    "score": 0.7
+  },
+  {
+    "instance_id": "realsumm-65",
+    "score": 0.7142857142857143
+  },
+  {
+    "instance_id": "realsumm-66",
+    "score": 0.8333333333333334
+  },
+  {
+    "instance_id": "realsumm-67",
+    "score": 1.0
+  },
+  {
+    "instance_id": "realsumm-68",
+    "score": 0.625
+  },
+  {
+    "instance_id": "realsumm-69",
+    "score": 0.18181818181818182
+  },
+  {
+    "instance_id": "realsumm-70",
+    "score": 0.4
+  },
+  {
+    "instance_id": "realsumm-71",
+    "score": 1.0
+  },
+  {
+    "instance_id": "realsumm-72",
+    "score": 0.8
+  },
+  {
+    "instance_id": "realsumm-73",
+    "score": 1.0
+  },
+  {
+    "instance_id": "realsumm-74",
+    "score": 0.5454545454545454
+  },
+  {
+    "instance_id": "realsumm-75",
+    "score": 0.7058823529411765
+  },
+  {
+    "instance_id": "realsumm-76",
+    "score": 1.0
+  },
+  {
+    "instance_id": "realsumm-77",
+    "score": 0.875
+  },
+  {
+    "instance_id": "realsumm-78",
+    "score": 0.7
+  },
+  {
+    "instance_id": "realsumm-79",
+    "score": 0.9285714285714286
+  },
+  {
+    "instance_id": "realsumm-80",
+    "score": 1.0
+  },
+  {
+    "instance_id": "realsumm-81",
+    "score": 0.7
+  },
+  {
+    "instance_id": "realsumm-82",
+    "score": 0.6666666666666666
+  },
+  {
+    "instance_id": "realsumm-83",
+    "score": 1.0
+  },
+  {
+    "instance_id": "realsumm-84",
+    "score": 0.625
+  },
+  {
+    "instance_id": "realsumm-85",
+    "score": 0.75
+  },
+  {
+    "instance_id": "realsumm-86",
+    "score": 1.0
+  },
+  {
+    "instance_id": "realsumm-87",
+    "score": 0.7
+  },
+  {
+    "instance_id": "realsumm-88",
+    "score": 0.6363636363636364
+  },
+  {
+    "instance_id": "realsumm-89",
+    "score": 0.3076923076923077
+  },
+  {
+    "instance_id": "realsumm-90",
+    "score": 0.75
+  },
+  {
+    "instance_id": "realsumm-91",
+    "score": 0.4
+  },
+  {
+    "instance_id": "realsumm-92",
+    "score": 0.6666666666666666
+  },
+  {
+    "instance_id": "realsumm-93",
+    "score": 0.7777777777777778
+  },
+  {
+    "instance_id": "realsumm-94",
+    "score": 0.8181818181818182
+  },
+  {
+    "instance_id": "realsumm-95",
+    "score": 0.8571428571428571
+  },
+  {
+    "instance_id": "realsumm-96",
+    "score": 0.6875
+  },
+  {
+    "instance_id": "realsumm-97",
+    "score": 0.6
+  },
+  {
+    "instance_id": "realsumm-98",
+    "score": 0.9285714285714286
+  },
+  {
+    "instance_id": "realsumm-99",
+    "score": 0.6363636363636364
+  }
+]

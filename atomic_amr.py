@@ -6,7 +6,9 @@ import penman
 from penman.models import amr
 from itertools import chain, combinations
 import spacy
+from nli_evaluation import sent_in_summary
 import re
+from penman.graph import Graph
 
 from amrlib.graph_processing.amr_fix import maybe_fix_unlinked_in_subgraph
 
@@ -73,9 +75,6 @@ def load_source_docs(file_path, to_dict=False):
     if to_dict:
         data = {example["id"]: example for example in data}
     return data
-
-
-import re
 
 
 def has_numbers(inputString):
@@ -176,6 +175,75 @@ def get_subgraphs2(amr_graph):
     return subgraphs
 
 
+def get_subgraphs3(amr_graph):
+
+    g = penman.decode(amr_graph, model=amr.model)
+    t = penman.configure(g)
+    '''
+    notes_in_tree = {}
+    test = []
+    current_list = test
+    for path, branch in t.walk():
+        val_node = path_var(path, t.node)
+        role, target = branch
+        if role == "/":
+            continue
+        if role in notes_in_tree:
+            notes_in_tree[role][0] += 1
+            notes_in_tree[role][1].append(val_node)
+        else:
+            notes_in_tree[role] = [1, [val_node]]
+            # current_list.append((val_node, [branch]))
+            # current_list = current_list[0][1]
+    print(notes_in_tree)
+    '''
+    #print(g)
+    #print(g.top)
+    list_of_trees = []
+    list_of_trees.append(penman.format(t))
+    temp_graph = []
+    temp = ""
+    end = True
+    base_node = g.triples[0][0]
+    sub_grahs = []
+    iteration = 1
+    counter = 0
+    start = True
+    stop = False
+    while end:
+        for i, node in enumerate(g.triples):
+            if i == 0:
+                temp_graph.append(node)
+                continue
+            if node[0] == base_node and stop:
+                break
+            if node[0] == base_node:
+                counter += 1
+            if node[0] == base_node and counter == iteration:
+                stop = True
+            if i == len(g.triples) - 1:
+                end = False
+
+            temp_graph.append(node)
+        stop = False
+        counter = 0
+        iteration += 1
+        temp_graph = []
+        list_of_trees.append(penman.format(penman.configure(Graph(temp_graph))))
+
+
+    # print(t.nodes().index())
+    #test_graph = Graph(test_graph)
+    #test_tree = penman.configure(test_graph)
+    #print(test_graph)
+    #print(test_tree)
+    # print(t.nodes().count('op1'))
+    #test2 = t
+    #list_of_trees.append(penman.configure(Graph([('c', ':instance', 'cause-01'), ('c', ':ARG0', 'a'), ('a', ':instance', 'aftershock'), ('c', ':ARG1', 's'), ('s', ':instance', 'sleep-01'), ('s', ':ARG0', 'a2'), ('a2', ':instance', 'and'), ('a2', ':op2', 'w'), ('w', ':instance', 'woman'), ('a2', ':op3', 'g'), ('g', ':instance', 'girl'), ('a2', ':quant', '425'), ('a2', ':mod', 'y'), ('y', ':instance', 'young'), ('s', ':location', 'o'), ('o', ':instance', 'outdoors')])))
+
+    return list_of_trees
+
+
 def get_subgraphs(amr_graph):
     g = penman.decode(amr_graph, model=amr.model)
     # filtered_instances = []
@@ -245,28 +313,33 @@ def open_jsonl_file(filename):
 
 def run_amr(filename, data_json):
     outputDict = []
+    duplicate_counter = 0
 
     for index_i, example in enumerate(data_json):
-        if index_i not in [5, 61, 86, 38] and False:
+        if index_i > 2 or index_i not in [7] and False:  # [5, 61, 86, 38]:# and False:
             print(f"Skip example: {example['instance_id']}")
         else:
             # print("Id:", example['instance_id'])
             # print("Summary:", example['summary'])
+            se = example['summary']
 
-            if "<t>" in example['summary']:
+            if "\u00a0" in se:
+                se = se.replace("\u00a0", '')
+            se = re.sub(r'\s+', ' ', se)
+            if "<t>" in se:
                 # initializing tag
                 tag = "t"
                 # regex to extract required strings
                 reg_str = "<" + tag + ">(.*?)</" + tag + ">"
-                sentences = re.findall(reg_str, example['summary'])
+                sentences = re.findall(reg_str, se)
             else:
-                page_doc = spacy(example['summary'], disable=["tagger"])
-                sentences = [sent.text for sent in page_doc.sents]
+                page_doc = spacy(se, disable=["tagger"])
+                sentences = [se.text for se in page_doc.sents]
             # sentences.encode("utf-8").decode("utf-8", "replace")
 
-            #sentences = list(map(lambda string: "".join(
+            # sentences = list(map(lambda string: "".join(
             #    map(lambda x: "_" if string.find("'") <= x[0] < string.find("'", string.find("'") + 1) and x[1] == " " else x[1], enumerate(string))) if "'" in string else string, sentences))
-            #print(sentences)
+            # print(sentences)
 
             graphs, graphs_tags = stog.parse_sents(sentences, add_metadata=True)
 
@@ -275,13 +348,16 @@ def run_amr(filename, data_json):
             print(example['instance_id'])
             list_of_sents = []
             list_of_trees = []
+            summary_trees = []
             for idx, (s, g, g_tag) in enumerate(zip(sentences, graphs, graphs_tags)):
+                summary_trees.append(g)
 
                 # print("  ")
                 # print("AMR subgraphs:")
                 # print("  ")
                 dict_tag = get_concepts(g_tag)
-                subgraphs = get_subgraphs(g)
+                subgraphs = get_subgraphs3(g)
+                # TODO: Fallback okay ? --> Original sentence for default if too short?
                 if 0 == len(subgraphs):
                     subgraphs = get_subgraphs(g)
 
@@ -304,14 +380,20 @@ def run_amr(filename, data_json):
                     print(g_tag)
                     print(sents)
                 for sent in sents:
-                    if sent not in list_of_sents:  # sent.__contains__(" ") and not sent.__contains__("* * "):
-                        list_of_sents.append(sent)
+                    if sent in list_of_sents:  # sent.__contains__(" ") and not sent.__contains__("* * "):
+                        duplicate_counter += 1
+                    list_of_sents.append(sent)
+            # list_of_correct_sent = sent_in_summary(se, list_of_sents)
+            # print(list_of_correct_sent)
+            # list_of_sents = [value1 for value1, value2 in zip(list_of_sents, list_of_correct_sent) if value2]
+            # list_of_trees = [value1 for value1, value2 in zip(list_of_trees, list_of_correct_sent) if value2]
             # Think about something that makes more sense ( NONE etc.)
             if len(list_of_sents) == 0:
                 list_of_sents.append(None)
             outputDict.append(
                 {'instance_id': example['instance_id'],
-                 'summary': example['summary'],
+                 'summary': se,  # example['summary'],
+                 'summary_trees': summary_trees,
                  'tree': list_of_trees,
                  'smus': list_of_sents, }
             )
@@ -330,33 +412,38 @@ def run_amr(filename, data_json):
     jsonFile = open(filename, "w")
     jsonFile.write(jsonString)
     jsonFile.close()
+    print(f"Number of duplicates: {duplicate_counter}")
 
 
+'''
 # Create smus out of Tac2008 data
-def run_tac08():
-    data_json = open_json_file('eval_interface/src/data/tac08/tac2008-scus.json')
-    run_amr('eval_interface/src/data/tac08/tac2008-smus-test.json', data_json)
+def run_tac08_amr(scu_path, result_path):
+    data_json = open_json_file(scu_path)
+    run_amr(result_path, data_json)
 
 
 # Create smus out of Tac2009 data
-def run_tac09():
-    data_json = open_json_file('eval_interface/src/data/tac09/tac2009-scus.json')
-    run_amr('eval_interface/src/data/tac09/tac2009-smus.json', data_json)
+def run_tac09_amr(scu_path, result_path):
+    data_json = open_json_file(scu_path)
+    run_amr(result_path, data_json)
 
 
 # Create smus out of PyrXSum data
-def run_pyyrxsum():
-    data_json = open_json_file('eval_interface/src/data/pyrxsum/pyrxsum-scus.json')
-    run_amr('eval_interface/src/data/pyrxsum/pyrxsum-smus.json', data_json)
+def run_pyyrxsum_amr(scu_path, result_path):
+    data_json = open_json_file(scu_path)
+    run_amr(result_path, data_json)
 
 
 # Create smus out of REALSumm data
-def run_realsumm():
-    data_json = open_json_file('eval_interface/src/data/realsumm/realsumm-scus.json')
-    run_amr('eval_interface/src/data/realsumm/realsumm-smus.json', data_json)
+def run_realsumm_amr(scu_path, result_path):
+    data_json = open_json_file(scu_path)
+    run_amr(result_path, data_json)
+'''
 
 
-run_realsumm()
-# run_pyyrxsum()
-# run_tac08()
-# run_tac09()
+def run_amr_data(scus, result_path):
+    run_amr(result_path, scus)
+
+
+run_amr_data(open_json_file('eval_interface/src/data/realsumm/realsumm-scus.json'),
+             'eval_interface/src/data/realsumm/realsumm-smus-temp-test.json')
