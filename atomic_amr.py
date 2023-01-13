@@ -176,7 +176,6 @@ def get_subgraphs2(amr_graph):
 
 
 def get_subgraphs3(amr_graph):
-
     g = penman.decode(amr_graph, model=amr.model)
     t = penman.configure(g)
     '''
@@ -197,19 +196,77 @@ def get_subgraphs3(amr_graph):
             # current_list = current_list[0][1]
     print(notes_in_tree)
     '''
-    #print(g)
-    #print(g.top)
-    list_of_trees = []
-    list_of_trees.append(penman.format(t))
+    # print(g)
+    # print(g.top)
+    list_of_t = []
+    # list_of_trees.append(penman.format(t))
     temp_graph = []
     temp = ""
     end = True
+    base_node_tuple = g.triples[0]
     base_node = g.triples[0][0]
     sub_grahs = []
     iteration = 1
     counter = 0
     start = True
     stop = False
+    base_node_counter = -1  # Amount of direct leaves
+    for i, subtree in enumerate(g.triples):
+        if i == 0:
+            continue
+        if subtree[0] == base_node:
+            list_of_t.append([base_node_tuple, subtree])
+        else:
+            list_of_t[-1].append(subtree)
+
+    # Todo 1: spliten nach op, wenn vorher and
+    # check and presence
+    temp_graph_and = [[]]
+    i = 0
+    end_of_outer_loop = True
+    while end_of_outer_loop:
+        node = g.triples[i]
+        for n in temp_graph_and:
+            n.append(node)
+        if node[2] == "and":
+            end_of_inner_loop = True
+            if i == 0:
+                node_id_of_arg = ('XXX','XXX', 'XXX')
+            else:
+                node_id_of_arg = g.triples[i - 1]
+            node_id_of_and = g.triples[i]
+            subtree_graphs = []
+            i += 1
+            number_of_subtrees = len(temp_graph_and)
+            while end_of_inner_loop:
+                node = g.triples[i]
+                if node[0] == node_id_of_and[0] and ":op" in node[1]:
+                    for n in temp_graph_and:
+                        tempp = n.copy()
+                        tempp.append(node)
+                        subtree_graphs.append(tempp)
+
+                elif node[0] == node_id_of_arg[0] or i >= len(g.triples) - 1:
+                    if i >= len(g.triples) - 1:
+                        end_of_outer_loop = False
+                    temp_graph_and = subtree_graphs
+                    i -= 2
+                    end_of_inner_loop = False
+
+
+                else:
+                    for j in range(number_of_subtrees):
+                        subtree_graphs[-(j + 1)].append(node)
+                i += 1
+
+        if i >= len(g.triples) - 1:
+            end_of_outer_loop = False
+        else:
+            i += 1
+    if len(temp_graph_and) != 1:
+        list_of_t.extend(temp_graph_and)
+    # Todo 2: löschen von einzelnen Eigenschaften
+    '''
     while end:
         for i, node in enumerate(g.triples):
             if i == 0:
@@ -228,20 +285,23 @@ def get_subgraphs3(amr_graph):
         stop = False
         counter = 0
         iteration += 1
-        temp_graph = []
-        list_of_trees.append(penman.format(penman.configure(Graph(temp_graph))))
 
+        list_of_trees.append(penman.format(penman.configure(Graph(temp_graph))))
+        temp_graph = []
+    '''
 
     # print(t.nodes().index())
-    #test_graph = Graph(test_graph)
-    #test_tree = penman.configure(test_graph)
-    #print(test_graph)
-    #print(test_tree)
+    # test_graph = Graph(test_graph)
+    # test_tree = penman.configure(test_graph)
+    # print(test_graph)
+    # print(test_tree)
     # print(t.nodes().count('op1'))
-    #test2 = t
-    #list_of_trees.append(penman.configure(Graph([('c', ':instance', 'cause-01'), ('c', ':ARG0', 'a'), ('a', ':instance', 'aftershock'), ('c', ':ARG1', 's'), ('s', ':instance', 'sleep-01'), ('s', ':ARG0', 'a2'), ('a2', ':instance', 'and'), ('a2', ':op2', 'w'), ('w', ':instance', 'woman'), ('a2', ':op3', 'g'), ('g', ':instance', 'girl'), ('a2', ':quant', '425'), ('a2', ':mod', 'y'), ('y', ':instance', 'young'), ('s', ':location', 'o'), ('o', ':instance', 'outdoors')])))
+    # test2 = t
+    # list_of_trees.append(penman.configure(Graph([('c', ':instance', 'cause-01'), ('c', ':ARG0', 'a'), ('a', ':instance', 'aftershock'), ('c', ':ARG1', 's'), ('s', ':instance', 'sleep-01'), ('s', ':ARG0', 'a2'), ('a2', ':instance', 'and'), ('a2', ':op2', 'w'), ('w', ':instance', 'woman'), ('a2', ':op3', 'g'), ('g', ':instance', 'girl'), ('a2', ':quant', '425'), ('a2', ':mod', 'y'), ('y', ':instance', 'young'), ('s', ':location', 'o'), ('o', ':instance', 'outdoors')])))
 
-    return list_of_trees
+    list_of_t = list(map(lambda x: penman.format(penman.configure(Graph(x))), list_of_t))
+
+    return list_of_t
 
 
 def get_subgraphs(amr_graph):
@@ -316,7 +376,7 @@ def run_amr(filename, data_json):
     duplicate_counter = 0
 
     for index_i, example in enumerate(data_json):
-        if index_i > 2 or index_i not in [7] and False:  # [5, 61, 86, 38]:# and False:
+        if index_i not in [7]:# and False:  # [5, 61, 86, 38]:# and False:
             print(f"Skip example: {example['instance_id']}")
         else:
             # print("Id:", example['instance_id'])
@@ -383,10 +443,10 @@ def run_amr(filename, data_json):
                     if sent in list_of_sents:  # sent.__contains__(" ") and not sent.__contains__("* * "):
                         duplicate_counter += 1
                     list_of_sents.append(sent)
-            # list_of_correct_sent = sent_in_summary(se, list_of_sents)
+            list_of_correct_sent = sent_in_summary(se, list_of_sents)
             # print(list_of_correct_sent)
-            # list_of_sents = [value1 for value1, value2 in zip(list_of_sents, list_of_correct_sent) if value2]
-            # list_of_trees = [value1 for value1, value2 in zip(list_of_trees, list_of_correct_sent) if value2]
+            list_of_sents = [value1 for value1, value2 in zip(list_of_sents, list_of_correct_sent) if value2]
+            list_of_trees = [value1 for value1, value2 in zip(list_of_trees, list_of_correct_sent) if value2]
             # Think about something that makes more sense ( NONE etc.)
             if len(list_of_sents) == 0:
                 list_of_sents.append(None)
@@ -446,4 +506,4 @@ def run_amr_data(scus, result_path):
 
 
 run_amr_data(open_json_file('eval_interface/src/data/realsumm/realsumm-scus.json'),
-             'eval_interface/src/data/realsumm/realsumm-smus-temp-test.json')
+             'eval_interface/src/data/realsumm/realsumm-smus-temp-test-all.json')
