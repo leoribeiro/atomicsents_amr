@@ -26,5 +26,9 @@ table, th, td, tr {
 }
 
 .instance table tr:nth-child(even) {
-  background-color: rgb(228, 228, 228);
+  background-color: rgb(231, 244, 252);
+}
+
+.tree-table{
+   white-space: pre;
 }
