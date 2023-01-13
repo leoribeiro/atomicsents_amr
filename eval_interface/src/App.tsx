@@ -48,7 +48,7 @@ function App() {
                     <div className='instance' key={ex.instance_id}>
                         <h4>{ex.instance_id}</h4>
                         <table>
-                            <tr>
+                            <tr className='table-title'>
                                 <th>{ex.summary.replaceAll("<t>", "").replaceAll("</t>", "")}</th>
                             </tr>
                             {trees_table(ind)}

@@ -32,3 +32,8 @@ table, th, td, tr {
 .tree-table{
    white-space: pre;
 }
+
+.table-title{
+  background-color: rgb(71, 139, 182);
+  color: rgb(255, 255, 255)
+}
