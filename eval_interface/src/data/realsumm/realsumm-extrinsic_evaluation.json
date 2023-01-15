@@ -1,0 +1,9 @@
+[
+  {
+    "instance_id": "realsumm",
+    "pearson_system": 0.9608498931789703,
+    "spearman_system": 0.9484615384615385,
+    "pearson_summary": 0.5012864988311708,
+    "spearman_summary": 0.48369401248571914
+  }
+]

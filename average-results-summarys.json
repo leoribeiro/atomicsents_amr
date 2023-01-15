@@ -1,0 +1,30 @@
+[
+  {
+    "dataset": "realsumm",
+    "ext_bart_out.summary": 0.4046405928093234,
+    "abs_presumm_out_abs.summary": 0.29253827703943797,
+    "abs_t5_out_large.summary": 0.3117282279983517,
+    "ext_neusumm_out.summary": 0.3892686324683228,
+    "ext_pnbert_out_bert_lstm_pn_rl.summary": 0.3742210107573883,
+    "abs_t5_out_base.summary": 0.32189469268261833,
+    "ext_heter_graph_out.summary": 0.3589741008475529,
+    "ext_pnbert_out_lstm_pn_rl.summary": 0.3646389205050195,
+    "abs_bart_out.summary": 0.3763051180415731,
+    "ext_pnbert_out_bert_tf_pn.summary": 0.36056065520306996,
+    "abs_fast_abs_rl_out_rerank.summary": 0.33323267822648633,
+    "ext_refresh_out.summary": 0.4733320922283772,
+    "abs_semsim_out.summary": 0.42375454726731804,
+    "ext_pnbert_out_bert_tf_sl.summary": 0.383022980459513,
+    "abs_ptr_generator_out_pointer_gen_cov.summary": 0.2653869326408026,
+    "abs_unilm_out_v1.summary": 0.34601202022951244,
+    "ext_pnbert_out_bert_lstm_pn.summary": 0.36244649115933925,
+    "abs_t5_out_11B.summary": 0.33030370016979915,
+    "ext_matchsumm_out.summary": 0.35753123609276866,
+    "abs_unilm_out_v2.summary": 0.3336672434892249,
+    "ext_banditsumm_out.summary": 0.360567648210063,
+    "abs_bottom_up_out.summary": 0.24822182551710417,
+    "abs_presumm_out_ext_abs.summary": 0.32105620149544295,
+    "abs_presumm_out_trans_abs.summary": 0.2730146970762295,
+    "abs_two_stage_rl_out.summary": 0.31004278113527334
+  }
+]

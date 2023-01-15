@@ -252,12 +252,12 @@ def evaluate_pyrxsum(smus, stus, scus, result_path, rouge=True, bert=False, move
 
 
 # REALSumm dataset !!! stu realsumm-70 has "." and smu realsumm-69 has "iii","****" and realsumm-97 has "most."
-def evaluate_realsumm(smus, stus, scus, result_path, rouge=True, bert=False, mover=False):
-    smus = open_json_file('eval_interface/src/data/realsumm/realsumm-smus-test.json')
+def evaluate_realsumm(rouge=True, bert=False, mover=False):
+    smus = open_json_file('eval_interface/src/data/realsumm/realsumm-smus-temp-test-all.json')
     stus = open_json_file('eval_interface/src/data/realsumm/realsumm-stus.json')
     scus = open_json_file('eval_interface/src/data/realsumm/realsumm-scus.json')
 
-    evaluate_summaries(scus, stus, smus, 'eval_interface/src/data/realsumm/realsumm-acc-test.json', rouge, bert, mover)
+    evaluate_summaries(scus, stus, smus, 'eval_interface/src/data/realsumm/realsumm-acc-temp-test-all.json', rouge, bert, mover)
     print("REALSumm done!")
 
 
@@ -305,7 +305,7 @@ def debug():
 
 
 # evaluate_pyrxsum(False, True, False)
-# evaluate_realsumm(True, True, False)
+evaluate_realsumm(True, True, False)
 # evaluate_tac08(False, True, False)
 # evaluate_tac09(False, True, False)
 # debug()

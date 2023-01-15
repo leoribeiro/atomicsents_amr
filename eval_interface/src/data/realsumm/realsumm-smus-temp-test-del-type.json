@@ -13,15 +13,18 @@
       "(c / cause-01\n   :ARG0 (a / aftershock)\n   :ARG1 (s / sleep-01\n            :ARG0 (a2 / and\n                      :op1 (p / person\n                              :name (n / name\n                                       :op1 \"Anuradha\"\n                                       :op2 \"Koirala\")))\n            :location (o / outdoors)))",
       "(c / cause-01\n   :ARG0 (a / aftershock)\n   :ARG1 (s / sleep-01\n            :ARG0 (a2 / and\n                      :op2 (w / woman))\n            :location (o / outdoors)))",
       "(c / cause-01\n   :ARG0 (a / aftershock)\n   :ARG1 (s / sleep-01\n            :ARG0 (a2 / and\n                      :op3 (g / girl)\n                      :quant 425\n                      :mod (y / young))\n            :location (o / outdoors)))",
+      "(c / cause-01\n   :ARG0 (a / aftershock)\n   :ARG1 (s / sleep-01\n            :ARG0 (a2 / and\n                      :op1 (p / person\n                              :name (n / name\n                                       :op1 \"Anuradha\"\n                                       :op2 \"Koirala\"))\n                      :op2 (w / woman)\n                      :op3 (g / girl)\n                      :quant 425\n                      :mod (y / young))))",
       "(f / force-01\n   :ARG1 (a / and\n            :op1 (p / person\n                    :name (n / name\n                             :op1 \"Pushpa\"\n                             :op2 \"Basnet\"))\n            :op2 (c / child\n                    :quant 45\n                    :ARG1-of (c2 / care-03\n                                 :ARG0 p))))",
       "(f / force-01\n   :ARG2 (e / evacuate-01\n            :ARG1 (t / thing\n                     :ARG1-of (r / reside-01\n                                 :ARG0 (a / and)))\n            :ARG2 a))",
       "(f / force-01\n   :ARG1 (a / and\n            :op1 (p / person\n                    :name (n / name\n                             :op1 \"Pushpa\"\n                             :op2 \"Basnet\")))\n   :ARG2 (e / evacuate-01\n            :ARG1 (t / thing\n                     :ARG1-of (r / reside-01\n                                 :ARG0 a))\n            :ARG2 a))",
       "(f / force-01\n   :ARG1 (a / and\n            :op2 (c / child\n                    :quant 45\n                    :ARG1-of (c2 / care-03\n                                 :ARG0 (p / person :name (n / name :op1 \"Pushpa\" :op2 \"Basnet\")))))\n   :ARG2 (e / evacuate-01\n            :ARG1 (t / thing\n                     :ARG1-of (r / reside-01\n                                 :ARG0 a))\n            :ARG2 a))",
+      "(f / force-01\n   :ARG1 (a / and\n            :op1 (p / person\n                    :name (n / name\n                             :op1 \"Pushpa\"\n                             :op2 \"Basnet\"))\n            :op2 (c / child\n                    :quant 45\n                    :ARG1-of (c2 / care-03\n                                 :ARG0 p)))\n   :ARG2 (e / evacuate-01\n            :ARG1 (t / thing\n                     :ARG1-of (r / reside-01\n                                 :ARG0 a))\n            :ARG2 a))",
       "(a / assist-01\n   :ARG0 (a2 / and\n             :op1 (h / hero\n                     :quant 7\n                     :mod (p / publication\n                             :name (n / name\n                                      :op1 \"CNN\"))\n                     :mod (o / other))\n             :op2 (o2 / organization\n                      :poss h)))",
       "(a / assist-01\n   :ARG2 (e / effort-01\n            :ARG1 (r / relieve-01)))",
       "(a / assist-01\n   :time (n2 / now))",
       "(a / assist-01\n   :ARG0 (a2 / and\n             :op1 (h / hero\n                     :quant 7\n                     :mod (p / publication\n                             :name (n / name\n                                      :op1 \"CNN\"))\n                     :mod (o / other)))\n   :ARG2 (e / effort-01\n            :ARG1 (r / relieve-01))\n   :time (n2 / now))",
-      "(a / assist-01\n   :ARG0 (a2 / and\n             :op2 (o2 / organization\n                      :poss (h / hero)))\n   :ARG2 (e / effort-01\n            :ARG1 (r / relieve-01))\n   :time (n2 / now))"
+      "(a / assist-01\n   :ARG0 (a2 / and\n             :op2 (o2 / organization\n                      :poss (h / hero)))\n   :ARG2 (e / effort-01\n            :ARG1 (r / relieve-01))\n   :time (n2 / now))",
+      "(a / assist-01\n   :ARG0 (a2 / and\n             :op1 (h / hero\n                     :quant 7\n                     :mod (p / publication\n                             :name (n / name\n                                      :op1 \"CNN\"))\n                     :mod (o / other))\n             :op2 (o2 / organization\n                      :poss h))\n   :ARG2 (e / effort-01\n            :ARG1 (r / relieve-01)))"
     ],
     "smus": [
       "Because of the aftershocks.",
@@ -29,15 +32,18 @@
       "Anuradha and koirala were sleeping outdoors because of the aftershocks.",
       "Aftershocks caused women and men to be sleeping outdoors.",
       "Aftershocks caused 425 young girls to be sleeping outdoors.",
+      "Anuradha Koirala, 425 young women and girls were sleeping because of the aftershocks.",
       "Pushpa Basnet and 45 children she cares for are forced.",
       "Residents were forced to evacuate.",
       "Pushpa Basnet and his residence was forced to evacuate.",
       "45 children whose care is given by Pushpa Basnet were forced to evacuate their residence.",
+      "Pushpa Basnet and 45 children she cares for were forced to evacuate their residence.",
       "The other 7 CNN heroes and their organizations are assisting.",
       "Assisting relief efforts",
       "Now assist.",
       "The other 7 CNN heroes are now assisting in relief efforts.",
-      "Heroes and their organizations are now assisting in relief efforts."
+      "Heroes and their organizations are now assisting in relief efforts.",
+      "7 other CNN heroes and their organizations are assisting in relief efforts."
     ]
   },
   {
@@ -52,6 +58,7 @@
     "tree": [
       "(d / discover-01\n   :ARG0 (p / person\n            :ARG0-of (s / study-01)\n            :source (u / university\n                       :name (n / name\n                                :op1 \"University\"\n                                :op2 \"of\"\n                                :op3 \"Surrey\"))))",
       "(d / discover-01\n   :ARG1 (c / colony\n            :quant (m / multiple\n                      :op1 1000)))",
+      "(d / discover-01\n   :ARG0 (p / person\n            :ARG0-of (s / study-01)\n            :source (u / university\n                       :name (n / name\n                                :op1 \"University\"\n                                :op2 \"of\"\n                                :op3 \"Surrey\")))\n   :ARG1 (c / colony\n            :quant (m / multiple\n                      :op1 1000)))",
       "(s / submerge-01\n   :ARG0 (t / they))",
       "(s / submerge-01\n   :ARG1 (a / and\n            :op1 (c / coin)\n            :op2 (n / note)))",
       "(s / submerge-01\n   :ARG2 (a2 / agar))",
@@ -60,16 +67,16 @@
       "(s / submerge-01\n   :ARG0 (t / they)\n   :ARG1 (a / and\n            :op2 (n / note))\n   :ARG2 (a2 / agar)\n   :purpose (a3 / accelerate-01\n                :ARG0 t\n                :ARG1 (g / grow-03\n                         :ARG1 (b / bacterium\n                                  :name (n2 / name\n                                            :op1 \"Pf\")))))",
       "(c / contrast-01\n   :ARG1 (h / harmful-02\n            :polarity -\n            :ARG0 (m / most)\n            :mod (o / on-the-money)))",
       "(c / contrast-01\n   :ARG2 (c2 / cause-01\n             :ARG0 (o2 / one)\n             :ARG1 (a / and\n                      :op1 (b / boil-01)\n                      :op2 (s / spot))))",
-      "(c / contrast-01\n   :ARG1 (h / harmful-02\n            :polarity -\n            :ARG0 (m / most)\n            :mod (o / on-the-money))\n   :ARG2 (c2 / cause-01\n             :ARG0 (o2 / one)\n             :ARG1 (a / and\n                      :op1 (b / boil-01))))",
-      "(c / contrast-01\n   :ARG1 (h / harmful-02\n            :polarity -\n            :ARG0 (m / most)\n            :mod (o / on-the-money))\n   :ARG2 (c2 / cause-01\n             :ARG0 (o2 / one)\n             :ARG1 (a / and\n                      :op2 (s / spot))))",
+      "(c / contrast-01\n   :ARG1 (h / harmful-02\n            :polarity -\n            :ARG0 (m / most)\n            :mod (o / on-the-money))\n   :ARG2 (c2 / cause-01\n             :ARG0 (o2 / one)\n             :ARG1 (a / and\n                      :op1 (b / boil-01)\n                      :op2 (s / spot))))",
       "(r / reveal-01\n   :ARG0 (s / study-01\n            :time (p / previous)))",
       "(r / reveal-01\n   :ARG1 (b / bacterium\n            :mod (d / disease\n                    :name (n / name\n                             :op1 \"MRSA\"))\n            :location (a / and\n                         :op1 (n2 / note)\n                         :op2 (c / coin))))",
       "(r / reveal-01\n   :ARG0 (s / study-01\n            :time (p / previous))\n   :ARG1 (b / bacterium\n            :mod (d / disease\n                    :name (n / name\n                             :op1 \"MRSA\"))\n            :location (a / and\n                         :op1 (n2 / note))))",
-      "(r / reveal-01\n   :ARG0 (s / study-01\n            :time (p / previous))\n   :ARG1 (b / bacterium\n            :mod (d / disease\n                    :name (n / name\n                             :op1 \"MRSA\"))\n            :location (a / and\n                         :op2 (c / coin))))"
+      "(r / reveal-01\n   :ARG0 (s / study-01)\n   :ARG1 (b / bacterium\n            :mod (d / disease\n                    :name (n / name\n                             :op1 \"MRSA\"))))"
     ],
     "smus": [
       "Students from the University of Surrey discovered --",
       "Thousands of colonies were discovered.",
+      "Students from the University of Surrey discovered thousands of colonies.",
       "They submerged.",
       "The coins and notes were submerged.",
       "Submerged in the agar.",
@@ -78,12 +85,11 @@
       "They submerged the notes and agar to accelerate the growth of the Pf bacteria.",
       "But most aren't harmful on the mone.",
       "But one caused boils and spots.",
-      "Most aren't harmful on the mone but one caused boils and a swollen stomach.",
-      "Most aren't harmful on the mone but one caused spots and a snare.",
+      "Most aren't harmful on the mone but one caused boils and spots.",
       "Previous studies have revealed --",
       "MRSA bacteria have been revealed on notes and coins.",
       "Previous studies have revealed MRSA bacteria on the notes.",
-      "Previous studies have revealed MRSA bacteria in coins and in foods."
+      "Studies have revealed MRSA bacteria."
     ]
   },
   {
@@ -97,39 +103,35 @@
     ],
     "tree": [
       "(a / agree-01\n   :ARG0 (p / person\n            :name (n / name\n                     :op1 \"Danilo\")))",
-      "(a / agree-01\n   :ARG1 (j / join-04\n            :ARG0 (p / person :name (n / name :op1 \"Danilo\"))\n            :ARG1 (t / team\n                     :name (n2 / name\n                               :op1 \"Real\"\n                               :op2 \"Madrid\"))\n            :time (d / date-entity\n                     :season (s / summer))\n            :prep-for (m / monetary-quantity\n                         :quant 23000000\n                         :unit (p2 / pound))))",
       "(a / agree-01\n   :time (w / week\n            :mod (t2 / this)))",
-      "(t / take-01\n   :ARG0 (t2 / transfer-01))",
       "(t / take-01\n   :ARG1 (m / monetary-quantity\n            :ARG1-of (t3 / total-01)\n            :ARG1-of (r / raise-01\n                        :ARG3 (s / sell-01\n                                 :ARG1 (p / person\n                                          :ARG0-of (p2 / play-01))))))",
-      "(t / take-01\n   :ARG3 (m2 / monetary-quantity\n             :quant 440000000\n             :unit (p3 / pound)))",
       "(t / take-01\n   :time (s2 / since\n             :op1 (d / date-entity\n                     :year 2004)))",
       "(ii / include-91\n    :ARG1 (a / and\n             :op1 (p / person\n                     :name (n / name\n                              :op1 \"James\"\n                              :op2 \"Roduez\"))\n             :op2 (p2 / person\n                      :name (n2 / name\n                                :op1 \"Pepe\"))\n             :op3 (p3 / person\n                      :name (n3 / name\n                                :op1 \"Radamel\"\n                                :op2 \"Falcao\"))))",
       "(ii / include-91\n    :ARG2 (t / that\n             :ARG1-of (s / sell-01\n                         :ARG0 (t2 / team\n                                   :name (n4 / name\n                                             :op1 \"Porto\")))))",
       "(ii / include-91\n    :ARG1 (a / and\n             :op1 (p / person\n                     :name (n / name\n                              :op1 \"James\"\n                              :op2 \"Roduez\")))\n    :ARG2 (t / that\n             :ARG1-of (s / sell-01\n                         :ARG0 (t2 / team\n                                   :name (n4 / name\n                                             :op1 \"Porto\")))))",
       "(ii / include-91\n    :ARG1 (a / and\n             :op2 (p2 / person\n                      :name (n2 / name\n                                :op1 \"Pepe\")))\n    :ARG2 (t / that\n             :ARG1-of (s / sell-01\n                         :ARG0 (t2 / team\n                                   :name (n4 / name\n                                             :op1 \"Porto\")))))",
       "(ii / include-91\n    :ARG1 (a / and\n             :op3 (p3 / person\n                      :name (n3 / name\n                                :op1 \"Radamel\"\n                                :op2 \"Falcao\")))\n    :ARG2 (t / that\n             :ARG1-of (s / sell-01\n                         :ARG0 (t2 / team\n                                   :name (n4 / name\n                                             :op1 \"Porto\")))))",
+      "(ii / include-91\n    :ARG1 (a / and\n             :op1 (p / person\n                     :name (n / name\n                              :op1 \"James\"\n                              :op2 \"Roduez\"))\n             :op2 (p2 / person\n                      :name (n2 / name\n                                :op1 \"Pepe\"))\n             :op3 (p3 / person\n                      :name (n3 / name\n                                :op1 \"Radamel\"\n                                :op2 \"Falcao\")))\n    :ARG2 (t / that\n             :ARG1-of (s / sell-01\n                         :ARG0 (t2 / team\n                                   :name (n4 / name\n                                             :op1 \"Porto\")))))",
       "(c / CLICK-01\n   :mode imperative)",
       "(c / CLICK-01\n   :ARG0 (y / you))",
       "(c / CLICK-01\n   :location (h / here))",
-      "(c / CLICK-01\n   :purpose (n / news\n               :mod (a / all)\n               :topic (t / team\n                         :name (n2 / name\n                                   :op1 \"Real\"\n                                   :op2 \"Madrid\"))\n               :mod (l / last)))"
+      "(c / CLICK-01\n   :mode imperative\n   :ARG0 (y / you)\n   :purpose (n / news\n               :mod (a / all)\n               :topic (t / team\n                         :name (n2 / name\n                                   :op1 \"Real\"\n                                   :op2 \"Madrid\"))\n               :mod (l / last)))"
     ],
     "smus": [
       "Danilo agreed.",
-      "Danilo agreed to join Real Madrid for PS23million in the summer.",
       "This week agreed.",
-      "The transfer will take place.",
       "Take the total raised from the sale of the player.",
-      "Take PS44million.",
       "Take since 2004.",
       "James Rodriguez, Pepe and Radamel Falcao are among them.",
       "Those are among those sold by Porto.",
       "James Rodriguez and the others that Porto have sold.",
       "Pepe and the others that Porto have sold.",
       "Those sold by Porto include Adamel Falcao and others.",
+      "Those sold by Porto included James Rodriguez, Pepe and Radamel Falcao.",
       "CLICK HERE.",
       "CLICK HERE.",
       "CLICK HERE.",
-      "CLICK FOR ALL THE LUCKIEST NEWS ON REAL MADRID."
+      "CLICK for all the latest Real Madrid news."
     ]
   }
 ]

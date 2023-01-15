@@ -63,7 +63,7 @@ def eval_pyrxsum():
 
 # realsum
 def eval_realsumm():
-    evaluate_data(open_json_file('eval_interface/src/data/realsumm/realsumm-smus-test.json'),
+    evaluate_data(open_json_file('eval_interface/src/data/realsumm/realsumm-smus-temp-test-all.json'),
                   open_json_file('eval_interface/src/data/realsumm/realsumm-stus.json'),
                   open_json_file('eval_interface/src/data/realsumm/realsumm-scus.json'),
                   'eval_interface/src/data/realsumm/realsumm-acc-test.json',

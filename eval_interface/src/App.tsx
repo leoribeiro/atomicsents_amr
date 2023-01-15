@@ -6,9 +6,9 @@ import { TableElements } from './TableElements';
 // import scus from 'data/pyrxsum/pyrxsum-scus.json';
 // import acc from 'data/pyrxsum/pyrxsum-acc.json';
 import stus from './data/realsumm/realsumm-stus.json';
-import smus from './data/realsumm/realsumm-smus-test-with-st.json';
+import smus from './data/realsumm/realsumm-smus-temp-test-all.json';
 import scus from './data/realsumm/realsumm-scus.json';
-import acc from './data/realsumm/realsumm-acc-test.json';
+import acc from './data/realsumm/realsumm-acc-temp-test-all.json';
 
 function App() {
 

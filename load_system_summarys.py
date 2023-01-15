@@ -8,7 +8,7 @@ def open_file(filename):
     return lines
 
 
-def open_all_files(folder):
+def open_all_files(folder, file_endings):
     # The folder containing the text files
     # folder = '/path/to/folder'
 
@@ -19,7 +19,7 @@ def open_all_files(folder):
     # List the files in the folder
     for file in os.listdir(folder):
         # Check if the file is a text file
-        if file.endswith('.summary'):
+        if file.endswith(file_endings):
             # Store the file name
             file_names.append(file)
             # The list to store the lines of the text file
@@ -52,10 +52,16 @@ def create_json(file_names, summarys, name_of_output, name_of_instance):
 
 # Create Json out of source PyrXSum source data
 
-file_names, list_of_summarys = open_all_files('data/PyrXSum(Source)/summaries')
-create_json(file_names, list_of_summarys, 'eval_interface/src/data/pyrxsum/pyrxsum-system-summary.json', 'pyrxsum')
+#file_names, list_of_summarys = open_all_files('data/PyrXSum(Source)/summaries', '.summary')
+#create_json(file_names, list_of_summarys, 'eval_interface/src/data/pyrxsum/pyrxsum-system-summary.json', 'pyrxsum')
+
+#file_names, list_of_labels = open_all_files('data/PyrXSum(Source)/labels', '.label')
+#create_json(file_names, list_of_labels, 'eval_interface/src/data/pyrxsum/pyrxsum-golden-labels.json', 'pyrxsum')
 
 # Create Json out of source REALSumm data
 
-#file_names, list_of_summarys = open_all_files('data/REALSumm(Source)/summaries')
+#file_names, list_of_summarys = open_all_files('data/REALSumm(Source)/summaries', '.summary')
 #create_json(file_names, list_of_summarys, 'eval_interface/src/data/realsumm/realsumm-system-summary.json', 'realsumm')
+
+#file_names, list_of_labels = open_all_files('data/REALSumm(Source)/labels', '.label')
+#create_json(file_names, list_of_labels, 'eval_interface/src/data/realsumm/realsumm-golden-labels.json', 'realsumm')

@@ -178,30 +178,13 @@ def get_subgraphs2(amr_graph):
 def get_subgraphs3(amr_graph):
     g = penman.decode(amr_graph, model=amr.model)
     t = penman.configure(g)
-    '''
-    notes_in_tree = {}
-    test = []
-    current_list = test
-    for path, branch in t.walk():
-        val_node = path_var(path, t.node)
-        role, target = branch
-        if role == "/":
-            continue
-        if role in notes_in_tree:
-            notes_in_tree[role][0] += 1
-            notes_in_tree[role][1].append(val_node)
-        else:
-            notes_in_tree[role] = [1, [val_node]]
-            # current_list.append((val_node, [branch]))
-            # current_list = current_list[0][1]
-    print(notes_in_tree)
-    '''
+
     # print(g)
     # print(g.top)
     list_of_t = []
     # list_of_trees.append(penman.format(t))
     temp_graph = []
-    temp = ""
+    temp_node = ""
     end = True
     base_node_tuple = g.triples[0]
     base_node = g.triples[0][0]
@@ -214,7 +197,7 @@ def get_subgraphs3(amr_graph):
     for i, subtree in enumerate(g.triples):
         if i == 0:
             continue
-        if subtree[0] == base_node:
+        if subtree[0] == base_node or subtree[2] == base_node:
             list_of_t.append([base_node_tuple, subtree])
         else:
             list_of_t[-1].append(subtree)
@@ -247,6 +230,8 @@ def get_subgraphs3(amr_graph):
                         subtree_graphs.append(tempp)
 
                 elif node[0] == node_id_of_arg[0] or i >= len(g.triples) - 1:
+                    for j in range(number_of_subtrees):
+                        subtree_graphs[-(j + 1)].append(node)
                     if i >= len(g.triples) - 1:
                         end_of_outer_loop = False
                     temp_graph_and = subtree_graphs
@@ -264,42 +249,65 @@ def get_subgraphs3(amr_graph):
         else:
             i += 1
     if len(temp_graph_and) != 1:
+
+        for graph in temp_graph_and:
+            label_of_and = 'XXX'
+            for i, node in enumerate(graph):
+                if node[2] == "and" and i == 0:
+                    label_of_and = graph[0][0]
+                    graph.pop(0)
+                    graph.pop(0)
+                    new_label = graph[0][0]
+                elif node[2] == "and":
+                    label_of_and = node[0]
+                    new_label = graph[i + 1][2]
+                    y = list(graph[i - 1])
+                    y[2] = graph[i + 1][2]
+                    graph[i - 1] = tuple(y)
+                    graph.pop(i)
+                    graph.pop(i)
+                elif node[0] == label_of_and:
+                    y = list(node)
+                    y[0] = new_label
+                    graph[i] = tuple(y)
+                elif node[2] == label_of_and:
+                    y = list(node)
+                    y[2] = new_label
+                    graph[i] = tuple(y)
         list_of_t.extend(temp_graph_and)
     # Todo 2: löschen von einzelnen Eigenschaften
-    '''
-    while end:
-        for i, node in enumerate(g.triples):
-            if i == 0:
-                temp_graph.append(node)
-                continue
-            if node[0] == base_node and stop:
-                break
-            if node[0] == base_node:
-                counter += 1
-            if node[0] == base_node and counter == iteration:
-                stop = True
-            if i == len(g.triples) - 1:
-                end = False
-
-            temp_graph.append(node)
-        stop = False
-        counter = 0
-        iteration += 1
-
-        list_of_trees.append(penman.format(penman.configure(Graph(temp_graph))))
-        temp_graph = []
-    '''
-
-    # print(t.nodes().index())
-    # test_graph = Graph(test_graph)
-    # test_tree = penman.configure(test_graph)
-    # print(test_graph)
-    # print(test_tree)
-    # print(t.nodes().count('op1'))
-    # test2 = t
-    # list_of_trees.append(penman.configure(Graph([('c', ':instance', 'cause-01'), ('c', ':ARG0', 'a'), ('a', ':instance', 'aftershock'), ('c', ':ARG1', 's'), ('s', ':instance', 'sleep-01'), ('s', ':ARG0', 'a2'), ('a2', ':instance', 'and'), ('a2', ':op2', 'w'), ('w', ':instance', 'woman'), ('a2', ':op3', 'g'), ('g', ':instance', 'girl'), ('a2', ':quant', '425'), ('a2', ':mod', 'y'), ('y', ':instance', 'young'), ('s', ':location', 'o'), ('o', ':instance', 'outdoors')])))
-
-    list_of_t = list(map(lambda x: penman.format(penman.configure(Graph(x))), list_of_t))
+    list_of_deleted_nodes = []
+    list_of_types = [':location', ':time']
+    temp_sub_graph = []
+    list_of_nodes =[]
+    for i, _ in enumerate(g.triples):
+        if g.triples[i] == g.triples[0]:
+            list_of_nodes.append(g.triples[i][0])
+        if g.triples[i][0] not in list_of_nodes:
+            temp_node = list(g.triples[i])
+            temp1 = g.triples[i][0]
+            temp_node[0] = g.triples[i][2]
+            temp_node[2] = temp1
+            g.triples[i] = tuple(temp_node)
+            list_of_nodes.append(g.triples[i][2])
+        if g.triples[i] != g.triples[0]:
+            if g.triples[i][1] != ':instance':
+                list_of_nodes.append(g.triples[i][2])
+        if g.triples[i][2] in list_of_deleted_nodes:
+            list_of_deleted_nodes.append(g.triples[i][0])
+        elif g.triples[i][1] in list_of_types:
+            list_of_deleted_nodes.append(g.triples[i][2])
+        elif g.triples[i][0] in list_of_deleted_nodes:
+            if g.triples[i][1] not in ":instance":
+                list_of_deleted_nodes.append(g.triples[i][2])
+        else:
+            temp_sub_graph.append(g.triples[i])
+    list_of_t.append(temp_sub_graph)
+    tree_list = []
+    for i in list_of_t:
+        if len(i) > 3:
+            tree_list.append(i)
+    list_of_t = list(map(lambda x: penman.format(penman.configure(Graph(x))), tree_list))
 
     return list_of_t
 
@@ -376,7 +384,7 @@ def run_amr(filename, data_json):
     duplicate_counter = 0
 
     for index_i, example in enumerate(data_json):
-        if index_i not in [7]:# and False:  # [5, 61, 86, 38]:# and False:
+        if index_i not in [42] and False:  # [5, 61, 86, 38]:# and False:
             print(f"Skip example: {example['instance_id']}")
         else:
             # print("Id:", example['instance_id'])
@@ -443,10 +451,15 @@ def run_amr(filename, data_json):
                     if sent in list_of_sents:  # sent.__contains__(" ") and not sent.__contains__("* * "):
                         duplicate_counter += 1
                     list_of_sents.append(sent)
+
+
+            # check list with nli
             list_of_correct_sent = sent_in_summary(se, list_of_sents)
             # print(list_of_correct_sent)
             list_of_sents = [value1 for value1, value2 in zip(list_of_sents, list_of_correct_sent) if value2]
             list_of_trees = [value1 for value1, value2 in zip(list_of_trees, list_of_correct_sent) if value2]
+
+
             # Think about something that makes more sense ( NONE etc.)
             if len(list_of_sents) == 0:
                 list_of_sents.append(None)
