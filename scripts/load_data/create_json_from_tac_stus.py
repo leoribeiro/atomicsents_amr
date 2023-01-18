@@ -37,9 +37,9 @@ def create_stus_json_file(output_file_name, json_data):
 
 
 # Tac2008 dataset
-data_json = open_jsonl_file('eval_interface/src/data/tac08/tac2008.stus.coref_true.jsonl')
-create_stus_json_file('eval_interface/src/data/tac08/tac2008-stus.json', data_json)
+data_json = open_jsonl_file('../../eval_interface/src/data/tac08/tac2008.stus.coref_true.jsonl')
+create_stus_json_file('../../eval_interface/src/data/tac08/tac2008-stus.json', data_json)
 
 # Tac2009 dataset
-data_json = open_jsonl_file('eval_interface/src/data/tac09/tac2009.stus.coref_true.jsonl')
-create_stus_json_file('eval_interface/src/data/tac09/tac2009-stus.json', data_json)
+data_json = open_jsonl_file('../../eval_interface/src/data/tac09/tac2009.stus.coref_true.jsonl')
+create_stus_json_file('../../eval_interface/src/data/tac09/tac2009-stus.json', data_json)

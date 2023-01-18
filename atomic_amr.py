@@ -6,7 +6,7 @@ import penman
 from penman.models import amr
 from itertools import chain, combinations
 import spacy
-from nli_evaluation import sent_in_summary
+from extrinsic_nli_prep_evaluation import sent_in_summary
 import re
 from penman.graph import Graph
 
@@ -177,32 +177,39 @@ def get_subgraphs2(amr_graph):
 
 def get_subgraphs3(amr_graph):
     g = penman.decode(amr_graph, model=amr.model)
-    t = penman.configure(g)
+    #t = penman.configure(g)
 
     # print(g)
     # print(g.top)
     list_of_t = []
-    # list_of_trees.append(penman.format(t))
-    temp_graph = []
-    temp_node = ""
-    end = True
+    list_of_g_level_one = []
+
     base_node_tuple = g.triples[0]
     base_node = g.triples[0][0]
-    sub_grahs = []
-    iteration = 1
-    counter = 0
-    start = True
-    stop = False
-    base_node_counter = -1  # Amount of direct leaves
     for i, subtree in enumerate(g.triples):
         if i == 0:
             continue
         if subtree[0] == base_node or subtree[2] == base_node:
             list_of_t.append([base_node_tuple, subtree])
+            list_of_g_level_one.append([subtree])
         else:
             list_of_t[-1].append(subtree)
+            list_of_g_level_one[-1].append(subtree)
 
-    # Todo 1: spliten nach op, wenn vorher and
+    # Split the trees of level one leaves
+
+    for j, level_one_tree in enumerate(list_of_g_level_one):
+        base_node_tuple = level_one_tree[0]
+        base_node = level_one_tree[0][0]
+        for i, subtree in enumerate(level_one_tree):
+            if i == 0:
+                continue
+            if subtree[0] == base_node or subtree[2] == base_node:
+                list_of_t.append([subtree])
+            else:
+                list_of_t[-1].append(subtree)
+
+    # spliten after op, if it there are leaves of and
     # check and presence
     temp_graph_and = [[]]
     i = 0
@@ -261,9 +268,15 @@ def get_subgraphs3(amr_graph):
                 elif node[2] == "and":
                     label_of_and = node[0]
                     new_label = graph[i + 1][2]
-                    y = list(graph[i - 1])
-                    y[2] = graph[i + 1][2]
-                    graph[i - 1] = tuple(y)
+
+                    if graph[i - 1][0] == label_of_and:
+                        y = list(graph[i - 1])
+                        y[0] = graph[i + 1][2]
+                        graph[i - 1] = tuple(y)
+                    else:
+                        y = list(graph[i - 1])
+                        y[2] = graph[i + 1][2]
+                        graph[i - 1] = tuple(y)
                     graph.pop(i)
                     graph.pop(i)
                 elif node[0] == label_of_and:
@@ -275,9 +288,10 @@ def get_subgraphs3(amr_graph):
                     y[2] = new_label
                     graph[i] = tuple(y)
         list_of_t.extend(temp_graph_and)
-    # Todo 2: löschen von einzelnen Eigenschaften
+
+    # delete single properties like location and time
     list_of_deleted_nodes = []
-    list_of_types = [':location', ':time']
+    list_of_types = [':location', ':time',':source', ':purpose', 'topic']
     temp_sub_graph = []
     list_of_nodes =[]
     for i, _ in enumerate(g.triples):
@@ -384,7 +398,7 @@ def run_amr(filename, data_json):
     duplicate_counter = 0
 
     for index_i, example in enumerate(data_json):
-        if index_i not in [42] and False:  # [5, 61, 86, 38]:# and False:
+        if index_i > 2 or index_i not in [10] and False:  # [5, 61, 86, 38]:# and False:
             print(f"Skip example: {example['instance_id']}")
         else:
             # print("Id:", example['instance_id'])
@@ -426,8 +440,8 @@ def run_amr(filename, data_json):
                 dict_tag = get_concepts(g_tag)
                 subgraphs = get_subgraphs3(g)
                 # TODO: Fallback okay ? --> Original sentence for default if too short?
-                if 0 == len(subgraphs):
-                    subgraphs = get_subgraphs(g)
+                #if 0 == len(subgraphs):
+                #    subgraphs = get_subgraphs(g)
 
                 subgraphs_tag = []
                 for sb in subgraphs:
@@ -518,5 +532,8 @@ def run_amr_data(scus, result_path):
     run_amr(result_path, scus)
 
 
-run_amr_data(open_json_file('eval_interface/src/data/realsumm/realsumm-scus.json'),
-             'eval_interface/src/data/realsumm/realsumm-smus-temp-test-all.json')
+#run_amr_data(open_json_file('eval_interface/src/data/realsumm/realsumm-scus.json'),
+#             'eval_interface/src/data/realsumm/realsumm-smus-sg3-v2.json')
+
+run_amr_data(open_json_file('eval_interface/src/data/pyrxsum/pyrxsum-scus.json'),
+             'eval_interface/src/data/pyrxsum/pyrxsum-smus-sg3-v2.json')

@@ -1,14 +1,14 @@
 import React from 'react';
 import './App.css';
 import { TableElements } from './TableElements';
-// import stus from 'data/pyrxsum/pyrxsum-stus.json';
-// import smus from 'data/pyrxsum/pyrxsum-smus.json';
-// import scus from 'data/pyrxsum/pyrxsum-scus.json';
-// import acc from 'data/pyrxsum/pyrxsum-acc.json';
+//import stus from './data/pyrxsum/pyrxsum-stus.json';
+//import smus from './data/pyrxsum/pyrxsum-smus-sg2.json';
+//import scus from './data/pyrxsum/pyrxsum-scus.json';
+//import acc from './data/pyrxsum/pyrxsum-acc-sg2.json';
 import stus from './data/realsumm/realsumm-stus.json';
-import smus from './data/realsumm/realsumm-smus-temp-test-all.json';
+import smus from './data/realsumm/realsumm-smus-sg2.json';
 import scus from './data/realsumm/realsumm-scus.json';
-import acc from './data/realsumm/realsumm-acc-temp-test-all.json';
+import acc from './data/realsumm/realsumm-acc-sg2.json';
 
 function App() {
 

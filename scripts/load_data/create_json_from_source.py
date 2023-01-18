@@ -29,15 +29,15 @@ def create_json(summary, name_of_sxus, sxus, name_of_output, name_of_instance):
     jsonFile.close()
 
 # Create Json out of source PyrXSum source data
-summary = open_file('eval_interface/src/data/PyrXSum(Source)/references.txt')
-stus = open_file('eval_interface/src/data/PyrXSum(Source)/STUs.txt')
-scus = open_file('eval_interface/src/data/PyrXSum(Source)/SCUs.txt')
+summary = open_file('../../eval_interface/src/data/PyrXSum(Source)/references.txt')
+stus = open_file('../../eval_interface/src/data/PyrXSum(Source)/STUs.txt')
+scus = open_file('../../eval_interface/src/data/PyrXSum(Source)/SCUs.txt')
 create_json(summary, 'stus', stus, 'eval_interface/src/data/pyrxsum/pyrxsum-stus.json', 'pyrxsum')
 create_json(summary, 'scus', scus, 'eval_interface/src/data/pyrxsum/pyrxsum-scus.json', 'pyrxsum')
 
 # Create Json out of source REALSumm data
-summary = open_file('eval_interface/src/data/REALSumm(Source)/references.txt')
-stus = open_file('eval_interface/src/data/REALSumm(Source)/STUs.txt')
-scus = open_file('eval_interface/src/data/REALSumm(Source)/SCUs.txt')
+summary = open_file('../../eval_interface/src/data/REALSumm(Source)/references.txt')
+stus = open_file('../../eval_interface/src/data/REALSumm(Source)/STUs.txt')
+scus = open_file('../../eval_interface/src/data/REALSumm(Source)/SCUs.txt')
 create_json(summary, 'stus', stus, 'eval_interface/src/data/realsumm/realsumm-stus.json', 'realsumm')
 create_json(summary, 'scus', scus, 'eval_interface/src/data/realsumm/realsumm-scus.json', 'realsumm')

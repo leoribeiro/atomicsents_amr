@@ -106,7 +106,7 @@ def nli_evaluation_dataset(summarys, smus, output_file):
                 output_Temp = {'instance_id': value}
                 print(value)
             else:
-                list_of_nli_results = sent_in_summary(value, smus[i]['scus'])
+                list_of_nli_results = sent_in_summary(value, smus[i]['stus'])
                 # print(list_of_nli_results)
                 output_Temp[label] = sum(list_of_nli_results) / len(list_of_nli_results)
 
@@ -126,18 +126,19 @@ def open_json_file(filename):
 
 # PyrXSum dataset
 def nli_evaluate_pyrxsum():
-    smus = open_json_file('eval_interface/src/data/pyrxsum/pyrxsum-smus.json')
+    smus = open_json_file('eval_interface/src/data/pyrxsum/pyrxsum-stus.json')
+    summarys = open_json_file('eval_interface/src/data/pyrxsum/pyrxsum-system-summary.json')
 
-    nli_evaluation_dataset(smus, 'eval_interface/src/data/pyrxsum/pyrxsum-nli.json')
+    nli_evaluation_dataset(summarys, smus, 'eval_interface/src/data/pyrxsum/pyrxsum-nli-stu.json')
     print("PyrXSum done!")
 
 
 # REALSumm dataset !!! stu realsumm-70 has "." and smu realsumm-69 has "iii","****" and realsumm-97 has "most."
 def nli_evaluate_realsumm():
-    smus = open_json_file('eval_interface/src/data/realsumm/realsumm-scus.json')
+    smus = open_json_file('eval_interface/src/data/realsumm/realsumm-stus.json')
     summarys = open_json_file('eval_interface/src/data/realsumm/realsumm-system-summary.json')
 
-    nli_evaluation_dataset(summarys, smus, 'eval_interface/src/data/realsumm/realsumm-nli-scu.json')
+    nli_evaluation_dataset(summarys, smus, 'eval_interface/src/data/realsumm/realsumm-nli-stu.json')
     print("REALSumm done!")
 
 
@@ -161,7 +162,7 @@ def nli_evaluate_data(summarys, smus, result_path):
     nli_evaluation_dataset(summarys, smus, result_path)
     print(f"nli evaluation of {result_path} done!")
 
-# nli_evaluate_pyrxsum()
+#nli_evaluate_pyrxsum()
 # nli_evaluate_realsumm()
 # nli_evaluate_tac08()
 # nli_evaluate_tac09()

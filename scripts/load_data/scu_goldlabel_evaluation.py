@@ -1,7 +1,6 @@
 import json
 
 
-
 def gold_evaluation_dataset(labels, output_file):
     outputDict = []
 
@@ -37,33 +36,29 @@ def open_json_file(filename):
 
 # PyrXSum dataset
 def gold_evaluate_pyrxsum():
-    labels = open_json_file('eval_interface/src/data/pyrxsum/pyrxsum-golden-labels.json')
+    labels = open_json_file('../../eval_interface/src/data/pyrxsum/pyrxsum-golden-labels.json')
 
-    gold_evaluation_dataset(labels, 'eval_interface/src/data/pyrxsum/pyrxsum-gold_score.json')
+    gold_evaluation_dataset(labels, '../../eval_interface/src/data/pyrxsum/pyrxsum-gold_score.json')
     print("PyrXSum done!")
 
 
 # REALSumm dataset !!! stu realsumm-70 has "." and smu realsumm-69 has "iii","****" and realsumm-97 has "most."
 def gold_evaluate_realsumm():
-    labels = open_json_file('eval_interface/src/data/realsumm/realsumm-golden-labels.json')
+    labels = open_json_file('../../eval_interface/src/data/realsumm/realsumm-golden-labels.json')
 
-    gold_evaluation_dataset(labels, 'eval_interface/src/data/realsumm/realsumm-gold_score.json')
+    gold_evaluation_dataset(labels, '../../eval_interface/src/data/realsumm/realsumm-gold_score.json')
     print("REALSumm done!")
 
 
 # Tac2008 dataset
 def gold_evaluate_tac08():
-
-
-    #nli_evaluation_dataset(smus, 'eval_interface/src/data/tac08/tac08-nli.json')
+    # nli_evaluation_dataset(smus, 'eval_interface/src/data/tac08/tac08-nli.json')
     print("Tac2008 done!")
 
 
 # Tac2009 dataset !!! stu d0913-A has "?" devided by 0 error
 def gold_evaluate_tac09():
-
-
-    #nli_evaluation_dataset(smus, 'eval_interface/src/data/tac09/tac09-nli.json')
+    # nli_evaluation_dataset(smus, 'eval_interface/src/data/tac09/tac09-nli.json')
     print("Tac2009 done!")
 
 
@@ -71,7 +66,8 @@ def gold_evaluate_data(labels, result_path):
     gold_evaluation_dataset(labels, result_path)
     print(f"nli evaluation of {result_path} done!")
 
-# nli_evaluate_pyrxsum()
-gold_evaluate_realsumm()
-# nli_evaluate_tac08()
-# nli_evaluate_tac09()
+
+gold_evaluate_pyrxsum()
+# gold_evaluate_realsumm()
+# gold_evaluate_tac08()
+# gold_evaluate_tac09()

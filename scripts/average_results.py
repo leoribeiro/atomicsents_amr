@@ -56,24 +56,24 @@ def calc_average_sys_sum(score, nli):
 
 
 def clac_average_for_datasets(resources):
-    pyrxsum_score = open_json_file('eval_interface/src/data/pyrxsum/pyrxsum-acc.json')
-    pyrxsum_nli = open_json_file('eval_interface/src/data/pyrxsum/pyrxsum-nli.json')
+    pyrxsum_score = open_json_file('../eval_interface/src/data/pyrxsum/pyrxsum-acc-sg2.json')
+    pyrxsum_nli = open_json_file('../eval_interface/src/data/pyrxsum/pyrxsum-nli-sg2.json')
 
-    realsumm_score = open_json_file('eval_interface/src/data/realsumm/realsumm-acc-test.json')
-    realsumm_nli = open_json_file('eval_interface/src/data/realsumm/realsumm-nli-scu.json')
+    realsumm_score = open_json_file('../eval_interface/src/data/realsumm/realsumm-acc-sg2.json')
+    realsumm_nli = open_json_file('../eval_interface/src/data/realsumm/realsumm-nli-sg2.json')
 
-    tac08_score = open_json_file('eval_interface/src/data/tac08/tac08-acc.json')
-    tac08_nli = open_json_file('eval_interface/src/data/tac08/tac08-nli.json')
+    tac08_score = open_json_file('../eval_interface/src/data/tac08/tac08-acc.json')
+    tac08_nli = open_json_file('../eval_interface/src/data/tac08/tac08-nli.json')
 
-    tac09_score = open_json_file('eval_interface/src/data/tac09/tac09-acc.json')
-    tac09_nli = open_json_file('eval_interface/src/data/tac09/tac09-nli.json')
+    tac09_score = open_json_file('../eval_interface/src/data/tac09/tac09-acc.json')
+    tac09_nli = open_json_file('../eval_interface/src/data/tac09/tac09-nli.json')
     average = []
     for scores, nli in resources:
         #average.append(calc_average(scores, nli))
         average.append(calc_average_sys_sum(scores, nli))
 
     # calc_average(pyrxsum_score, pyrxsum_nli),
-    average = [calc_average(pyrxsum_score, pyrxsum_nli), calc_average_sys_sum(realsumm_score, realsumm_nli),
+    average = [calc_average_sys_sum(pyrxsum_score, pyrxsum_nli), calc_average_sys_sum(realsumm_score, realsumm_nli),
                calc_average(tac08_score, tac08_nli), calc_average(tac09_score, tac09_nli)]
 
     outputDict = []
@@ -81,7 +81,7 @@ def clac_average_for_datasets(resources):
     datasets = ["pyrxsum", "realsumm", "tac08", "tac09"]
     print(average)
     for i in range(len(datasets)):
-        if i == 1:
+        if i <= 1:
             output_Temp = {'dataset': datasets[i]}
             output_Temp['stu-average'] = average[i][0]
             output_Temp['smu-average'] = average[i][1]
@@ -99,9 +99,9 @@ def clac_average_for_datasets(resources):
             })
 
     jsonString = json.dumps(outputDict)
-    jsonFile = open("average-results-scu.json", "w")
+    jsonFile = open("../data/average-results-sg2.json", "w")
     jsonFile.write(jsonString)
     jsonFile.close()
 
 
-# clac_average_for_datasets()
+clac_average_for_datasets([])
