@@ -20,7 +20,7 @@ export function TableElements(props: Props) {
 
     for (let i = 0; i < max; i++) {
         output.push(
-            <tr>
+            <tr key={i}>
                 <td>{scus.length > i ? scus[i] : ''}</td>
                 <td>{stu_pos.length > i ? stus[stu_pos[i][0]] : ''}</td>
                 <td>{stu_pos.length > i ? stu_pos[i][1] : ''}</td>
@@ -31,7 +31,7 @@ export function TableElements(props: Props) {
         )
     }
     return (<table>
-        <tr>
+        <tr >
             <th>SCUs</th>
             <th>STUs, {Math.round(accSTUs * 1000) / 1000} Easiness</th>
             <th>STU scores</th>

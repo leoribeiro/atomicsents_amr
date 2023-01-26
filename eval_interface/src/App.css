@@ -3,12 +3,17 @@
 }
 
 .instance {
-  margin: 4rem 0rem;
+  margin-bottom: 1rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
   display: flex;
   flex-direction: column;
   font-size: 1rem;
 }
 
+.header {
+  margin: 2.5rem 0rem;
+}
 .instance table {
   text-align: left;
   margin-top: 0.5rem;
