@@ -15,7 +15,7 @@
   margin: 2.5rem 0rem;
 }
 .instance table {
-  text-align: left;
+  text-align: start;
   margin-top: 0.5rem;
   border: none;
 }
@@ -40,5 +40,21 @@ table, th, td, tr {
 
 .table-title{
   background-color: rgb(71, 139, 182);
-  color: rgb(255, 255, 255)
+  color: rgb(255, 255, 255);
+}
+
+th {
+  display: table-cell;
+  vertical-align: middle;
+  font-weight: bold;
+  text-align: justify;
+}
+.Button{
+  height: 2rem;
+}
+
+.Settings{
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 0.5rem;
 }

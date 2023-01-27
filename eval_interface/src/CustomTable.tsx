@@ -11,8 +11,9 @@ import smus from './data/realsumm/realsumm-smus-sg2.json';
 import scus from './data/realsumm/realsumm-scus.json';
 import acc from './data/realsumm/realsumm-acc-sg2.json';
 
-function CustomTable(props: { ex: any, ind: any }) {
+const CustomTable = (props: { ex: any, ind: any, isDetailOpen:boolean })=>  {
     const [isOpen, setIsOpen] = useState(true);
+    const {ex, ind, isDetailOpen} = props
 
     const trees_table = (ind: number) => {
         const sentences: string[] = [];
@@ -39,29 +40,32 @@ function CustomTable(props: { ex: any, ind: any }) {
     }
 
     return (
-        <div className='instance' key={props.ind}>
+        <div className='instance' key={ind}>
             <Stack direction="row">
-                <h4>{props.ex.instance_id}</h4>
+                <h4>{ex.instance_id}</h4>
                 <IconButton aria-label="collapse" onClick={() => setIsOpen(!isOpen)}
                             color="primary">
                     {isOpen ? <KeyboardArrowDownIcon/> : <KeyboardArrowRightIcon/>}
                 </IconButton>
             </Stack>
             <Collapse isOpened={isOpen}>
-                <table key={props.ex.instance_id}>
+                <table key={ex.instance_id}>
                     <tr className='table-title'>
-                        <th>{props.ex.summary.replaceAll("<t>", "").replaceAll("</t>", "")}</th>
+                        <th>{ex.summary.replaceAll("<t>", "").replaceAll("</t>", "")}</th>
                     </tr>
-                    {trees_table(props.ind)}
+                    {trees_table(ind)}
                 </table>
-                <TableElements scus={scus[props.ind].scus}
-                               smus={smus[props.ind].smus}
-                               trees={smus[props.ind].tree}
-                               stus={stus[props.ind].stus}
-                               accSMUs={acc[props.ind]["easiness-smus-acc-bert"]}
-                               accSTUs={acc[props.ind]["easiness-stus-acc-bert"]}
-                               stu_pos={acc[props.ind]["stus-pos-bert"]}
-                               smu_pos={acc[props.ind]["smus-pos-bert"]}/>
+                <TableElements
+                    scus={scus[ind].scus}
+                    smus={smus[ind].smus}
+                    trees={smus[ind].tree}
+                    stus={stus[ind].stus}
+                    accSMUs={acc[ind]["easiness-smus-acc-bert"]}
+                    accSTUs={acc[ind]["easiness-stus-acc-bert"]}
+                    stu_pos={acc[ind]["stus-pos-bert"]}
+                    smu_pos={acc[ind]["smus-pos-bert"]}
+                    isDetailOpen={isDetailOpen}
+                                />
             </Collapse>
         </div>
     );
