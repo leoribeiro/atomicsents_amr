@@ -1,21 +1,20 @@
 import React, {useState} from 'react';
 import './App.css';
-//import stus from './data/pyrxsum/pyrxsum-stus.json';
-//import smus from './data/pyrxsum/pyrxsum-smus-sg2.json';
-//import scus from './data/pyrxsum/pyrxsum-scus.json';
-//import acc from './data/pyrxsum/pyrxsum-acc-sg2.json';
-import stus from './data/realsumm/realsumm-stus.json';
-import smus from './data/realsumm/realsumm-smus-sg2.json';
-import scus from './data/realsumm/realsumm-scus.json';
-import acc from './data/realsumm/realsumm-acc-sg2.json';
 
+import { Button, FormControl, InputLabel, MenuItem} from "@mui/material";
+import Select, {SelectChangeEvent} from '@mui/material/Select';
 
-import CustomTable from "./CustomTable";
-import {Button} from "@mui/material";
+import DatasetTable from "./components/DatasetTable";
+import {Dataset} from "./components/Dataset";
 
 function App() {
     const [isDetailOpen, setIsDetailOpen] = useState(true);
+    const [choosenDataset, setChoosenDataset] = useState(Dataset.Realsumm.toString());
 
+    const handleChange = (event: SelectChangeEvent) => {
+        setChoosenDataset(event.target.value as string);
+    };
+    const datasets: string[] = Object.values(Dataset);
     return (
         <div className="App">
             <header className="header">
@@ -23,6 +22,22 @@ function App() {
             </header>
             <body>
             <div className='Settings'>
+                <FormControl sx={{m: 1, minWidth: 120}} size="small" style={{margin: "0rem 2rem" }}>
+                    <InputLabel id="dataset-dropdown">Dataset</InputLabel>
+                    <Select
+                        labelId="dataset-dropdown-label"
+                        id="dataset-dropdown"
+                        value={choosenDataset}
+                        label="Dataset"
+                        onChange={handleChange}
+                    >
+                        {datasets.map((val) =>
+                            <MenuItem value={val}>{val} </MenuItem>
+                        )}
+
+                    </Select>
+                </FormControl>
+
                 <Button variant="contained"
                         aria-label="collapse"
                         onClick={() => setIsDetailOpen(!isDetailOpen)}
@@ -35,11 +50,7 @@ function App() {
                     {isDetailOpen ? <h4>Hide details</h4> : <h4>Show details</h4>}
                 </Button>
             </div>
-            <div>
-                {scus.map((ex, ind) => (
-                    <CustomTable key={ex.instance_id} ex={ex} ind={ind} isDetailOpen={isDetailOpen}/>
-                ))}
-            </div>
+            <DatasetTable dataset={choosenDataset} isDetailOpen={isDetailOpen}/>
             </body>
         </div>
     );

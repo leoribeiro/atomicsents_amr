@@ -1,24 +1,32 @@
-import {TableElements} from "./TableElements";
 import React, {useState} from "react";
 import {Collapse} from 'react-collapse';
+
 import IconButton from '@mui/material/IconButton';
 import {Stack} from "@mui/material";
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
-import stus from './data/realsumm/realsumm-stus.json';
-import smus from './data/realsumm/realsumm-smus-sg2.json';
-import scus from './data/realsumm/realsumm-scus.json';
-import acc from './data/realsumm/realsumm-acc-sg2.json';
+import {TableElements} from "./TableElements";
 
-const CustomTable = (props: { ex: any, ind: any, isDetailOpen:boolean })=>  {
+
+interface Props {
+    ex: any
+    ind: any
+    isDetailOpen: boolean
+    acc: any[]
+    scus: any[]
+    stus: any[]
+    smus: any[]
+}
+
+const DataUnitTable = (props: Props)=>  {
     const [isOpen, setIsOpen] = useState(true);
-    const {ex, ind, isDetailOpen} = props
+    const {ex, ind, isDetailOpen, scus, stus, smus, acc} = props
 
     const trees_table = (ind: number) => {
         const sentences: string[] = [];
         const trees: string[] = []
-        smus[ind].summary_trees.forEach((sum_tree) => {
+        smus[ind].summary_trees.forEach((sum_tree: string) => {
             const str = sum_tree.toString();
             sentences.push(str.slice(0, str.indexOf('\n')));
             trees.push(str.slice(str.indexOf('\n') + 1));
@@ -71,4 +79,4 @@ const CustomTable = (props: { ex: any, ind: any, isDetailOpen:boolean })=>  {
     );
 }
 
-export default CustomTable;
+export default DataUnitTable;

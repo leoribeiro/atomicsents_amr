@@ -17,13 +17,20 @@
 .instance table {
   text-align: start;
   margin-top: 0.5rem;
-  border: none;
 }
 
 table, th, td, tr {
   border: none;
   border-collapse: collapse;
   vertical-align: top;
+  width: 96vw;
+}
+
+th {
+  display: table-cell;
+  vertical-align: middle;
+  font-weight: bold;
+  text-align: justify;
 }
 
 .instance table td, .instance table th {
@@ -43,12 +50,7 @@ table, th, td, tr {
   color: rgb(255, 255, 255);
 }
 
-th {
-  display: table-cell;
-  vertical-align: middle;
-  font-weight: bold;
-  text-align: justify;
-}
+
 .Button{
   height: 2rem;
 }
@@ -57,4 +59,14 @@ th {
   display: flex;
   justify-content: flex-end;
   padding-right: 0.5rem;
+  align-items: center;
+}
+
+.table-wrapper{
+  display: flex;
+  flex-direction: column;
+}
+
+.trees {
+  white-space: pre;
 }
