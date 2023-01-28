@@ -1,52 +1,68 @@
 import json
+import os
+import numpy as np
 
 
-def gold_evaluation_dataset(labels, output_file):
-    outputDict = []
+def open_all_files(folder, file_endings):
+    # The folder containing the text files
+    # folder = '/path/to/folder'
 
-    for i, data in enumerate(labels):
-        # Parse the JSON data
-        # data = json.loads(data)
-        # Iterate over the key-value pairs in the data
-        for label, value in data.items():
+    # The list to store the contents of the text files
+    text_files = []
+    file_names = []
 
-            if "instance_id" in label:
-                output_Temp = {'instance_id': value}
-                print(value)
-            else:
-                label_scu = str(value).replace('\n', '')
-                label_scu_array = label_scu.split('\t')
+    # List the files in the folder
+    for file in os.listdir(folder):
+        # Check if the file is a text file
+        if file.endswith(file_endings):
+            # Store the file name
+            file_names.append(file)
+            # The list to store the lines of the text file
+            lines = []
+            # Open the file and read the contents
+            with open(os.path.join(folder, file), 'r') as f:
+                for line in f:
+                    lines.append(line)
+            # Append the list of lines to the list of text files
+            text_files.append(lines)
 
-                result = list(map(int, map(lambda x: x.strip('"'), label_scu_array)))
-                output_Temp[label] = sum(result) / len(result)
+    return file_names, text_files  # A list containing the contents of the text files
 
-        outputDict.append(output_Temp)
+
+def create_gold_evaluation(file_names, summarys, name_of_output):
+    outputDict = {}
+    for i, summary in enumerate(summarys):
+        output_Temp = []
+        for j, values in enumerate(summary):
+            # Add to dict for json
+            label_scu = str(values).replace('\n', '')
+            label_scu_array = label_scu.split('\t')
+
+            result = list(map(int, map(lambda x: x.strip('"'), label_scu_array)))
+
+            output_Temp.append(np.mean(result))
+        outputDict[file_names[i].replace('.label', '')] = dict(
+            zip(range(len(output_Temp)), map(lambda x: x, output_Temp)))
 
     jsonString = json.dumps(outputDict)
-    jsonFile = open(output_file, "w")
+    jsonFile = open(name_of_output, "w")
     jsonFile.write(jsonString)
     jsonFile.close()
 
 
-def open_json_file(filename):
-    with open(filename) as f:
-        data_json = json.load(f)
-        return data_json
-
-
 # PyrXSum dataset
 def gold_evaluate_pyrxsum():
-    labels = open_json_file('../../eval_interface/src/data/pyrxsum/pyrxsum-golden-labels.json')
-
-    gold_evaluation_dataset(labels, '../../eval_interface/src/data/pyrxsum/pyrxsum-gold_score.json')
+    file_names, list_of_labels = open_all_files('../../data/PyrXSum(Source)/labels', '.label')
+    create_gold_evaluation(file_names, list_of_labels,
+                           '../../eval_interface/src/data/pyrxsum/pyrxsum-golden-labels.json', )
     print("PyrXSum done!")
 
 
 # REALSumm dataset !!! stu realsumm-70 has "." and smu realsumm-69 has "iii","****" and realsumm-97 has "most."
 def gold_evaluate_realsumm():
-    labels = open_json_file('../../eval_interface/src/data/realsumm/realsumm-golden-labels.json')
-
-    gold_evaluation_dataset(labels, '../../eval_interface/src/data/realsumm/realsumm-gold_score.json')
+    file_names, list_of_labels = open_all_files('../../data/REALSumm(Source)/labels', '.label')
+    create_gold_evaluation(file_names, list_of_labels,
+                           '../../eval_interface/src/data/realsumm/realsumm-golden-labels.json', )
     print("REALSumm done!")
 
 
@@ -68,6 +84,6 @@ def gold_evaluate_data(labels, result_path):
 
 
 gold_evaluate_pyrxsum()
-# gold_evaluate_realsumm()
+gold_evaluate_realsumm()
 # gold_evaluate_tac08()
 # gold_evaluate_tac09()

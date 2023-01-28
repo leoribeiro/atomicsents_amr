@@ -27,16 +27,6 @@ class Inference(STOGInferenceBase):
         self.model_dir       = model_dir
         self.model_fn        = model_fn
         default_device       = 'cuda:0' if torch.cuda.is_available() else 'cpu'
-        if not torch.backends.mps.is_available():
-            if not torch.backends.mps.is_built():
-                print("MPS not available because the current PyTorch install was not "
-                      "built with MPS enabled.")
-            else:
-                print("MPS not available because the current MacOS version is not 12.3+ "
-                      "and/or you do not have an MPS-enabled device on this machine.")
-
-        else:
-            default_device = torch.device("mps")
         device               = kwargs.get('device', default_device)
         self.device          = torch.device(device)
         self.batch_size      = kwargs.get('batch_size',   6000)   # note that batch-size is in tokens

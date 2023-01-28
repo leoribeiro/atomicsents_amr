@@ -32,7 +32,6 @@ def simple_evaluation(scus, sxus):
 
 
 def evaluation_Bert_one(scus, sxus):
-    bert = BertScoreMetric()
 
     scu_for_eval = []
     sxu_for_eval = []
@@ -44,7 +43,7 @@ def evaluation_Bert_one(scus, sxus):
     all_preds, hash_code = bert_score.score(scu_for_eval, sxu_for_eval, lang='en', model_type='bert-base-uncased',
                                             num_layers=8, verbose=False, idf=False, \
                                             nthreads=4, batch_size=64, rescale_with_baseline=False, return_hash=True,
-                                            device=torch.device("mps"))
+                                            device=torch.device("cuda"))
     length_to_split = []
     for i in range(len(scus)):
         length_to_split.append(len(sxus))
@@ -64,7 +63,6 @@ def evaluation_Bert_one(scus, sxus):
 
 
 def evaluation_Bert_two(scus, stus, smus):
-    bert = BertScoreMetric()
 
     scu_for_eval = []
     sxu_for_eval = []
@@ -243,21 +241,21 @@ def evaluate_summaries(scus, stus, smus, output_file, rouge, bert, mover):
 
 # PyrXSum dataset
 def evaluate_pyrxsum(rouge=True, bert=False, mover=False):
-    smus = open_json_file('../eval_interface/src/data/pyrxsum/pyrxsum-smus-sg2.json')
+    smus = open_json_file('../eval_interface/src/data/pyrxsum/pyrxsum-smus-sg3-v4.json')
     stus = open_json_file('../eval_interface/src/data/pyrxsum/pyrxsum-stus.json')
     scus = open_json_file('../eval_interface/src/data/pyrxsum/pyrxsum-scus.json')
 
-    evaluate_summaries(scus, stus, smus, '../eval_interface/src/data/pyrxsum/pyrxsum-acc-sg2.json', rouge, bert, mover)
+    evaluate_summaries(scus, stus, smus, '../eval_interface/src/data/pyrxsum/pyrxsum-acc-sg3-v4.json', rouge, bert, mover)
     print("PyrXSum done!")
 
 
 # REALSumm dataset !!! stu realsumm-70 has "." and smu realsumm-69 has "iii","****" and realsumm-97 has "most."
 def evaluate_realsumm(rouge=True, bert=False, mover=False):
-    smus = open_json_file('../eval_interface/src/data/realsumm/realsumm-smus-sg2.json')
+    smus = open_json_file('../eval_interface/src/data/realsumm/realsumm-smus-sg3-v4.json')
     stus = open_json_file('../eval_interface/src/data/realsumm/realsumm-stus.json')
     scus = open_json_file('../eval_interface/src/data/realsumm/realsumm-scus.json')
 
-    evaluate_summaries(scus, stus, smus, '../eval_interface/src/data/realsumm/realsumm-acc-sg2.json', rouge, bert, mover)
+    evaluate_summaries(scus, stus, smus, '../eval_interface/src/data/realsumm/realsumm-acc-sg3-v4.json', rouge, bert, mover)
     print("REALSumm done!")
 
 
@@ -304,8 +302,9 @@ def debug():
     print(stus_evaluation_bert)
 
 
-evaluate_pyrxsum(True, True, False)
-evaluate_realsumm(True, True, False)
-# evaluate_tac08(False, True, False)
-# evaluate_tac09(False, True, False)
-# debug()
+if __name__ == '__main__':
+    #evaluate_pyrxsum(True, True, False)
+    evaluate_realsumm(True, True, False)
+    # evaluate_tac08(False, True, False)
+    # evaluate_tac09(False, True, False)
+    # debug()

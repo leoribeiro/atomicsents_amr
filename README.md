@@ -27,13 +27,12 @@ python atomic_amr.py
 
 ## Run pipeline
 0) prep data to generate json files with right format
-1) run scripts/atomic_amr.py (to generate smus)
-2) run scripts/intrinsic_evaluation.py (for evalinterface to compare scu stu and scu)
-3) run scripts/extrinsic_nli_prep_evaluation.py (to get scores of system summary level)
-4) run scripts/average_results.py (to get the average of the system summarys)
-5) run scripts/extrinsic_evaluation.py (to get the correlation between gold rank and smu rank)
+1) run atomic_amr.py (to generate smus)
+2) run intrinsic_evaluation.py (for evalinterface to compare scu stu and scu)
+3) run extrinsic_evaluation.py (to get the correlation between gold rank and smu rank)
 
 
 sg2: Subgraph2 + subgraph if subgraph2 is empty and nli check against golden summary
 sg3: subgraph3 (split at root, split at and options, remove time and location) and nli check against golden summary
 sg3-v2: Subgraph3 (split at root and at first level leaves, split at and options, remove time, location, topic, purpose and source) and nli check against golden summary
+sg3-v3: Subgraph3 add split after predicat 

@@ -18,16 +18,6 @@ if __name__ == '__main__':
     print('Loading model and tokenizer')
     model_dir   = 'amrlib/data/model_generate_t5wtense'
     device      = 'cuda:0'  # or 'cpu'
-    if not torch.backends.mps.is_available():
-        if not torch.backends.mps.is_built():
-            print("MPS not available because the current PyTorch install was not "
-                  "built with MPS enabled.")
-        else:
-            print("MPS not available because the current MacOS version is not 12.3+ "
-                  "and/or you do not have an MPS-enabled device on this machine.")
-
-    else:
-        device = torch.device("mps")
     batch_size  = 8
     num_beams   = 8     # 1 ==> greedy
     num_ret_seq = 1     # 1 ==> return best sentence only

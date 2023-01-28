@@ -3,7 +3,7 @@
     "dev_data":   "amrlib/data/tdata_gsii/dev.txt.features.nowiki",
     "model_dir":  "amrlib/data/model_parse_gsii",
     "vocab_dir":  "vocabs",
-    "device":     "mps",
+    "device":     "cuda",
     "resume_ckpt": null,
     "save_optimizer": false,
     "pretrained_file": null,
