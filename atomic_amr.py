@@ -6,7 +6,6 @@ import penman
 from penman.models import amr
 from itertools import chain, combinations
 import spacy
-# from extrinsic_nli_prep_evaluation import sent_in_summary
 import re
 from penman.graph import Graph
 
@@ -15,8 +14,8 @@ from amrlib.graph_processing.amr_fix import maybe_fix_unlinked_in_subgraph
 spacy = spacy.load("en_core_web_sm")
 
 # Download and unzip models https://github.com/bjascob/amrlib-models
-DIR_STOG_MODEL = '../model_parse_xfm_bart_large-v0_1_0'
-DIR_GTOS_MODEL = '../model_generate_t5wtense-v0_1_0'
+DIR_STOG_MODEL = 'model_parse_xfm_bart_large-v0_1_0'
+DIR_GTOS_MODEL = 'model_generate_t5wtense-v0_1_0'
 stog = amrlib.load_stog_model(DIR_STOG_MODEL)
 gtos = amrlib.load_gtos_model(DIR_GTOS_MODEL)
 
@@ -186,30 +185,30 @@ def get_subgraphs3(amr_graph):
 
     base_node_tuple = g.triples[0]
     base_node = g.triples[0][0]
-    # for i, subtree in enumerate(g.triples):
-    #     if i == 0:
-    #         continue
-    #     if subtree[0] == base_node or subtree[2] == base_node:
-    #         list_of_t.append([base_node_tuple, subtree])
-    #         list_of_g_level_one.append([subtree])
-    #     else:
-    #         list_of_t[-1].append(subtree)
-    #         list_of_g_level_one[-1].append(subtree)
-    #
-    # # Split the trees of level one leaves
-    # for j, level_one_tree in enumerate(list_of_g_level_one):
-    #     if len(level_one_tree) <= 3:
-    #         continue
-    #     base_node = level_one_tree[1][0]
-    #     set_root = True
-    #     for i, subtree in enumerate(level_one_tree):
-    #         if i == 0:
-    #             continue
-    #         if (subtree[0] == base_node or subtree[2] == base_node) and set_root:
-    #             set_root = False
-    #             list_of_t.append([subtree])
-    #         else:
-    #             list_of_t[-1].append(subtree)
+    for i, subtree in enumerate(g.triples):
+        if i == 0:
+            continue
+        if subtree[0] == base_node or subtree[2] == base_node:
+            list_of_t.append([base_node_tuple, subtree])
+            list_of_g_level_one.append([subtree])
+        else:
+            list_of_t[-1].append(subtree)
+            list_of_g_level_one[-1].append(subtree)
+
+    # Split the trees of level one leaves
+    for j, level_one_tree in enumerate(list_of_g_level_one):
+        if len(level_one_tree) <= 3:
+            continue
+        base_node = level_one_tree[1][0]
+        set_root = True
+        for i, subtree in enumerate(level_one_tree):
+            if i == 0:
+                continue
+            if (subtree[0] == base_node or subtree[2] == base_node) and set_root:
+                set_root = False
+                list_of_t.append([subtree])
+            else:
+                list_of_t[-1].append(subtree)
 
     # Split by every predicart
     temp_list_2 = []
@@ -319,43 +318,133 @@ def get_subgraphs3(amr_graph):
         list_of_t.extend(temp_graph_and)
 
     # delete single properties like location and time
-    # list_of_deleted_nodes = []
-    # list_of_types = [':location', ':time', ':source', ':purpose', 'topic']
-    # temp_sub_graph = []
-    # list_of_nodes = []
-    # for i, _ in enumerate(g.triples):
-    #     if g.triples[i] == g.triples[0]:
-    #         list_of_nodes.append(g.triples[i][0])
-    #     if g.triples[i][0] not in list_of_nodes:
-    #         temp_node = list(g.triples[i])
-    #         temp1 = g.triples[i][0]
-    #         temp_node[0] = g.triples[i][2]
-    #         temp_node[2] = temp1
-    #         g.triples[i] = tuple(temp_node)
-    #         list_of_nodes.append(g.triples[i][2])
-    #     if g.triples[i] != g.triples[0]:
-    #         if g.triples[i][1] != ':instance':
-    #             list_of_nodes.append(g.triples[i][2])
-    #     if g.triples[i][2] in list_of_deleted_nodes:
-    #         list_of_deleted_nodes.append(g.triples[i][0])
-    #     elif g.triples[i][1] in list_of_types:
-    #         list_of_deleted_nodes.append(g.triples[i][2])
-    #     elif g.triples[i][0] in list_of_deleted_nodes:
-    #         if g.triples[i][1] not in ":instance":
-    #             list_of_deleted_nodes.append(g.triples[i][2])
-    #     else:
-    #         temp_sub_graph.append(g.triples[i])
-    # list_of_t.append(temp_sub_graph)
-
-    # delete single arguments like ARG
     list_of_deleted_nodes = []
-    list_of_types = open_json_file('../data/pred_args_prob.json')
+    list_of_types = [':location', ':time', ':source', ':purpose', 'topic']
     temp_sub_graph = []
     list_of_nodes = []
-    for graph in list_of_t:
-        for i, _ in enumerate(graph):
-            if graph[i][1] == ":instance":
+    for i, _ in enumerate(g.triples):
+        if g.triples[i] == g.triples[0]:
+            list_of_nodes.append(g.triples[i][0])
+        if g.triples[i][0] not in list_of_nodes:
+            temp_node = list(g.triples[i])
+            temp1 = g.triples[i][0]
+            temp_node[0] = g.triples[i][2]
+            temp_node[2] = temp1
+            g.triples[i] = tuple(temp_node)
+            list_of_nodes.append(g.triples[i][2])
+        if g.triples[i] != g.triples[0]:
+            if g.triples[i][1] != ':instance':
+                list_of_nodes.append(g.triples[i][2])
+        if g.triples[i][2] in list_of_deleted_nodes:
+            list_of_deleted_nodes.append(g.triples[i][0])
+        elif g.triples[i][1] in list_of_types:
+            list_of_deleted_nodes.append(g.triples[i][2])
+        elif g.triples[i][0] in list_of_deleted_nodes:
+            if g.triples[i][1] not in ":instance":
+                list_of_deleted_nodes.append(g.triples[i][2])
+        else:
+            temp_sub_graph.append(g.triples[i])
+    list_of_t.append(temp_sub_graph)
 
+    # check if length > 3 (at least 4 elements)
+    tree_list = []
+    for i in list_of_t:
+        if len(i) > 3:
+            tree_list.append(i)
+    list_of_t = list(map(lambda x: penman.format(penman.configure(Graph(x))), tree_list))
+
+    return list_of_t
+
+
+def get_subgraphs4(amr_graph):
+    g = penman.decode(amr_graph, model=amr.model)
+    list_of_t = []
+
+    # Split by every predicate
+    check_predicate = lambda string: any([char.isdigit() for char in string.split("-")[-2:]])
+    left_set, right_set = set([elem[0] for elem in g.triples]), set([elem[2] for elem in g.triples])
+    of_labels = list(left_set.difference(right_set))
+    if g.triples[0][0] in of_labels:
+        of_labels.remove(g.triples[0][0])
+
+    for i, node in enumerate(g.triples):
+        if node[1] in ":instance" and check_predicate(node[2]):
+            linked_notes = [node[0]]
+            temp_list = []
+            for j, inner_node in enumerate(g.triples[i:]):
+                if inner_node[0] not in linked_notes:
+                    if inner_node[0] in of_labels and inner_node[2] in linked_notes:
+                        linked_notes.append(inner_node[0])
+                        temp_list.append(inner_node)
+                    else:
+                        break
+                else:
+                    if inner_node[1] not in ":instance":
+                        linked_notes.append(inner_node[2])
+                    temp_list.append(inner_node)
+            list_of_t.append(temp_list)
+
+    # delete single arguments like ARG
+    split_strings = lambda strings: [string.split() for string in strings]
+
+    list_of_types = open_json_file('data/pred_args_prob_fine_v2.json')
+
+    list_of_t.reverse()
+    result = []
+    list_of_temp = list_of_t.copy()
+    #list_of_t = []
+    for graph in list_of_temp:
+        left_set, right_set = set([elem[0] for elem in graph]), set([elem[2] for elem in graph])
+        of_labels = list(left_set.difference(right_set))
+        if graph[0][0] in of_labels:
+            of_labels.remove(graph[0][0])
+
+        if graph[0][2] in list_of_types:
+            list_of_frequences = list_of_types[graph[0][2]]
+            list_of_frequences = split_strings(list_of_frequences)
+        else:
+            #list_of_t.append(graph)
+            break
+
+        for i, freq in enumerate(list_of_frequences):
+            array_position = 0
+            linked_notes = []
+            temp_list = []
+            for j, node in enumerate(graph):
+                if j == 0 or array_position == len(freq):
+                    if j == 0:
+                        temp_list.append(node)
+                    continue
+                if node[1] in freq[array_position] and node[0] in graph[0][0]:
+                    array_position += 1
+                    linked_notes.append(node[2])
+                    temp_list.append(node)
+                    for inner_node in graph[j + 1:]:
+                        if inner_node[0] not in linked_notes:
+                            if inner_node[0] in of_labels and inner_node[2] in linked_notes:
+                                linked_notes.append(inner_node[0])
+                                temp_list.append(inner_node)
+                            else:
+                                break
+                        else:
+                            if inner_node[1] not in ":instance":
+                                linked_notes.append(inner_node[2])
+                            temp_list.append(inner_node)
+
+            if array_position == len(freq):
+                list_of_t.append(temp_list)
+                result.append(temp_list)
+        # if len(result) == 0:
+        #     list_of_t.append(graph)
+
+    # delete all ARGS TODO for every element in list_of_t
+    list_of_types = [':ARG0', ':ARG1', ':ARG2', ':ARG3', ':ARG4', ':ARG5', 'ARG6', 'ARG7', 'ARG8', 'ARG9']
+    temp_list_of_t = list_of_t.copy()
+    for graph in temp_list_of_t:
+        temp_sub_graph = []
+        list_of_nodes = []
+        list_of_deleted_nodes = []
+        for i, _ in enumerate(graph):
             if graph[i] == graph[0]:
                 list_of_nodes.append(graph[i][0])
             if graph[i][0] not in list_of_nodes:
@@ -376,16 +465,109 @@ def get_subgraphs3(amr_graph):
                 if graph[i][1] not in ":instance":
                     list_of_deleted_nodes.append(graph[i][2])
             else:
-                temp_sub_graph.append(g.triples[i])
+                temp_sub_graph.append(graph[i])
         list_of_t.append(temp_sub_graph)
+
+    # TODO put lst of t in there in a loop
+    for t in list_of_t:
+        list_of_t.extend(split_at_and(t))
+
+    # remove duplicates
+    no_duplicats = [item for i, item in enumerate(list_of_t) if item not in list_of_t[:i]]
 
     # check if length > 3 (at least 4 elements)
     tree_list = []
-    for i in list_of_t:
-        if len(i) > 3:
+    for i in no_duplicats:
+        if len(i) > 2:
             tree_list.append(i)
-    list_of_t = list(map(lambda x: penman.format(penman.configure(Graph(x))), tree_list))
+    if len(tree_list) == 0:
+        tree_list.append(g.triples)
+    filtered_list = list(map(lambda x: penman.format(penman.configure(Graph(x))), tree_list))
 
+    return filtered_list
+
+
+def split_at_and(tree):
+    # spliten after op, if it there are leaves of and
+    # check and presence
+    list_of_t = []
+    temp_graph_and = [[]]
+    i = 0
+    end_of_outer_loop = True
+    while end_of_outer_loop:
+        node = tree[i]
+        for n in temp_graph_and:
+            n.append(node)
+        if node[2] == "and":
+            end_of_inner_loop = True
+            if i == 0:
+                node_id_of_arg = ('XXX', 'XXX', 'XXX')
+            else:
+                node_id_of_arg = tree[i - 1]
+            node_id_of_and = tree[i]
+            subtree_graphs = []
+            i += 1
+            number_of_subtrees = len(temp_graph_and)
+            while end_of_inner_loop:
+                node = tree[i]
+                if node[0] == node_id_of_and[0] and ":op" in node[1]:
+                    for n in temp_graph_and:
+                        tempp = n.copy()
+                        tempp.append(node)
+                        subtree_graphs.append(tempp)
+
+                elif node[0] == node_id_of_arg[0] or i >= len(tree) - 1:
+                    for j in range(number_of_subtrees):
+                        subtree_graphs[-(j + 1)].append(node)
+                    if i >= len(tree) - 1:
+                        end_of_outer_loop = False
+                    temp_graph_and = subtree_graphs
+                    i -= 2
+                    end_of_inner_loop = False
+
+
+                else:
+                    for j in range(number_of_subtrees):
+                        subtree_graphs[-(j + 1)].append(node)
+                i += 1
+
+        if i >= len(tree) - 1:
+            end_of_outer_loop = False
+        else:
+            i += 1
+    if len(temp_graph_and) != 1:
+
+        for graph in temp_graph_and:
+            label_of_and = 'XXX'
+            for i, node in enumerate(graph):
+                if node[2] == "and" and i == 0:
+                    label_of_and = graph[0][0]
+                    graph.pop(0)
+                    graph.pop(0)
+                    new_label = graph[0][0]
+                elif node[2] == "and":
+                    label_of_and = node[0]
+                    new_label = graph[i + 1][2]
+
+                    if graph[i - 1][0] == label_of_and:
+                        y = list(graph[i - 1])
+                        y[0] = graph[i + 1][2]
+                        graph[i - 1] = tuple(y)
+                    else:
+                        y = list(graph[i - 1])
+                        y[2] = graph[i + 1][2]
+                        graph[i - 1] = tuple(y)
+                    graph.pop(i)
+                    graph.pop(i)
+                elif node[0] == label_of_and:
+                    y = list(node)
+                    y[0] = new_label
+                    graph[i] = tuple(y)
+                elif node[2] == label_of_and:
+                    y = list(node)
+                    y[2] = new_label
+                    graph[i] = tuple(y)
+        list_of_t.extend(temp_graph_and)
     return list_of_t
 
 
@@ -461,22 +643,24 @@ def run_amr(filename, data_json):
     duplicate_counter = 0
 
     for index_i, example in enumerate(data_json):
-        if index_i not in [42] and False:  # [5, 61, 86, 38]:# and False:
+        if index_i not in [63] and False:  # [5, 61, 86, 38]:# and False:
             print(f"Skip example: {example['instance_id']}")
         else:
             # print("Id:", example['instance_id'])
             # print("Summary:", example['summary'])
             se = example['summary']
 
-            if "\u00a0" in se:
-                se = se.replace("\u00a0", '')
+            # if "\u00a0" in se:
+            #    se = se.replace("\u00a0", '')
             se = re.sub(r'\s+', ' ', se)
-            if "<t>" in se:
+            if "realsumm" in filename:
                 # initializing tag
                 tag = "t"
                 # regex to extract required strings
                 reg_str = "<" + tag + ">(.*?)</" + tag + ">"
                 sentences = re.findall(reg_str, se)
+            elif "pyrxsum" in filename:
+                sentences = [se]
             else:
                 page_doc = spacy(se, disable=["tagger"])
                 sentences = [se.text for se in page_doc.sents]
@@ -501,7 +685,7 @@ def run_amr(filename, data_json):
                 # print("AMR subgraphs:")
                 # print("  ")
                 dict_tag = get_concepts(g_tag)
-                subgraphs = get_subgraphs3(g)
+                subgraphs = get_subgraphs4(g)
                 # Fallback okay ? --> Original sentence for default if too short?
                 # if 0 == len(subgraphs):
                 #    subgraphs = get_subgraphs(g)
@@ -586,9 +770,10 @@ def run_realsumm_amr(scu_path, result_path):
 def run_amr_data(scus, result_path):
     run_amr(result_path, scus)
 
-if __name__ == '__main__':
-    #run_amr_data(open_json_file('eval_interface/src/data/realsumm/realsumm-scus.json'),
-    #             'eval_interface/src/data/realsumm/realsumm-smus-sg3-v4.json')
 
-    run_amr_data(open_json_file('../eval_interface/src/data/pyrxsum/pyrxsum-scus.json'),
-                 '../eval_interface/src/data/pyrxsum/pyrxsum-smus-sg3-v4.json')
+if __name__ == '__main__':
+    run_amr_data(open_json_file('eval_interface/src/data/pyrxsum/pyrxsum-scus.json'),
+                 'eval_interface/src/data/pyrxsum/pyrxsum-smus-sg4-v2.json')
+
+    run_amr_data(open_json_file('eval_interface/src/data/realsumm/realsumm-scus.json'),
+                 'eval_interface/src/data/realsumm/realsumm-smus-sg4-v2.json')
