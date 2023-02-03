@@ -34,6 +34,13 @@ th {
   white-space: nowrap;
 }
 
+.table-head-title {
+  display: table-cell;
+  vertical-align: middle;
+  font-weight: bold;
+  text-align: start;
+  white-space: pre-line;
+}
 .instance table td, .instance table th {
   padding: 0.5rem 0.5rem;
 }

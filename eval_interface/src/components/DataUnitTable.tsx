@@ -91,7 +91,7 @@ const DataUnitTable = (props: Props) => {
             <Collapse isOpened={isOpen}>
                 <table key={ex.instance_id}>
                     <tr className='table-title'>
-                        <th>{ex.summary.replaceAll("<t>", "").replaceAll("</t>", "")}</th>
+                        <th className='table-head-title'>{ex.summary.replaceAll("<t>", "").replaceAll("</t>", "")}</th>
                     </tr>
                     {trees_table(ind)}
                 </table>
