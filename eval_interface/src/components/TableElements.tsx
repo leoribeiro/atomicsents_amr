@@ -43,9 +43,9 @@ export function TableElements(props: Props) {
         <table>
             <tr>
                 <th>SCUs</th>
-                <th>STUs, {accSTUs.toFixed(3)} Easiness</th>
+                <th>{`STUs, \n${accSTUs.toFixed(3)} Easiness`}</th>
                 <th>STU scores</th>
-                <th>SMUs, {accSMUs.toFixed(3)} Easiness</th>
+                <th>{`STUs,\n${accSMUs.toFixed(3)} Easiness`}</th>
                 <th>SMU scores</th>
                 <th>SMU trees</th>
             </tr>

@@ -12,7 +12,7 @@
 }
 
 .header {
-  margin: 2.5rem 0rem;
+  margin: 1rem 0rem;
 }
 .instance table {
   text-align: start;
@@ -30,7 +30,8 @@ th {
   display: table-cell;
   vertical-align: middle;
   font-weight: bold;
-  text-align: justify;
+  text-align: start;
+  white-space: nowrap;
 }
 
 .instance table td, .instance table th {

@@ -3,13 +3,19 @@ import React from "react";
 
 import scusRealsumm from '../data/realsumm/realsumm-scus.json';
 import stusRealsumm from '../data/realsumm/realsumm-stus.json';
-import smusRealsumm from '../data/realsumm/realsumm-smus-sg2.json';
-import accRealsumm from '../data/realsumm/realsumm-acc-sg2.json';
+import smusSG2Realsumm from '../data/realsumm/realsumm-smus-sg2.json';
+//import smusSG3Realsumm from '../data/realsumm/realsumm-smus-sg3.json';
+import acc2Realsumm from '../data/realsumm/realsumm-acc-sg2.json';
+//import acc3Realsumm from '../data/realsumm/realsumm-acc-sg3.json';
+
 
 import scusPyrxsum from '../data/pyrxsum/pyrxsum-scus.json';
 import stusPyrxsum from '../data/pyrxsum/pyrxsum-stus.json';
-import smusPyrxsum from '../data/pyrxsum/pyrxsum-smus-sg2.json';
-import accPyrxsum from '../data/pyrxsum/pyrxsum-acc-sg2.json';
+import smusSG2Pyrxsum from '../data/pyrxsum/pyrxsum-smus-sg2.json';
+//import smusSG3Pyrxsum from '../data/pyrxsum/pyrxsum-smus-sg3.json';
+import acc2Pyrxsum from '../data/pyrxsum/pyrxsum-acc-sg2.json';
+//import acc3Pyrxsum from '../data/pyrxsum/pyrxsum-acc-sg3.json';
+
 /*
 import scusTac08 from '../data/tac08/tac2008-scus.json';
 import stusTac08 from '../data/tac08/tac2008-stus.json';
@@ -21,27 +27,29 @@ import stusTac09 from '../data/tac09/tac2009-stus.json';
 import smusTac09 from '../data/tac09/tac2009-smus.json';
 import accTac09 from '../data/tac09/tac09-acc.json';*/
 
-import {Dataset} from "./Dataset";
+import {Dataset} from "./Enums";
 
 interface Props {
-    dataset:string
+    dataset: string
     isDetailOpen: boolean
+    metric: string
 }
 
-const DatasetTable = (props: Props)=>  {
-    const {dataset, isDetailOpen} = props
+const DatasetTable = (props: Props) => {
+    const {dataset, isDetailOpen, metric} = props;
 
-    let stus: any[] =[]
-    let smus: any[] = []
-    let scus: any[] = []
-    let acc: any[] = []
+    let stus: any[] = [];
+    let smus: any[] = [];
+    let scus: any[] = [];
+    let acc: any[] = [];
 
     switch (dataset) {
-        case Dataset.Pyrxsum: {
+        // PyrXsum
+        case Dataset.PyrXsum: {
             scus = scusPyrxsum;
             stus = stusPyrxsum;
-            smus = smusPyrxsum;
-            acc = accPyrxsum;
+            smus = smusSG2Pyrxsum;
+            acc = acc2Pyrxsum
             break;
         }
         /*
@@ -59,11 +67,12 @@ const DatasetTable = (props: Props)=>  {
            acc = accTac09;
            break;
        }*/
-        default:{
+        // Realsumm
+        default: {
             scus = scusRealsumm;
             stus = stusRealsumm;
-            smus = smusRealsumm;
-            acc = accRealsumm;
+            smus = smusSG2Realsumm;
+            acc = acc2Realsumm
             break;
         }
     }
@@ -71,10 +80,11 @@ const DatasetTable = (props: Props)=>  {
     return (
         <div className='table-wrapper'>
             {scus.map((ex, ind) => (
-                <DataUnitTable key={ex.instance_id} ex={ex} ind={ind} isDetailOpen={isDetailOpen} scus={scus} stus={stus} smus={smus} acc={acc}/>
+                <DataUnitTable key={ex.instance_id} ex={ex} ind={ind} isDetailOpen={isDetailOpen} scus={scus}
+                               stus={stus} smus={smus} acc={acc} metric={metric}/>
             ))}
         </div>
     );
-}
+};
 
 export default DatasetTable;
