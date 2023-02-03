@@ -1,8 +1,5 @@
 import json
-
 import numpy as np
-from scipy import stats
-
 from Lite2_3Pyramid.reproduce.utils import system_level_correlation
 from Lite2_3Pyramid.reproduce.utils import summary_level_correlation
 from Lite2_3Pyramid.metric.score import score
@@ -14,34 +11,31 @@ def open_json_file(filename):
         return data_json
 
 
-def calc_corr_summary_and_system(results, golden):
-    # result_Dict = {}
-    # golden_Dict = {}
-    # for i, r in enumerate(results):
-    #     for j, v in enumerate(r):
-    #         result_Dict[r['instance_id'].replace('.summary', '')] = dict(zip(range(100), map(lambda x: x, r['all'])))
-    #         golden_Dict[golden[i]['instance_id'].replace('.label', '')] = dict(zip(range(100), map(lambda x: x, golden[i]['all'])))
-    fold_division = open_json_file('../eval_interface/src/data/realsumm/fold_split.json')
-    system_pearson_array = []
-    system_spearman_array = []
-    for key_fold, value_fold in fold_division.items():
-        results_temp = {}
-        golden_temp = {}
-        print(value_fold)
-        for key, value in results.items():
-            results_temp[key] = {k: value[k] for k in [str(n) for n in value_fold] if k in value}
-            #print(results_temp[key])
-        for key, value in golden.items():
-            golden_temp[key] = {k: value[k] for k in [str(n) for n in value_fold] if k in value}
-            #print(golden_temp[key])
+def calc_corr_summary_and_system(results, golden, cross_validation=False):
+    if cross_validation:
 
-        system_pearson, system_spearman = system_level_correlation(golden_temp, results_temp)
-        system_pearson_array.append(system_pearson)
-        system_spearman_array.append(system_spearman)
+        fold_division = open_json_file('eval_interface/src/data/realsumm/fold_split.json')
+        system_pearson_array = []
+        system_spearman_array = []
+        for key_fold, value_fold in fold_division.items():
+            results_temp = {}
+            golden_temp = {}
+            print(value_fold)
+            for key, value in results.items():
+                results_temp[key] = {k: value[k] for k in [str(n) for n in value_fold] if k in value}
+                # print(results_temp[key])
+            for key, value in golden.items():
+                golden_temp[key] = {k: value[k] for k in [str(n) for n in value_fold] if k in value}
+                # print(golden_temp[key])
 
-    system_pearson = np.mean(system_pearson_array)
-    system_spearman = np.mean(system_spearman_array)
+            system_pearson, system_spearman = system_level_correlation(golden_temp, results_temp)
+            system_pearson_array.append(system_pearson)
+            system_spearman_array.append(system_spearman)
 
+        system_pearson = np.mean(system_pearson_array)
+        system_spearman = np.mean(system_spearman_array)
+    else:
+        system_pearson, system_spearman = system_level_correlation(golden, results)
 
     summary_pearson, summary_spearman = summary_level_correlation(golden, results)
 
@@ -99,11 +93,11 @@ def corr_evaluate_realsumm():
     print("REALSumm start!")
 
     result_Dict = nli_evaluate_data(open_json_file('eval_interface/src/data/realsumm/realsumm-system-summary.json'),
-                                    open_json_file('../eval_interface/src/data/realsumm/realsumm-smus-sg3-v4.json'))
+                                    open_json_file('eval_interface/src/data/realsumm/realsumm-smus-sg4-v2.json'))
 
     return calc_corr_summary_and_system(result_Dict,
                                         open_json_file(
-                                            '../eval_interface/src/data/realsumm/realsumm-golden-labels.json'))
+                                            'eval_interface/src/data/realsumm/realsumm-golden-labels.json'))
 
     # return calc_corr_summary_and_system(open_json_file('eval_interface/src/data/realsumm/realsumm-nli-score-scu.json'),
     #                                     open_json_file(
@@ -113,12 +107,12 @@ def corr_evaluate_realsumm():
 def corr_evaluate_pyrxsum():
     print("PyrXSum start!")
 
-    result_Dict = nli_evaluate_data(open_json_file('../eval_interface/src/data/pyrxsum/pyrxsum-system-summary.json'),
-                                    open_json_file('../eval_interface/src/data/pyrxsum/pyrxsum-smus-sg3-v4.json'))
+    result_Dict = nli_evaluate_data(open_json_file('eval_interface/src/data/pyrxsum/pyrxsum-system-summary.json'),
+                                    open_json_file('eval_interface/src/data/pyrxsum/pyrxsum-smus-sg4-v2.json'))
 
     return calc_corr_summary_and_system(result_Dict,
                                         open_json_file(
-                                            '../eval_interface/src/data/pyrxsum/pyrxsum-golden-labels.json'))
+                                            'eval_interface/src/data/pyrxsum/pyrxsum-golden-labels.json'))
 
     # return calc_corr_summary_and_system(open_json_file('eval_interface/src/data/pyrxsum/pyrxsum-nli-score-scu.json'),
     #                                     open_json_file(
@@ -127,7 +121,6 @@ def corr_evaluate_pyrxsum():
 
 def nli_evaluate_data(summarys, smus):
     return nli_evaluation_from_paper(summarys, smus)
-    print(f"nli evaluation of {result_path} done!")
 
 
 def corr_evaluation_datase():
@@ -135,7 +128,8 @@ def corr_evaluation_datase():
     list_of_results.append(corr_evaluate_pyrxsum())
     list_of_results.append(corr_evaluate_realsumm())
 
-    write_to_json(list_of_results, '../data/extrinsic_evaluation-smu-sg3.json')
+    write_to_json(list_of_results, 'data/extrinsic_evaluation-smu-sg4-v2.json')
+
 
 if __name__ == '__main__':
     corr_evaluation_datase()
