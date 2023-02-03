@@ -60,19 +60,19 @@ const DataUnitTable = (props: Props) => {
                 <table>
                     <tr>
                         {sentences.map((sent) => {
-                            return <td>{sent}</td>
+                            return <td key={sent}>{sent}</td>
                         })}
                     </tr>
                     <tr className='tree-table'>{
                         trees.map((tree) => {
-                            return <td>{tree}</td>
+                            return <td key={tree}>{tree}</td>
                         })}
                     </tr>
                 </table> :
                 <table>
                     <tr>
                         {sentences.map((sent) => {
-                            return <td>{sent}</td>
+                            return <td key={sent}>{sent}</td>
                         })}
                     </tr>
                 </table>

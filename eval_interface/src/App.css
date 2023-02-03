@@ -78,3 +78,10 @@ th {
 .trees {
   white-space: pre;
 }
+.scroll-to-top{
+  background-color: rgb(71, 139, 182);
+  border-radius: 25px;
+  height: 50px;
+  width: 50px;
+  color: rgb(255, 255, 255);
+}

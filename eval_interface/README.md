@@ -4,24 +4,20 @@
 Node.js: https://nodejs.org/en/download/
 
 ## Install dependencies
+Change directory to the directory of the interface
+
     cd eval_interface
-You can choose between yarn and npm:
 
-Run
 
-    yarn 
+Then run
 
-or
+    yarn
 
-    npm install
 
 ## Start interface
-Run
+To start the interface run 
 
     yarn start
-or 
-
-    npm start
 
 
 

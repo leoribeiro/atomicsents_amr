@@ -1,5 +1,8 @@
 import React, {useState} from 'react';
+import ScrollToTop from "react-scroll-to-top";
+import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import './App.css';
+
 
 import DatasetTable from "./components/DatasetTable";
 import {Dataset, Metric} from "./components/Enums";
@@ -12,10 +15,10 @@ const App = () => {
 
     return (
         <div className="App">
-            <header className="header">
+            <div className="header">
                 <h1>Evaluation interface</h1>
-            </header>
-            <body>
+            </div>
+            <div>
             <Settings isDetailOpen={isDetailOpen}
                       setIsDetailOpen={setIsDetailOpen}
                       choosenDataset={choosenDataset}
@@ -24,7 +27,8 @@ const App = () => {
                       setChoosenMetric={setChoosenMetric}
             />
             <DatasetTable dataset={choosenDataset} isDetailOpen={isDetailOpen} metric={choosenMetric}/>
-            </body>
+            </div>
+            <ScrollToTop smooth className="scroll-to-top" component={<ArrowUpwardIcon />}/>
         </div>
     );
 };

@@ -1,6 +1,6 @@
 import {Button, FormControl, InputLabel, MenuItem, SelectChangeEvent} from "@mui/material";
 import Select from "@mui/material/Select";
-import React, {useState} from "react";
+import React from "react";
 import {Dataset, Metric} from "./Enums";
 
 export interface SettingsProps {
@@ -36,7 +36,7 @@ const Settings = (props: SettingsProps) => {
                     onChange={handleChangeDataset}
                 >
                     {datasets.map((val) =>
-                        <MenuItem value={val}>{val} </MenuItem>
+                        <MenuItem key={val} value={val}>{val} </MenuItem>
                     )}
 
                 </Select>
@@ -51,7 +51,7 @@ const Settings = (props: SettingsProps) => {
                     onChange={handleChangeMetric}
                 >
                     {metrics.map((val) =>
-                        <MenuItem value={val}>{val} </MenuItem>
+                        <MenuItem key={val} value={val}>{val} </MenuItem>
                     )}
 
                 </Select>
