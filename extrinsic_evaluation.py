@@ -3,6 +3,7 @@ import numpy as np
 from Lite2_3Pyramid.reproduce.utils import system_level_correlation
 from Lite2_3Pyramid.reproduce.utils import summary_level_correlation
 from Lite2_3Pyramid.metric.score import score
+import matplotlib.pyplot as plt
 
 
 def open_json_file(filename):
@@ -37,7 +38,18 @@ def calc_corr_summary_and_system(results, golden, cross_validation=False):
     else:
         system_pearson, system_spearman = system_level_correlation(golden, results)
 
-    summary_pearson, summary_spearman = summary_level_correlation(golden, results)
+    summary_pearson, summary_spearman, pearson, spearman = summary_level_correlation(golden, results)
+
+    print(f"Pearson mean: {np.mean(pearson)}")
+    print(f"Pearson median: {np.median(pearson)}")
+    print(f"Pearson outliers: {[index for index, item in enumerate(pearson) if item < -0.3]}")
+    #plt.boxplot(pearson)
+    #plt.show()
+    print(f"Spearman mean: {np.mean(spearman)}")
+    print(f"Spearman median: {np.median(spearman)}")
+    print(f"Spearman outliers: {[index for index, item in enumerate(spearman) if item < -0.3]}")
+    #plt.boxplot(spearman)
+    #plt.show()
 
     return [system_pearson, system_spearman, summary_pearson, summary_spearman]
 
@@ -89,12 +101,20 @@ def write_to_json(list_of_results, output_file):
     jsonFile.close()
 
 
+def save_dict_to_json(outputDict, file_name):
+    jsonString = json.dumps(outputDict)
+    jsonFile = open(file_name, "w")
+    jsonFile.write(jsonString)
+    jsonFile.close()
+
+
 def corr_evaluate_realsumm():
     print("REALSumm start!")
 
     result_Dict = nli_evaluate_data(open_json_file('eval_interface/src/data/realsumm/realsumm-system-summary.json'),
                                     open_json_file('eval_interface/src/data/realsumm/realsumm-smus-sg4-v2.json'))
 
+    save_dict_to_json(result_Dict, 'eval_interface/src/data/realsumm/realsumm-nli-score-smu.json')
     return calc_corr_summary_and_system(result_Dict,
                                         open_json_file(
                                             'eval_interface/src/data/realsumm/realsumm-golden-labels.json'))
@@ -109,6 +129,8 @@ def corr_evaluate_pyrxsum():
 
     result_Dict = nli_evaluate_data(open_json_file('eval_interface/src/data/pyrxsum/pyrxsum-system-summary.json'),
                                     open_json_file('eval_interface/src/data/pyrxsum/pyrxsum-smus-sg4-v2.json'))
+
+    save_dict_to_json(result_Dict, 'eval_interface/src/data/pyrxsum/pyrxsum-nli-score-smu.json')
 
     return calc_corr_summary_and_system(result_Dict,
                                         open_json_file(
@@ -131,5 +153,12 @@ def corr_evaluation_datase():
     write_to_json(list_of_results, 'data/extrinsic_evaluation-smu-sg4-v2.json')
 
 
+def plot_results():
+    return calc_corr_summary_and_system(open_json_file('eval_interface/src/data/pyrxsum/pyrxsum-nli-score-smu.json'),
+                                        open_json_file(
+                                            'eval_interface/src/data/pyrxsum/pyrxsum-golden-labels.json'))
+
+
 if __name__ == '__main__':
     corr_evaluation_datase()
+    #plot_results()

@@ -37,4 +37,4 @@ sg3: subgraph3 (split at root, split at and options, remove time and location) a
 sg3-v2: Subgraph3 (split at root and at first level leaves, split at and options, remove time, location, topic, purpose and source) and nli check against golden summary
 sg3-v3: Subgraph3 add split after predicat 
 sg4: Split at predicate, use idf to generate new shorter trees, remove all args, split at and, remove duplicates, filter > 3
-sg4-v2: Split at predicate and use idf to generate new short trees and delete the split bevore, remove all args, split at and, remove duplicates, filter >2
+sg4-v2: Same as sg4 but only take 7 shortest sentences of the generated smus

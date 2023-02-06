@@ -3,17 +3,17 @@ import React from "react";
 
 import scusRealsumm from '../data/realsumm/realsumm-scus.json';
 import stusRealsumm from '../data/realsumm/realsumm-stus.json';
-import smusSG2Realsumm from '../data/realsumm/realsumm-smus-sg2.json';
+import smusSG2Realsumm from '../data/realsumm/realsumm-smus-sg4-v2.json';
 //import smusSG3Realsumm from '../data/realsumm/realsumm-smus-sg3.json';
-import acc2Realsumm from '../data/realsumm/realsumm-acc-sg2.json';
+import acc2Realsumm from '../data/realsumm/realsumm-acc-sg4-v2.json';
 //import acc3Realsumm from '../data/realsumm/realsumm-acc-sg3.json';
 
 
 import scusPyrxsum from '../data/pyrxsum/pyrxsum-scus.json';
 import stusPyrxsum from '../data/pyrxsum/pyrxsum-stus.json';
-import smusSG2Pyrxsum from '../data/pyrxsum/pyrxsum-smus-sg2.json';
+import smusSG2Pyrxsum from '../data/pyrxsum/pyrxsum-smus-sg4-v2.json';
 //import smusSG3Pyrxsum from '../data/pyrxsum/pyrxsum-smus-sg3.json';
-import acc2Pyrxsum from '../data/pyrxsum/pyrxsum-acc-sg2.json';
+import acc2Pyrxsum from '../data/pyrxsum/pyrxsum-acc-sg4-v2.json';
 //import acc3Pyrxsum from '../data/pyrxsum/pyrxsum-acc-sg3.json';
 
 /*
