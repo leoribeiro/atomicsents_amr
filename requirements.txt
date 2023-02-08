@@ -31,3 +31,6 @@ psutil~=5.9.4
 stanza~=1.4.2
 datasets~=2.8.0
 happytransformer~=2.4.1
+scikit-learn
+openai
+pandas
