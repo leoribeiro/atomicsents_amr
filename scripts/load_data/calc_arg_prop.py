@@ -30,7 +30,7 @@ def create_json(pred_args, name_of_output):
     print(f"mean: {numpy.mean(list_sum)}")
     print(f"median: {numpy.median(list_sum)}")
     x = numpy.zeros(len(list_sum))
-    plt.boxplot( list_sum)
+    plt.boxplot(list_sum)
     plt.show()
 
     # get 80 % of the most used features

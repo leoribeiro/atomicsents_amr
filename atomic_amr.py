@@ -11,6 +11,8 @@ from penman.graph import Graph
 
 from amrlib.graph_processing.amr_fix import maybe_fix_unlinked_in_subgraph
 
+from transformers import AutoTokenizer, AutoModelForSequenceClassification
+import torch
 spacy = spacy.load("en_core_web_sm")
 
 # Download and unzip models https://github.com/bjascob/amrlib-models
@@ -19,6 +21,41 @@ DIR_GTOS_MODEL = 'model_generate_t5wtense-v0_1_0'
 stog = amrlib.load_stog_model(DIR_STOG_MODEL)
 gtos = amrlib.load_gtos_model(DIR_GTOS_MODEL)
 
+hg_model_hub_name = "ynie/roberta-large-snli_mnli_fever_anli_R1_R2_R3-nli"
+max_length = 256
+tokenizer = AutoTokenizer.from_pretrained(hg_model_hub_name)
+model = AutoModelForSequenceClassification.from_pretrained(hg_model_hub_name)
+
+
+def sent_in_summary(summary, sentences):
+    list_of_decisions = []
+    for smu in sentences:
+        tokenized_input_seq_pair = tokenizer.encode_plus(summary, smu,
+                                                         max_length=max_length,
+                                                         return_token_type_ids=True, truncation=True)
+
+        input_ids = torch.Tensor(tokenized_input_seq_pair['input_ids']).long().unsqueeze(0)
+
+        # remember bart doesn't have 'token_type_ids', remove the line below if you are using bart.
+        token_type_ids = torch.Tensor(tokenized_input_seq_pair['token_type_ids']).long().unsqueeze(0)
+        attention_mask = torch.Tensor(tokenized_input_seq_pair['attention_mask']).long().unsqueeze(0)
+
+        outputs = model(input_ids,
+                        attention_mask=attention_mask,
+                        token_type_ids=token_type_ids,
+                        labels=None)
+        # Note:
+        # "id2label": {
+        #     "0": "entailment",
+        #     "1": "neutral",
+        #     "2": "contradiction"
+        # },
+
+        predicted_probability = torch.softmax(outputs[0], dim=1)[0].tolist()  # batch_size only one
+
+        list_of_decisions.append(predicted_probability[0] > 0.5)
+
+    return list_of_decisions
 
 def split_amr_meta(entry):
     meta_lines = []
@@ -469,7 +506,8 @@ def get_subgraphs4(amr_graph):
         list_of_t.append(temp_sub_graph)
 
     # TODO put lst of t in there in a loop
-    for t in list_of_t:
+    list_t_copy = list_of_t.copy()
+    for t in list_t_copy:
         list_of_t.extend(split_at_and(t))
 
     # remove duplicates
@@ -478,10 +516,11 @@ def get_subgraphs4(amr_graph):
     # check if length > 3 (at least 4 elements)
     tree_list = []
     for i in no_duplicats:
-        if len(i) > 2:
+        if 3 < len(i):
             tree_list.append(i)
     if len(tree_list) == 0:
         tree_list.append(g.triples)
+    tree_list.sort(key=len)
     filtered_list = list(map(lambda x: penman.format(penman.configure(Graph(x))), tree_list))
 
     return filtered_list
@@ -677,6 +716,8 @@ def run_amr(filename, data_json):
             print(example['instance_id'])
             list_of_sents = []
             list_of_trees = []
+            result_sents = []
+            result_trees = []
             summary_trees = []
             for idx, (s, g, g_tag) in enumerate(zip(sentences, graphs, graphs_tags)):
                 summary_trees.append(g)
@@ -685,6 +726,7 @@ def run_amr(filename, data_json):
                 # print("AMR subgraphs:")
                 # print("  ")
                 dict_tag = get_concepts(g_tag)
+                #for sgf in [get_subgraphs, get_subgraphs2, get_subgraphs3, get_subgraphs4]
                 subgraphs = get_subgraphs4(g)
                 # Fallback okay ? --> Original sentence for default if too short?
                 # if 0 == len(subgraphs):
@@ -707,11 +749,13 @@ def run_amr(filename, data_json):
                         duplicate_counter += 1
                     list_of_sents.append(sent)
 
-            # check list with nli
-            # list_of_correct_sent = sent_in_summary(se, list_of_sents)
-            # print(list_of_correct_sent)
-            # list_of_sents = [value1 for value1, value2 in zip(list_of_sents, list_of_correct_sent) if value2]
-            # list_of_trees = [value1 for value1, value2 in zip(list_of_trees, list_of_correct_sent) if value2]
+                # check list with nli
+                list_of_correct_sent = sent_in_summary(s, list_of_sents)
+                #print(list_of_correct_sent)
+                list_of_sents = [value1 for value1, value2 in zip(list_of_sents, list_of_correct_sent) if value2]
+                list_of_trees = [value1 for value1, value2 in zip(list_of_trees, list_of_correct_sent) if value2]
+                result_sents.extend(list_of_sents[:6])
+                result_trees.extend(list_of_trees[:6])
 
             # Think about something that makes more sense ( NONE etc.)
             if len(list_of_sents) == 0:
@@ -720,8 +764,8 @@ def run_amr(filename, data_json):
                 {'instance_id': example['instance_id'],
                  'summary': se,  # example['summary'],
                  'summary_trees': summary_trees,
-                 'tree': list_of_trees,
-                 'smus': list_of_sents, }
+                 'tree': result_trees,
+                 'smus': result_sents, }
             )
             # for s1, g1 in zip(sents, subgraphs):
             # print(g1)
@@ -772,8 +816,8 @@ def run_amr_data(scus, result_path):
 
 
 if __name__ == '__main__':
-    run_amr_data(open_json_file('eval_interface/src/data/pyrxsum/pyrxsum-scus.json'),
-                 'eval_interface/src/data/pyrxsum/pyrxsum-smus-sg4-v2.json')
+    # run_amr_data(open_json_file('eval_interface/src/data/pyrxsum/pyrxsum-scus.json'),
+    #              'eval_interface/src/data/pyrxsum/pyrxsum-smus-sg4-v2.json')
 
     run_amr_data(open_json_file('eval_interface/src/data/realsumm/realsumm-scus.json'),
-                 'eval_interface/src/data/realsumm/realsumm-smus-sg4-v2.json')
+                 'eval_interface/src/data/realsumm/realsumm-smus-sg5.json')
