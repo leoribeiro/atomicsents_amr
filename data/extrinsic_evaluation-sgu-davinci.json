@@ -1,0 +1,16 @@
+[
+    {
+        "instance_id": "pyrxsum",
+        "pearson_system": 0.9666147461146154,
+        "spearman_system": 0.8666666666666665,
+        "pearson_summary": 0.5056135874747907,
+        "spearman_summary": 0.5014597407215954
+    },
+    {
+        "instance_id": "realsumm",
+        "pearson_system": 0.9043917289480102,
+        "spearman_system": 0.8984615384615385,
+        "pearson_summary": 0.41721847951978025,
+        "spearman_summary": 0.39377190233674314
+    }
+]
