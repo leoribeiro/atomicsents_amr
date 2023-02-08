@@ -2,7 +2,7 @@ import openai
 import json
 import pandas as pd
 
-ft_model = 'curie:ft-personal-2023-02-06-15-05-21' # ft-yWG8yb5cL8E1du9igUeaFk4O
+ft_model = 'davinci:ft-personal-2023-02-08-09-42-43' # ft-yWG8yb5cL8E1du9igUeaFk4O
 
 def get_path(ds, fn = None):
     print('Load data', ds,'...')
@@ -10,7 +10,7 @@ def get_path(ds, fn = None):
 
 def get_save_path(ds, fn = None):
     print('Save data', ds,'...')
-    return "../../eval_interface/src/data/" + ds + "/" + (fn if fn != None else ds + "-sgus") + ".json"
+    return "../../eval_interface/src/data/" + ds + "/" + (fn if fn != None else ds + "-sgus-davinci") + ".json"
 
 
 def generate(ds):
@@ -28,3 +28,4 @@ def generate(ds):
         json.dump(dataset, open(get_save_path(ds), "w"))
 
 generate("pyrxsum")
+generate("realsumm")
