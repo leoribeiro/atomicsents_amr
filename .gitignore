@@ -8,3 +8,4 @@ model_generate_*
 __pycache__
 amrlib
 amr-utils
+Yale-LILY-SummEval-*

@@ -241,21 +241,21 @@ def evaluate_summaries(scus, stus, smus, output_file, rouge, bert, mover):
 
 # PyrXSum dataset
 def evaluate_pyrxsum(rouge=True, bert=False, mover=False):
-    smus = open_json_file('eval_interface/src/data/pyrxsum/pyrxsum-smus-sg4-v2.json')
+    smus = open_json_file('eval_interface/src/data/pyrxsum/pyrxsum-sgus.json')
     stus = open_json_file('eval_interface/src/data/pyrxsum/pyrxsum-stus.json')
     scus = open_json_file('eval_interface/src/data/pyrxsum/pyrxsum-scus.json')
 
-    evaluate_summaries(scus, stus, smus, 'eval_interface/src/data/pyrxsum/pyrxsum-acc-sg4-v2.json', rouge, bert, mover)
+    evaluate_summaries(scus, stus, smus, 'eval_interface/src/data/pyrxsum/pyrxsum-acc-sgus.json', rouge, bert, mover)
     print("PyrXSum done!")
 
 
 # REALSumm dataset !!! stu realsumm-70 has "." and smu realsumm-69 has "iii","****" and realsumm-97 has "most."
 def evaluate_realsumm(rouge=True, bert=False, mover=False):
-    smus = open_json_file('eval_interface/src/data/realsumm/realsumm-smus-sg4-v2.json')
+    smus = open_json_file('eval_interface/src/data/realsumm/realsumm-smus.json')
     stus = open_json_file('eval_interface/src/data/realsumm/realsumm-stus.json')
     scus = open_json_file('eval_interface/src/data/realsumm/realsumm-scus.json')
 
-    evaluate_summaries(scus, stus, smus, 'eval_interface/src/data/realsumm/realsumm-acc-sg4-v2.json', rouge, bert, mover)
+    evaluate_summaries(scus, stus, smus, 'eval_interface/src/data/realsumm/realsumm-acc-sgus.json', rouge, bert, mover)
     print("REALSumm done!")
 
 
@@ -303,7 +303,7 @@ def debug():
 
 
 if __name__ == '__main__':
-    # evaluate_pyrxsum(True, True, False)
+    evaluate_pyrxsum(True, True, False)
     evaluate_realsumm(True, True, False)
     # evaluate_tac08(False, True, False)
     # evaluate_tac09(False, True, False)

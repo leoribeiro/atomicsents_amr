@@ -56,7 +56,7 @@ def nli_evaluation_from_paper(summarys, smus):
             if i == 0:
                 name_of_system.append(value[0])
             all_summarys[j - 1].append(value[1])
-        all_sxus.append(smus[i]['smus'])
+        all_sxus.append(smus[i]['sgus'])
     results = []
     for i in range(len(all_summarys)):
         print(f"System summary: {name_of_system[i]} ( {i + 1} / {len(all_summarys)} )")
@@ -93,7 +93,7 @@ def corr_evaluate_realsumm():
     print("REALSumm start!")
 
     result_Dict = nli_evaluate_data(open_json_file('eval_interface/src/data/realsumm/realsumm-system-summary.json'),
-                                    open_json_file('eval_interface/src/data/realsumm/realsumm-smus-sg4-v2.json'))
+                                    open_json_file('eval_interface/src/data/realsumm/realsumm-sgus.json'))
 
     return calc_corr_summary_and_system(result_Dict,
                                         open_json_file(
@@ -108,7 +108,7 @@ def corr_evaluate_pyrxsum():
     print("PyrXSum start!")
 
     result_Dict = nli_evaluate_data(open_json_file('eval_interface/src/data/pyrxsum/pyrxsum-system-summary.json'),
-                                    open_json_file('eval_interface/src/data/pyrxsum/pyrxsum-smus-sg4-v2.json'))
+                                    open_json_file('eval_interface/src/data/pyrxsum/pyrxsum-sgus.json'))
 
     return calc_corr_summary_and_system(result_Dict,
                                         open_json_file(
@@ -128,7 +128,7 @@ def corr_evaluation_datase():
     list_of_results.append(corr_evaluate_pyrxsum())
     list_of_results.append(corr_evaluate_realsumm())
 
-    write_to_json(list_of_results, 'data/extrinsic_evaluation-smu-sg4-v2.json')
+    write_to_json(list_of_results, 'data/extrinsic_evaluation-sgu.json')
 
 
 if __name__ == '__main__':

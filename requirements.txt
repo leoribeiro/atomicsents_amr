@@ -9,7 +9,7 @@ tqdm~=4.64.1
 numpy~=1.23.5
 networkx~=2.8.8
 typing~=3.7.4.3
-dataclasses~=0.8
+dataclasses
 regex~=2022.10.31
 amrlib~=0.7.1
 nltk~=3.7
@@ -17,8 +17,7 @@ smatch~=1.0.4
 setuptools~=65.5.1
 tokenizers~=0.10.3
 deepspeed~=0.7.7
-yaml~=0.2.5
-pyyaml~=6.0
+pyyaml
 huggingface_hub~=0.11.1
 pip~=22.3.1
 six~=1.16.0
@@ -34,3 +33,6 @@ happytransformer~=2.4.1
 scikit-learn
 openai
 pandas
+xgboost
+allennlp
+metric
