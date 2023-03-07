@@ -88,9 +88,5 @@ export const loadData = (sg: string, dataset: string)=> {
     const stuString: string = `stus${dataset}`;
     const smuString: string = `smus${sg}${dataset}`;
     const accString: string = `acc${sg}${dataset}`;
-    /*console.log(scuString, scusData[scuString])
-    console.log(stuString, stusData[stuString])
-    console.log(smusData[smuString])
-    console.log(accData[accString])*/
     return {scus : scusData[scuString],stus : stusData[stuString], smus: smusData[smuString], acc : accData[accString]};
 }
